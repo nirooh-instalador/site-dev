@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nirooh | Programmatic DOOH in Latin America</title>
+  <meta name="description" content="Nirooh connects DOOH publishers, SSPs and global buyers with independent programmatic technology for Latin America." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --surface: #f9f9f9;
+      --surface-lowest: #ffffff;
+      --surface-low: #f3f3f3;
+      --surface-high: #e8e8e8;
+      --surface-highest: #e2e2e2;
+      --on-surface: #1a1c1c;
+      --secondary: #5e5e5e;
+      --primary: #964900;
+      --primary-bright: #f58220;
+      --primary-soft: #ffdcc6;
+      --outline: rgba(221, 193, 176, 0.24);
+      --shadow: 0 40px 64px -16px rgba(26, 28, 28, 0.08);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, sans-serif;
+      background: var(--surface);
+      color: var(--on-surface);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 420, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+    }
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 28px 42px -26px rgba(26, 28, 28, 0.22);
+    }
+    .nav-inner {
+      width: min(1180px, calc(100% - 32px));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.38rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-bright));
+      box-shadow: 0 0 18px rgba(245, 130, 32, 0.35);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--secondary);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+    .nav-links a:hover, .nav-links .active { color: var(--primary-bright); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .icon-link, .ghost-button, .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 42px;
+      border-radius: var(--radius);
+      font-size: 0.84rem;
+      font-weight: 800;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+    .icon-link {
+      width: 42px;
+      background: var(--surface-low);
+      color: var(--secondary);
+    }
+    .ghost-button {
+      padding: 0 16px;
+      color: var(--secondary);
+      background: rgba(255, 255, 255, 0.44);
+      box-shadow: inset 0 0 0 1px var(--outline);
+    }
+    .ghost-button:hover, .icon-link:hover { background: var(--surface-high); color: var(--on-surface); }
+    .primary-button {
+      padding: 0 18px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-bright));
+      box-shadow: 0 18px 34px -18px rgba(245, 130, 32, 0.8);
+    }
+    .primary-button:hover { transform: translateY(-2px); box-shadow: 0 24px 38px -18px rgba(245, 130, 32, 0.92); }
+    .mobile-menu { display: none; }
+
+    main { padding-top: 76px; }
+    section { padding: 96px 0; }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: #723600;
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      margin-top: 20px;
+      font-size: clamp(2.55rem, 5.6vw, 5.1rem);
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: 0;
+      max-width: 720px;
+    }
+    h2 {
+      font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .lead {
+      color: var(--secondary);
+      font-size: clamp(1rem, 1.55vw, 1.18rem);
+      line-height: 1.7;
+    }
+    .orange { color: var(--primary-bright); }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      padding: 76px 0 52px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: 56px;
+      align-items: center;
+    }
+    .hero-copy .lead { max-width: 590px; margin-top: 26px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .hero-actions .primary-button, .hero-actions .ghost-button { min-height: 54px; padding: 0 24px; }
+    .media-wall {
+      position: relative;
+      min-height: 530px;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(245, 130, 32, 0.12), transparent 34%),
+        linear-gradient(180deg, #222927, #101515);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+    .media-wall::before {
+      content: "";
+      position: absolute;
+      inset: 36px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 58px 58px;
+      opacity: 0.5;
+    }
+    .screen-strip {
+      position: absolute;
+      inset: 58px 30px auto 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .screen-strip span {
+      min-height: 124px;
+      border-radius: 6px;
+      background: linear-gradient(145deg, rgba(255,255,255,.18), rgba(245,130,32,.08));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+    }
+    .command-card {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      padding: 24px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(18px);
+      color: var(--on-surface);
+      box-shadow: 0 28px 50px -28px rgba(0,0,0,.42);
+    }
+    .command-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #13b96d;
+      box-shadow: 0 0 0 8px rgba(19,185,109,.12);
+    }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .metric strong { display: block; font-size: 1.65rem; line-height: 1; }
+    .metric span {
+      color: var(--secondary);
+      display: block;
+      margin-top: 7px;
+      font-size: .62rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, .9fr);
+      gap: 64px;
+      align-items: center;
+    }
+    .section-copy .lead { margin-top: 22px; max-width: 610px; }
+    .quote-box {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 0 14px 14px 0;
+      background: var(--surface-low);
+      box-shadow: inset 5px 0 0 var(--primary-bright);
+      font-size: 1.25rem;
+      line-height: 1.45;
+      font-weight: 800;
+    }
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+    .feature span { color: var(--primary-bright); }
+    .feature strong { display: block; color: var(--on-surface); margin-bottom: 4px; }
+    .poes-panel {
+      min-height: 330px;
+      border-radius: 28px;
+      padding: 18px;
+      background: #121821;
+      box-shadow: 0 34px 74px -34px rgba(245, 130, 32, .45);
+    }
+    .poes-core {
+      position: relative;
+      height: 100%;
+      min-height: 294px;
+      border-radius: 20px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at center, rgba(245,130,32,.18), transparent 42%), #202936;
+      color: #fff;
+    }
+    .poes-core .material-symbols-outlined { font-size: 4.4rem; color: var(--primary-bright); }
+    .bars {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+    .bars span {
+      height: 5px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary-bright) 40%, rgba(245,130,32,.24) 40%);
+    }
+    .bars span:nth-child(2) { background: linear-gradient(90deg, var(--primary-bright) 68%, rgba(245,130,32,.24) 68%); }
+    .bars span:nth-child(3) { background: linear-gradient(90deg, var(--primary-bright) 54%, rgba(245,130,32,.24) 54%); }
+
+    .tonal { background: var(--surface-low); }
+    .center { text-align: center; }
+    .center .lead { margin: 20px auto 0; max-width: 760px; }
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 46px;
+    }
+    .card {
+      background: var(--surface-lowest);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .card .material-symbols-outlined { color: var(--primary-bright); font-size: 2rem; margin-bottom: 18px; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+    .card p { color: var(--secondary); line-height: 1.65; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 38px;
+    }
+    .section-head p { margin-top: 10px; color: var(--secondary); }
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    .logo-tile {
+      min-height: 88px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: var(--surface-low);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: grayscale(1);
+      opacity: 0.74;
+      transition: filter 180ms ease, opacity 180ms ease, transform 180ms ease;
+    }
+    .logo-tile:hover { filter: grayscale(0); opacity: 1; transform: translateY(-2px); }
+    .logo-tile img { max-height: 32px; object-fit: contain; }
+    .logo-text {
+      display: none;
+      font-weight: 900;
+      color: #5e5e5e;
+      font-size: .78rem;
+      letter-spacing: .02em;
+      text-align: center;
+    }
+    .hidden { display: none !important; }
+
+    .ecosystem {
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) minmax(220px, 0.7fr) minmax(240px, 1fr);
+      gap: 34px;
+      align-items: center;
+      margin-top: 56px;
+    }
+    .flow-list { display: grid; gap: 16px; }
+    .flow-item {
+      min-height: 76px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: var(--surface-lowest);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: 0 24px 42px -32px rgba(26,28,28,.24);
+    }
+    .flow-item img { max-height: 30px; max-width: 142px; object-fit: contain; }
+    .flow-wordmark {
+      display: none;
+      color: var(--on-surface);
+      font-size: .9rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .flow-item .material-symbols-outlined { color: var(--primary-bright); }
+    .flow-label {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--secondary);
+      font-size: .66rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .rtb {
+      width: 210px;
+      height: 210px;
+      margin: 0 auto;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-bright));
+      box-shadow: 0 36px 58px -28px rgba(150, 73, 0, .7);
+      text-align: center;
+    }
+    .rtb small { display: block; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; opacity: .78; }
+    .rtb strong { display: block; margin: 6px auto 0; max-width: 150px; font-size: 1.55rem; line-height: .98; }
+    .rtb span { display: block; margin-top: 4px; font-size: .75rem; font-weight: 700; }
+
+    .bento {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+    .bento-main, .bento-side {
+      border-radius: var(--radius);
+      padding: 38px;
+      min-height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+    .bento-main { background: var(--surface-low); }
+    .bento-side { background: var(--primary); color: #fff; }
+    .bento .lead { margin-top: 16px; max-width: 560px; }
+    .mini-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 52px;
+    }
+    .mini-metric {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 150px;
+    }
+    .mini-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      background: var(--surface-lowest);
+      display: grid;
+      place-items: center;
+      color: var(--primary-bright);
+    }
+    .mini-metric strong { display: block; font-size: 1.25rem; }
+    .mini-metric span { display: block; color: var(--secondary); font-size: .68rem; font-weight: 900; text-transform: uppercase; }
+    .bento-side .lead { color: rgba(255,255,255,.72); font-size: .95rem; }
+    .terminal-bg {
+      position: absolute;
+      right: -28px;
+      bottom: -46px;
+      font-size: 10rem;
+      opacity: .1;
+    }
+
+    .map-panel {
+      min-height: 410px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 42% 50%, rgba(245,130,32,.95) 0 5px, rgba(245,130,32,.18) 6px 16px, transparent 17px),
+        radial-gradient(circle at 55% 68%, rgba(245,130,32,.95) 0 5px, rgba(245,130,32,.18) 6px 16px, transparent 17px),
+        linear-gradient(140deg, #eef0f0, #767c7d);
+      overflow: hidden;
+      position: relative;
+    }
+    .map-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(30deg, transparent 0 44%, rgba(255,255,255,.3) 45% 46%, transparent 47%),
+        linear-gradient(120deg, transparent 0 52%, rgba(255,255,255,.24) 53% 54%, transparent 55%);
+      opacity: .55;
+    }
+    .city-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+      padding: 0;
+      list-style: none;
+    }
+    .city-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+    .city-list span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--primary-bright);
+    }
+
+    .cta {
+      text-align: center;
+      padding-top: 112px;
+      padding-bottom: 112px;
+    }
+    .cta .lead { max-width: 720px; margin: 22px auto 0; }
+    .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
+    .cta-actions .primary-button, .cta-actions .ghost-button { min-height: 56px; padding: 0 28px; }
+    footer {
+      background: var(--surface-low);
+      color: var(--secondary);
+    }
+    .footer-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
+    .footer-links a:hover { color: var(--primary-bright); }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .mobile-menu { display: inline-flex; }
+      .hero-grid, .split, .ecosystem, .bento { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .media-wall { min-height: 440px; }
+      .cards-3, .logo-grid { grid-template-columns: repeat(2, 1fr); }
+      .section-head { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .nav { height: 68px; }
+      main { padding-top: 68px; }
+      .nav-inner { width: min(100% - 24px, 1180px); gap: 12px; }
+      .brand { font-size: 1.1rem; }
+      .ghost-button.login-text { display: none; }
+      .primary-button.nav-cta { display: none; }
+      section { padding: 72px 0; }
+      .hero { padding-top: 52px; }
+      .hero-grid { gap: 34px; }
+      .media-wall { min-height: 370px; border-radius: 18px; }
+      .screen-strip { inset: 32px 18px auto 18px; gap: 8px; }
+      .screen-strip span { min-height: 92px; }
+      .command-card { left: 16px; right: 16px; bottom: 16px; padding: 18px; }
+      .metrics { gap: 8px; }
+      .metric strong { font-size: 1.1rem; }
+      .feature-list, .cards-3, .logo-grid { grid-template-columns: 1fr; }
+      .card, .bento-main, .bento-side { padding: 26px; }
+      .flow-item img { max-width: 118px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="icon" type="image/png" href="../assets/logo-nirooh-square.png" />
+</head>
+<body>
+  <header class="nav" aria-label="Main menu">
+    <div class="nav-inner">
+      <a class="brand" href="#inicio" aria-label="Nirooh"><img class="brand-logo" src="../assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
+      <nav class="nav-links" aria-label="Navegação">
+        <a class="active" href="#poes">POES</a>
+        <a href="#ecossistema">Ecosystem</a>
+        <a href="#presenca">Territory</a>
+        <a href="#artigos">Articles</a>
+        <a href="../publisher/">Publisher</a>
+        <a href="../pricing/">Pricing</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="ghost-button login-text" href="../login/">Login</a>
+        <a class="primary-button nav-cta" href="../assinar/">Sign SaaS</a>
+        <div class="language-switcher" aria-label="Select language">
+          <a class="flag-link" href="../code.html" aria-label="Português do Brasil" title="Português do Brasil">🇧🇷</a>
+          <a class="flag-link active" href="./" aria-label="English" title="English">🇺🇸</a>
+          <a class="flag-link" href="../es/" aria-label="Español" title="Español">🇪🇸</a>
+        </div>
+        <a class="icon-link mobile-menu" href="#contato" aria-label="Contact">
+          <span class="material-symbols-outlined">mail</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Independent programmatic DOOH</span>
+          <h1>Elevating programmatic <span class="orange">DOOH</span> across Latin America</h1>
+          <p class="lead">Nirooh connects premium inventory, media platforms and global buyers with independent technology, low latency and local intelligence for digital out-of-home campaigns.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="../lead/">Get Started <span class="material-symbols-outlined">arrow_forward</span></a>
+            <a class="ghost-button" href="../publisher/">View Publisher</a>
+          </div>
+        </div>
+        <div class="media-wall" aria-label="Visual panel of connected DOOH screens">
+          <div class="screen-strip" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="command-card">
+            <div class="command-head">Real-time performance <span class="pulse" aria-hidden="true"></span></div>
+            <div class="metrics">
+              <div class="metric"><strong>99.9%</strong><span>uptime</span></div>
+              <div class="metric"><strong>&lt;50ms</strong><span>latency</span></div>
+              <div class="metric"><strong>4.2B</strong><span>impressions</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tonal" id="poes">
+      <div class="container split">
+        <div class="section-copy">
+          <span class="eyebrow">The next frontier</span>
+          <h2>Programmatic Orchestration Edge System</h2>
+          <p class="lead">POES is Nirooh's SaaS technology designed to give publishers more freedom and security, reducing dependence on expensive hardware, dedicated processors and highly complex local infrastructure.</p>
+          <div class="quote-box">“We are not an SSP, a DSP, an ad network or a header bidder. We are POES.”</div>
+          <div class="feature-list">
+            <div class="feature"><span class="material-symbols-outlined">lock_open</span><p><strong>Operational freedom</strong>Independent control over inventory, integrations and commercial rules.</p></div>
+            <div class="feature"><span class="material-symbols-outlined">cloud_done</span><p><strong>Lower technical overhead</strong>Cloud orchestration with delivery prepared for edge environments.</p></div>
+          </div>
+        </div>
+        <div class="poes-panel">
+          <div class="poes-core">
+            <div class="center">
+              <span class="material-symbols-outlined">settings_input_component</span>
+              <p style="font-weight:900; letter-spacing:.1em; text-transform:uppercase; margin-top:12px;">POES Core Engine</p>
+            </div>
+            <div class="bars" aria-hidden="true"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container center">
+        <span class="eyebrow">Ethics and transparency</span>
+        <h2>Independence and neutral arbitration</h2>
+        <p class="lead">Nirooh was created to fight conflicts of interest in the digital advertising market. Our technology helps publishers choose the best outcome with clarity at every decision layer.</p>
+        <div class="cards-3">
+          <article class="card">
+            <span class="material-symbols-outlined">visibility</span>
+            <h3>Zero opacity</h3>
+            <p>Visibility into integrations, auctions and decisions that affect inventory value.</p>
+          </article>
+          <article class="card">
+            <span class="material-symbols-outlined">balance</span>
+            <h3>Neutral arbitration</h3>
+            <p>Technical prioritization focused on the best publisher outcome, without commercial lock-in.</p>
+          </article>
+          <article class="card">
+            <span class="material-symbols-outlined">verified</span>
+            <h3>Sustainable growth</h3>
+            <p>A technology foundation ready for publishers, media owners and buyers to scale securely.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tonal" id="partners">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Partners and integrations</h2>
+            <p>Selected clients connected to the Nirooh ecosystem, with DOOH operations prepared for programmatic integrations.</p>
+          </div>
+          <a class="primary-button" href="../publisher/">Publisher <span class="material-symbols-outlined">arrow_forward</span></a>
+        </div>
+        <div class="logo-grid client-grid">
+          <div class="logo-tile client-tile"><div class="client-logo"><span>PLENA</span><small>Media</small></div></div>
+          <div class="logo-tile client-tile"><div class="client-logo c2r"><span>C2R</span><small>Media</small></div></div>
+          <div class="logo-tile client-tile"><div class="client-logo pixel"><span>PIXEL</span><small>Media</small></div></div>
+          <div class="logo-tile client-tile"><div class="client-logo bravo"><span>BRAVO</span><small>Ad</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecossistema">
+      <div class="container center">
+        <h2>The intelligent ecosystem connection</h2>
+        <p class="lead">In programmatic DOOH, Nirooh sits between the CMS and SSPs to organize campaign decisions, protect the publisher operation and connect demand all the way to advertisers and agencies.</p>
+        <div class="dooh-flow" aria-label="Programmatic DOOH ecosystem flow">
+          <div class="dooh-node"><span class="material-symbols-outlined">groups</span><strong>Audience</strong><small>Flow, context and opportunity to see.</small></div>
+          <div class="dooh-node"><span class="material-symbols-outlined">desktop_windows</span><strong>CMS</strong><small>Screen operation, playlist and availability.</small></div>
+          <div class="dooh-node nirooh"><span class="material-symbols-outlined">hub</span><strong>Nirooh</strong><small>AD Exchange with POES, rules and arbitration.</small></div>
+          <div class="dooh-node"><span class="material-symbols-outlined">account_tree</span><strong>SSP</strong><small>Programmatic supply and inventory connection.</small></div>
+          <div class="dooh-node"><span class="material-symbols-outlined">query_stats</span><strong>DSP</strong><small>Buying, data, segmentation and bidding.</small></div>
+          <div class="dooh-node"><span class="material-symbols-outlined">campaign</span><strong>Advertisers / Agencies</strong><small>Planning, investment and business results.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tonal">
+      <div class="container bento">
+        <div class="bento-main">
+          <h2>Technical robustness for programmatic media</h2>
+          <p class="lead">Our infrastructure was designed for demanding environments, ensuring every impression opportunity is processed with precision, traceability and speed.</p>
+          <div class="mini-metrics">
+            <div class="mini-metric"><div class="mini-icon"><span class="material-symbols-outlined">bolt</span></div><div><strong>99.9%</strong><span>uptime</span></div></div>
+            <div class="mini-metric"><div class="mini-icon"><span class="material-symbols-outlined">timer</span></div><div><strong>&lt;50ms</strong><span>exchange latency</span></div></div>
+          </div>
+        </div>
+        <div class="bento-side">
+          <h3>API-first architecture</h3>
+          <p class="lead">Integrate rules, reporting and bidding logic into your stack with a foundation prepared for automation.</p>
+          <a class="primary-button" style="margin-top:34px; background:#fff; color:var(--primary);" href="../lead/">Request integration</a>
+          <span class="material-symbols-outlined terminal-bg">terminal</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="presenca">
+      <div class="container split">
+        <div class="section-copy">
+          <h2>Present across 90% of Brazil's national territory</h2>
+          <p class="lead">Nirooh connects DOOH media owners across every region of Brazil, combining programmatic technology, local support and national market intelligence.</p>
+          <ul class="city-list">
+            <li><span></span>São Paulo</li>
+            <li><span></span>Rio de Janeiro</li>
+            <li><span></span>Santa Catarina, Rio Grande do Sul and Goiás</li>
+            <li><span></span>Ceará and many other regions of Brazil</li>
+          </ul>
+        </div>
+        <div class="map-panel brazil-map-panel" role="img" aria-label="Map of Brazil with Nirooh national presence">
+          <svg class="brazil-map" viewBox="0 0 520 520" aria-hidden="true">
+            <path class="country" d="M315 40 363 68 397 66 429 104 466 130 457 175 480 216 441 250 441 300 407 320 395 365 350 383 331 432 283 448 249 421 210 437 172 406 137 401 111 363 72 338 85 292 57 253 84 215 78 174 119 151 137 108 184 101 218 68 263 79 315 40Z"/>
+            <path class="coverage" d="M300 92 352 105 402 142 417 195 392 236 402 291 360 330 342 382 293 402 248 381 210 393 177 360 130 344 120 298 91 256 118 215 113 181 150 152 174 121 221 112 255 91 300 92Z"/>
+            <circle class="pin" cx="284" cy="287" r="12"/>
+            <circle class="pin" cx="320" cy="303" r="10"/>
+            <circle class="pin" cx="232" cy="355" r="10"/>
+            <circle class="pin" cx="195" cy="384" r="9"/>
+            <circle class="pin" cx="278" cy="234" r="9"/>
+            <circle class="pin" cx="384" cy="204" r="9"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="tonal" id="artigos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Content</span>
+            <h2>Articles</h2>
+            <p>A space for analysis, technical guides and lessons about programmatic DOOH, POES and inventory operations.</p>
+          </div>
+          <a class="primary-button" href="../artigos/despertar-do-dooh-para-pmes.html">Read articles <span class="material-symbols-outlined">arrow_forward</span></a>
+        </div>
+        <div class="articles-grid">
+          <article class="article-card">
+            <div class="article-meta"><span>Programmatic DOOH</span><span>SMBs</span></div>
+            <h3>The Awakening of DOOH for SMBs</h3>
+            <p>The 10 challenges shaping DOOH democratization for small and mid-sized media owners, from entry cost to ROI measurement.</p>
+            <a href="../artigos/despertar-do-dooh-para-pmes.html">Read article <span class="material-symbols-outlined">arrow_forward</span></a>
+          </article>
+          <article class="article-card">
+            <div class="article-meta"><span>POES</span><span>Infrastructure</span></div>
+            <h3>Why POES is the hero of programmatic DOOH</h3>
+            <p>A clear view of how POES organizes CMS, SSPs, DSPs, data and Ad Exchange without taking independence away from publishers.</p>
+            <a href="../artigos/poes-heroi-programatico-dooh.html">Read article <span class="material-symbols-outlined">arrow_forward</span></a>
+          </article>
+          <article class="article-card">
+            <div class="article-meta"><span>Market</span><span>Value</span></div>
+            <h3>The new game of programmatic DOOH</h3>
+            <p>Technology, learning and real value generation for networks turning screens, data and demand into smarter revenue.</p>
+            <a href="../artigos/novo-jogo-do-dooh-programatico.html">Read article <span class="material-symbols-outlined">arrow_forward</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta tonal" id="contato">
+      <div class="container">
+        <h2>Ready to transform your DOOH strategy?</h2>
+        <p class="lead">Connect your inventory, buy media with more precision or talk to Nirooh to design a programmatic operation for your network.</p>
+        <div class="cta-actions">
+          <a class="primary-button" href="../lead/">Schedule a call</a>
+          <a class="ghost-button" href="../publisher/">Explore Publisher</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand-block">
+        <a class="brand" href="../code.html"><img class="brand-logo" src="../assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
+        <p>© 2026 Nirooh. Precision in motion.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#artigos">Articles</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../termos/politica-de-privacidade.html">Privacy Policy</a>
+        <a href="mailto:suporte@nirooh.com.br">Support</a>
+        <a href="../publisher/">Publisher</a>
+        <a href="../login/">Login</a>
+        <a href="https://api.whatsapp.com/send/?phone=%2B5519997455263&amp;text&amp;type=phone_number&amp;app_absent=0">WhatsApp</a>
+      </div>
+      <div class="footer-social" aria-label="Follow us">
+        <span class="footer-social-label">Follow us</span>
+        <a href="https://www.youtube.com/@Nirooh_pdooh" aria-label="YouTube" title="YouTube"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/nirooh" aria-label="LinkedIn" title="LinkedIn"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.31 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.53V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z"/></svg></a>
+        <a href="https://instagram.com/vital_nexxus" aria-label="Instagram" title="Instagram"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 0h9.6A7.2 7.2 0 0 1 24 7.2v9.6a7.2 7.2 0 0 1-7.2 7.2H7.2A7.2 7.2 0 0 1 0 16.8V7.2A7.2 7.2 0 0 1 7.2 0Zm0 2.4a4.8 4.8 0 0 0-4.8 4.8v9.6a4.8 4.8 0 0 0 4.8 4.8h9.6a4.8 4.8 0 0 0 4.8-4.8V7.2a4.8 4.8 0 0 0-4.8-4.8H7.2Zm4.8 4a5.6 5.6 0 1 1 0 11.2 5.6 5.6 0 0 1 0-11.2Zm0 2.4a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.88-2.64a1.32 1.32 0 1 1 0 2.64 1.32 1.32 0 0 1 0-2.64Z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+  <a class="whatsapp-button" href="https://api.whatsapp.com/send/?phone=%2B5519997455263&amp;text&amp;type=phone_number&amp;app_absent=0" aria-label="Talk to Nirooh on WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.58 0 .27 5.3.27 11.82c0 2.08.54 4.12 1.58 5.92L.17 24l6.4-1.68a11.8 11.8 0 0 0 5.53 1.4h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.42-8.42ZM12.1 21.72a9.8 9.8 0 0 1-5-1.37l-.36-.22-3.8 1 1.01-3.7-.24-.38a9.78 9.78 0 0 1-1.5-5.23c0-5.42 4.42-9.83 9.86-9.83 2.63 0 5.1 1.03 6.96 2.89a9.77 9.77 0 0 1 2.9 6.94c0 5.43-4.42 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+  </a>
+</body>
+</html>

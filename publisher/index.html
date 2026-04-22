@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nirooh | Publisher</title>
+  <meta name="description" content="Catálogo Publisher da Nirooh com exibidores DOOH, audiência, telas e integrações programáticas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: #f9f9ff;
+      --surface: #ffffff;
+      --surface-low: #f1f3ff;
+      --surface-high: #e0e8ff;
+      --surface-bright: #f9f9ff;
+      --on-surface: #0e1b33;
+      --secondary: #535e76;
+      --primary: #964900;
+      --primary-bright: #f5821f;
+      --primary-soft: #ffdcc3;
+      --outline: rgba(221, 193, 176, .28);
+      --shadow: 0 32px 32px -4px rgba(14, 27, 51, .06);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, .font-headline { font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+    h1, h2, h3, h4, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 430, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+    }
+    .hidden { display: none !important; }
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 30;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: rgba(255, 255, 255, .78);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 28px 42px -26px rgba(26, 28, 28, .22);
+    }
+    .topbar-inner {
+      width: min(1180px, calc(100% - 32px));
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Manrope", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+    }
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-bright));
+    }
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      margin-left: 28px;
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: .84rem;
+    }
+    .topnav a:hover, .topnav .active { color: var(--primary-bright); }
+    .top-left, .top-actions { display: flex; align-items: center; gap: 10px; }
+    .icon-button, .login-button, .start-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+    .icon-button {
+      width: 42px;
+      background: var(--surface-low);
+      color: var(--secondary);
+    }
+    .login-button {
+      padding: 0 18px;
+      background: var(--primary-bright);
+      color: #5b2a00;
+      box-shadow: 0 18px 30px -20px rgba(245,130,31,.85);
+    }
+    .start-button {
+      padding: 0 18px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-bright));
+      box-shadow: 0 18px 34px -18px rgba(245,130,32,.8);
+    }
+    .icon-button:hover, .login-button:hover, .start-button:hover { transform: translateY(-2px); }
+
+    main {
+      margin-left: 0;
+      padding: 124px 32px 64px;
+    }
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+    .hero {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 44px;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 4.4vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+    .hero p {
+      max-width: 710px;
+      margin-top: 14px;
+      color: var(--secondary);
+      font-size: clamp(1rem, 1.5vw, 1.28rem);
+      line-height: 1.7;
+      font-weight: 600;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pill-button {
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--surface);
+      color: var(--on-surface);
+      font-weight: 900;
+      box-shadow: inset 0 0 0 1px var(--outline);
+      white-space: nowrap;
+    }
+    .pill-button.primary {
+      min-width: 174px;
+      background: var(--primary-bright);
+      color: #5b2a00;
+      box-shadow: 0 18px 30px -20px rgba(245,130,31,.85);
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.2fr) minmax(180px, .8fr) minmax(180px, .8fr);
+      gap: 16px;
+      margin: -14px 0 32px;
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .filter-field {
+      display: grid;
+      gap: 8px;
+      color: var(--secondary);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .filter-field input,
+    .filter-field select {
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 10px;
+      padding: 0 14px;
+      background: var(--surface-low);
+      color: var(--on-surface);
+      font: 700 .95rem "Inter", system-ui, sans-serif;
+      outline: none;
+      box-shadow: inset 0 -2px 0 transparent;
+    }
+    .filter-field input:focus,
+    .filter-field select:focus {
+      box-shadow: inset 0 -2px 0 var(--primary-bright);
+      background: #fff7ef;
+    }
+    .empty-state {
+      display: none;
+      margin-top: 24px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--secondary);
+      text-align: center;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      margin-bottom: 44px;
+    }
+    .niroohnet-panel {
+      margin-bottom: 34px;
+      padding: 30px;
+      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: minmax(0, .7fr) minmax(260px, .3fr);
+      gap: 28px;
+      align-items: center;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .niroohnet-copy {
+      display: grid;
+      gap: 16px;
+    }
+    .niroohnet-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .niroohnet-logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px var(--outline);
+    }
+    .niroohnet-logo img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+    }
+    .niroohnet-copy h2 {
+      font-size: clamp(2rem, 3vw, 3.1rem);
+      line-height: 1;
+    }
+    .niroohnet-copy p {
+      max-width: 760px;
+      color: var(--secondary);
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+    .niroohnet-facts {
+      display: grid;
+      gap: 12px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #fff7ef;
+      box-shadow: inset 0 0 0 1px rgba(245,130,32,.18);
+    }
+    .niroohnet-facts span {
+      color: var(--primary);
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .niroohnet-facts strong {
+      font-size: 1.5rem;
+      line-height: 1.12;
+    }
+    .niroohnet-facts p {
+      color: var(--secondary);
+      line-height: 1.65;
+    }
+    .stat {
+      min-height: 156px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .stat-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .stat-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #fff3e8;
+      color: var(--primary-bright);
+    }
+    .badge {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--surface-low);
+      color: var(--secondary);
+      font-size: .72rem;
+      font-weight: 900;
+    }
+    .badge.hot { background: var(--primary-soft); color: var(--primary); }
+    .stat label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--secondary);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .stat strong {
+      display: block;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: .02em;
+    }
+    .stat small { display: block; margin-top: 8px; color: #8290aa; font-weight: 700; }
+
+    .publisher-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+    }
+    .publisher-card {
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .publisher-content { padding: 26px; }
+    .publisher-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .publisher-brand { display: flex; align-items: center; gap: 16px; min-width: 0; }
+    .publisher-brand-copy { min-width: 0; }
+    .publisher-logo {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      border-radius: 16px;
+      background: #121821;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      font-weight: 900;
+      font-size: .78rem;
+      text-align: center;
+      box-shadow: inset 0 0 0 8px rgba(255,255,255,.06);
+    }
+    .publisher-brand h2 {
+      font-size: 1.42rem;
+      line-height: 1.1;
+      font-weight: 800;
+    }
+    .publisher-brand p { margin-top: 4px; color: var(--secondary); font-weight: 700; }
+    .niroohnet-card-badge {
+      width: max-content;
+      margin-top: 9px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      background: #fff7ef;
+      box-shadow: inset 0 0 0 1px rgba(245,130,32,.18);
+      font-size: .66rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .niroohnet-card-badge img {
+      width: 17px;
+      height: 17px;
+      object-fit: contain;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+    .status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+    .status.off { color: #ba1a1a; }
+    .status.off::before { background: #ba1a1a; }
+    .screen-count {
+      min-width: 140px;
+      padding: 18px;
+      text-align: center;
+      border-radius: 16px;
+      background: var(--surface-low);
+    }
+    .screen-count span {
+      display: block;
+      color: var(--secondary);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .screen-count strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--primary-bright);
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .card-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .metric-box {
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--surface-bright);
+      box-shadow: inset 0 0 0 1px rgba(221,193,176,.16);
+    }
+    .metric-box.warm { background: #fff7ef; box-shadow: inset 0 0 0 1px rgba(245,130,31,.18); }
+    .metric-box label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--secondary);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    .metric-box.warm label { color: var(--primary-bright); }
+    .metric-box strong {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .metric-box small { color: #8290aa; font-weight: 700; }
+    .cpm-row { display: flex; justify-content: space-between; gap: 12px; color: var(--primary); font-size: .78rem; }
+    .card-section { margin-top: 22px; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .section-title::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: rgba(14,27,51,.06);
+    }
+    .logo-chips, .state-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .logo-chip {
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0d1320;
+    }
+    .logo-chip img { max-height: 16px; max-width: 86px; object-fit: contain; filter: brightness(0) invert(1); }
+    .logo-chip.niroohnet-chip {
+      background: #fff;
+      box-shadow: inset 0 0 0 1px var(--outline);
+    }
+    .logo-chip.niroohnet-chip img {
+      max-height: 22px;
+      filter: none;
+    }
+    .logo-chip.disabled {
+      background: var(--surface-low);
+      opacity: .55;
+    }
+    .logo-chip.disabled img { filter: grayscale(1); opacity: .65; }
+    .state-chips span {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: var(--secondary);
+      font-size: .72rem;
+      font-weight: 900;
+    }
+    .card-footer {
+      padding: 18px 26px;
+      background: #fdfdff;
+      box-shadow: inset 0 1px 0 rgba(14,27,51,.04);
+      text-align: center;
+    }
+    .card-footer a {
+      color: var(--primary-bright);
+      font-weight: 900;
+      font-size: .86rem;
+    }
+    .bottom-nav { display: none; }
+
+    @media (max-width: 1120px) {
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .niroohnet-panel { grid-template-columns: 1fr; }
+      .publisher-grid { grid-template-columns: 1fr; }
+      .hero { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 880px) {
+      .topnav { display: none; }
+      .topbar-inner { width: min(100% - 24px, 1180px); }
+      main { padding: 102px 18px 72px; }
+      .filters { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .brand { font-size: 1.06rem; }
+      .login-button { display: none; }
+      .hero-actions { width: 100%; }
+      .pill-button { flex: 1 1 180px; }
+      .stats, .card-metrics { grid-template-columns: 1fr; }
+      .publisher-head { flex-direction: column; }
+      .screen-count { width: 100%; }
+      .publisher-content { padding: 20px; }
+      .card-footer { padding: 18px 20px; }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="icon" type="image/png" href="../assets/logo-nirooh-square.png" />
+</head>
+<body>
+  <header class="topbar" aria-label="Menu superior">
+    <div class="topbar-inner">
+      <div class="top-left">
+        <a class="brand" href="../code.html"><img class="brand-logo" src="../assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
+        <nav class="topnav" aria-label="Navegação">
+          <a href="../code.html#poes">POES</a>
+          <a href="../code.html#ecossistema">Ecossistema</a>
+          <a href="../code.html#presenca">Território</a>
+          <a href="../code.html#artigos">Artigos</a>
+          <a class="active" href="./">Publisher</a>
+          <a href="#niroohnet">Niroohnet</a>
+          <a href="../pricing/">Pricing</a>
+        </nav>
+      </div>
+      <div class="top-actions">
+        <a class="ghost-button login-text" href="../login/">Login</a>
+        <a class="primary-button nav-cta" href="../assinar/">Assinar SaaS</a>
+        <div class="language-switcher" aria-label="Selecionar idioma">
+          <a class="flag-link active" href="../code.html" aria-label="Português do Brasil" title="Português do Brasil">🇧🇷</a>
+          <a class="flag-link" href="../en/" aria-label="English" title="English">🇺🇸</a>
+          <a class="flag-link" href="../es/" aria-label="Español" title="Español">🇪🇸</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page">
+      <section class="hero">
+        <div>
+          <h1>Publisher</h1>
+          <p>Catálogo de exibidores DOOH conectados ao ecossistema Nirooh, com métricas de audiência, inventário disponível e integrações programáticas.</p>
+        </div>
+      </section>
+
+      <section class="filters" aria-label="Filtros de publishers">
+        <label class="filter-field">
+          Nome
+          <input id="publisherNameFilter" type="search" placeholder="Buscar publisher" />
+        </label>
+        <label class="filter-field">
+          Região
+          <select id="publisherRegionFilter">
+            <option value="">Todas</option>
+            <option value="sudeste">Sudeste</option>
+            <option value="centro-oeste">Centro-Oeste</option>
+            <option value="sul">Sul</option>
+            <option value="norte">Norte</option>
+            <option value="nordeste">Nordeste</option>
+            <option value="nacional">Nacional</option>
+          </select>
+        </label>
+        <label class="filter-field">
+          SSP integrada
+          <select id="publisherSspFilter">
+            <option value="">Todas</option>
+            <option value="vistar">Vistar Media</option>
+            <option value="place exchange">Place Exchange</option>
+            <option value="niroohnet">Niroohnet</option>
+            <option value="magnite">Magnite</option>
+            <option value="viooh">VIOOH</option>
+            <option value="adsmovil">Adsmovil</option>
+            <option value="perion">Perion</option>
+            <option value="outcon">Outcon</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="stats" aria-label="Indicadores gerais">
+        <article class="stat">
+          <div class="stat-top"><div class="stat-icon"><span class="material-symbols-outlined">groups</span></div><span class="badge hot">+12%</span></div>
+          <div><label>Audiência total</label><strong>31,6M</strong><small>impactos semanais</small></div>
+        </article>
+        <article class="stat">
+          <div class="stat-top"><div class="stat-icon"><span class="material-symbols-outlined">payments</span></div><span class="badge hot">R$ 4,20</span></div>
+          <div><label>CPM médio</label><strong>R$ 18,50</strong><small>média da rede</small></div>
+        </article>
+        <article class="stat">
+          <div class="stat-top"><div class="stat-icon"><span class="material-symbols-outlined">desktop_windows</span></div><span class="badge">Página única</span></div>
+          <div><label>Total de telas</label><strong>1.549</strong><small>inventário listado</small></div>
+        </article>
+        <article class="stat">
+          <div class="stat-top"><div class="stat-icon"><span class="material-symbols-outlined">business</span></div><span class="badge">Todos</span></div>
+          <div><label>Total de publishers</label><strong>4</strong><small>exibidores no catálogo</small></div>
+        </article>
+      </section>
+
+      <section class="niroohnet-panel" id="niroohnet" aria-label="Niroohnet Ad Network">
+        <div class="niroohnet-copy">
+          <div class="niroohnet-brand">
+            <div class="niroohnet-logo"><img src="../assets/logo-niroohnet.png" alt="Niroohnet" /></div>
+            <div>
+              <span class="eyebrow">Ad Network</span>
+              <h2>Niroohnet</h2>
+            </div>
+          </div>
+          <p>A Niroohnet é a Ad Network da Nirooh para ampliar a comercialização programática do inventário DOOH dos publishers, combinando governança operacional Nirooh com a conexão de demanda da Place Exchange.</p>
+          <p>O modelo ajuda exibidores a disponibilizar inventário qualificado para buyers globais sem perder controle sobre CMS, regras comerciais, disponibilidade e critérios de aceite de campanha.</p>
+        </div>
+        <div class="niroohnet-facts">
+          <span>Parceria estratégica</span>
+          <strong>Nirooh + Place Exchange</strong>
+          <p>Camada de acesso à demanda programática para inventários DOOH conectados ao ecossistema Nirooh.</p>
+        </div>
+      </section>
+
+      <section class="publisher-grid" aria-label="Lista de publishers">
+        <article class="publisher-card" data-name="plena midia plena mídia" data-region="sudeste centro-oeste sp rj mg go df" data-ssp="vistar place exchange niroohnet magnite viooh">
+          <div class="publisher-content">
+            <div class="publisher-head">
+              <div class="publisher-brand">
+                <div class="publisher-logo">PLENA</div>
+                <div class="publisher-brand-copy"><h2>Plena Mídia</h2><p>Sudeste e Centro-Oeste</p><span class="status">Ao vivo</span><span class="niroohnet-card-badge"><img src="../assets/logo-niroohnet.png" alt="" />Niroohnet</span></div>
+              </div>
+              <div class="screen-count"><span>Total de telas</span><strong>412</strong></div>
+            </div>
+            <div class="card-metrics">
+              <div class="metric-box"><label>Audiência total</label><strong>8,4M</strong> <small>imp/semana</small></div>
+              <div class="metric-box warm"><label>Métricas de CPM</label><div class="cpm-row"><span>Médio: <b>R$ 14</b></span><span>Prime: <b>R$ 22</b></span></div></div>
+            </div>
+            <div class="card-section">
+              <div class="section-title">SSPs integradas</div>
+              <div class="logo-chips">
+                <span class="logo-chip"><img alt="Vistar Media" src="https://logo.clearbit.com/vistarmedia.com" /></span>
+                <span class="logo-chip"><img alt="Place Exchange" src="https://logo.clearbit.com/placeexchange.com" /></span>
+                <span class="logo-chip niroohnet-chip"><img alt="Niroohnet" src="../assets/logo-niroohnet.png" /></span>
+                <span class="logo-chip"><img alt="Magnite" src="https://logo.clearbit.com/magnite.com" /></span>
+                <span class="logo-chip disabled"><img alt="VIOOH" src="https://logo.clearbit.com/viooh.com" /></span>
+              </div>
+            </div>
+            <div class="card-section">
+              <div class="section-title">Abrangência</div>
+              <div class="state-chips"><span>SP</span><span>RJ</span><span>MG</span><span>GO</span><span>DF</span></div>
+            </div>
+          </div>
+          <div class="card-footer"><a href="mailto:contato@nirooh.com">Falar com exibidor</a></div>
+        </article>
+
+        <article class="publisher-card" data-name="c2r midia c2r mídia" data-region="sul pr sc rs" data-ssp="vistar niroohnet magnite adsmovil outcon">
+          <div class="publisher-content">
+            <div class="publisher-head">
+              <div class="publisher-brand">
+                <div class="publisher-logo">C2R</div>
+                <div class="publisher-brand-copy"><h2>C2R Mídia</h2><p>Sul do Brasil</p><span class="status">Ao vivo</span><span class="niroohnet-card-badge"><img src="../assets/logo-niroohnet.png" alt="" />Niroohnet</span></div>
+              </div>
+              <div class="screen-count"><span>Total de telas</span><strong>285</strong></div>
+            </div>
+            <div class="card-metrics">
+              <div class="metric-box"><label>Audiência total</label><strong>5,2M</strong> <small>imp/semana</small></div>
+              <div class="metric-box warm"><label>Métricas de CPM</label><div class="cpm-row"><span>Médio: <b>R$ 12</b></span><span>Prime: <b>R$ 18</b></span></div></div>
+            </div>
+            <div class="card-section">
+              <div class="section-title">SSPs integradas</div>
+              <div class="logo-chips">
+                <span class="logo-chip"><img alt="Vistar Media" src="https://logo.clearbit.com/vistarmedia.com" /></span>
+                <span class="logo-chip niroohnet-chip"><img alt="Niroohnet" src="../assets/logo-niroohnet.png" /></span>
+                <span class="logo-chip"><img alt="Magnite" src="https://logo.clearbit.com/magnite.com" /></span>
+                <span class="logo-chip disabled"><img alt="Adsmovil" src="https://logo.clearbit.com/adsmovil.com" /></span>
+                <span class="logo-chip disabled"><img alt="Outcon" src="https://logo.clearbit.com/outcon.com" /></span>
+              </div>
+            </div>
+            <div class="card-section">
+              <div class="section-title">Abrangência</div>
+              <div class="state-chips"><span>PR</span><span>SC</span><span>RS</span></div>
+            </div>
+          </div>
+          <div class="card-footer"><a href="mailto:contato@nirooh.com">Falar com exibidor</a></div>
+        </article>
+
+        <article class="publisher-card" data-name="pixel midia pixel mídia" data-region="norte nordeste ba pe ce am" data-ssp="magnite viooh niroohnet perion place exchange">
+          <div class="publisher-content">
+            <div class="publisher-head">
+              <div class="publisher-brand">
+                <div class="publisher-logo">PIXEL</div>
+                <div class="publisher-brand-copy"><h2>Pixel Mídia</h2><p>Norte e Nordeste</p><span class="status off">Manutenção</span><span class="niroohnet-card-badge"><img src="../assets/logo-niroohnet.png" alt="" />Niroohnet</span></div>
+              </div>
+              <div class="screen-count"><span>Total de telas</span><strong>198</strong></div>
+            </div>
+            <div class="card-metrics">
+              <div class="metric-box"><label>Audiência total</label><strong>3,8M</strong> <small>imp/semana</small></div>
+              <div class="metric-box warm"><label>Métricas de CPM</label><div class="cpm-row"><span>Médio: <b>R$ 10</b></span><span>Prime: <b>R$ 15</b></span></div></div>
+            </div>
+            <div class="card-section">
+              <div class="section-title">SSPs integradas</div>
+              <div class="logo-chips">
+                <span class="logo-chip"><img alt="Magnite" src="https://logo.clearbit.com/magnite.com" /></span>
+                <span class="logo-chip"><img alt="VIOOH" src="https://logo.clearbit.com/viooh.com" /></span>
+                <span class="logo-chip niroohnet-chip"><img alt="Niroohnet" src="../assets/logo-niroohnet.png" /></span>
+                <span class="logo-chip disabled"><img alt="Perion" src="https://logo.clearbit.com/perion.com" /></span>
+                <span class="logo-chip disabled"><img alt="Place Exchange" src="https://logo.clearbit.com/placeexchange.com" /></span>
+              </div>
+            </div>
+            <div class="card-section">
+              <div class="section-title">Abrangência</div>
+              <div class="state-chips"><span>BA</span><span>PE</span><span>CE</span><span>AM</span></div>
+            </div>
+          </div>
+          <div class="card-footer"><a href="mailto:contato@nirooh.com">Falar com exibidor</a></div>
+        </article>
+
+        <article class="publisher-card" data-name="bravo ad" data-region="nacional sudeste centro-oeste sp rj df" data-ssp="vistar magnite place exchange niroohnet adsmovil perion">
+          <div class="publisher-content">
+            <div class="publisher-head">
+              <div class="publisher-brand">
+                <div class="publisher-logo">BRAVO</div>
+                <div class="publisher-brand-copy"><h2>Bravo Ad</h2><p>Nacional - Premium</p><span class="status">Ao vivo</span><span class="niroohnet-card-badge"><img src="../assets/logo-niroohnet.png" alt="" />Niroohnet</span></div>
+              </div>
+              <div class="screen-count"><span>Total de telas</span><strong>654</strong></div>
+            </div>
+            <div class="card-metrics">
+              <div class="metric-box"><label>Audiência total</label><strong>14,2M</strong> <small>imp/semana</small></div>
+              <div class="metric-box warm"><label>Métricas de CPM</label><div class="cpm-row"><span>Médio: <b>R$ 28</b></span><span>Prime: <b>R$ 45</b></span></div></div>
+            </div>
+            <div class="card-section">
+              <div class="section-title">SSPs integradas</div>
+              <div class="logo-chips">
+                <span class="logo-chip"><img alt="Vistar Media" src="https://logo.clearbit.com/vistarmedia.com" /></span>
+                <span class="logo-chip"><img alt="Magnite" src="https://logo.clearbit.com/magnite.com" /></span>
+                <span class="logo-chip"><img alt="Place Exchange" src="https://logo.clearbit.com/placeexchange.com" /></span>
+                <span class="logo-chip niroohnet-chip"><img alt="Niroohnet" src="../assets/logo-niroohnet.png" /></span>
+                <span class="logo-chip"><img alt="Adsmovil" src="https://logo.clearbit.com/adsmovil.com" /></span>
+                <span class="logo-chip"><img alt="Perion" src="https://logo.clearbit.com/perion.com" /></span>
+              </div>
+            </div>
+            <div class="card-section">
+              <div class="section-title">Abrangência</div>
+              <div class="state-chips"><span>SP</span><span>RJ</span><span>DF</span><span>Nacional</span></div>
+            </div>
+          </div>
+          <div class="card-footer"><a href="mailto:contato@nirooh.com">Falar com exibidor</a></div>
+        </article>
+      </section>
+      <div class="empty-state" id="publisherEmptyState">Nenhum publisher encontrado com os filtros selecionados.</div>
+
+    </div>
+  </main>
+
+  <a class="whatsapp-button" href="https://api.whatsapp.com/send/?phone=%2B5519997455263&amp;text&amp;type=phone_number&amp;app_absent=0" aria-label="Falar com a Nirooh no WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.58 0 .27 5.3.27 11.82c0 2.08.54 4.12 1.58 5.92L.17 24l6.4-1.68a11.8 11.8 0 0 0 5.53 1.4h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.42-8.42ZM12.1 21.72a9.8 9.8 0 0 1-5-1.37l-.36-.22-3.8 1 1.01-3.7-.24-.38a9.78 9.78 0 0 1-1.5-5.23c0-5.42 4.42-9.83 9.86-9.83 2.63 0 5.1 1.03 6.96 2.89a9.77 9.77 0 0 1 2.9 6.94c0 5.43-4.42 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+  </a>
+  <script>
+    const nameFilter = document.getElementById("publisherNameFilter");
+    const regionFilter = document.getElementById("publisherRegionFilter");
+    const sspFilter = document.getElementById("publisherSspFilter");
+    const cards = Array.from(document.querySelectorAll(".publisher-card"));
+    const emptyState = document.getElementById("publisherEmptyState");
+
+    function normalize(value) {
+      return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function filterPublishers() {
+      const name = normalize(nameFilter.value.trim());
+      const region = normalize(regionFilter.value);
+      const ssp = normalize(sspFilter.value);
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const cardName = normalize(card.dataset.name || "");
+        const cardRegion = normalize(card.dataset.region || "");
+        const cardSsp = normalize(card.dataset.ssp || "");
+        const matchesName = !name || cardName.includes(name);
+        const matchesRegion = !region || cardRegion.includes(region);
+        const matchesSsp = !ssp || cardSsp.includes(ssp);
+        const isVisible = matchesName && matchesRegion && matchesSsp;
+        card.style.display = isVisible ? "" : "none";
+        if (isVisible) visibleCount += 1;
+      });
+
+      emptyState.style.display = visibleCount ? "none" : "block";
+    }
+
+    [nameFilter, regionFilter, sspFilter].forEach((field) => {
+      field.addEventListener("input", filterPublishers);
+      field.addEventListener("change", filterPublishers);
+    });
+  </script>
+</body>
+</html>
