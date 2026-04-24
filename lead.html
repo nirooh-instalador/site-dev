@@ -294,7 +294,7 @@
             </label>
             <label>
               Categoria
-              <select name="categoria" onchange="changeCategory(this)" required>
+              <select name="categoria" onchange="changeCategory(this.value)" required>
                 <option value="">Selecione</option>
                 <option>SSP</option>
                 <option>DSP</option>
@@ -331,8 +331,13 @@
             <p class="form-note">O envio abre o cliente de e-mail do usuário com os dados preenchidos. Depois podemos trocar esse destino por um endpoint de CRM quando você tiver o serviço definido.</p>
           </form>
           <script>
-            function changeCategory(e){
-              console.log(e);
+            function changeCategory(item){
+              console.log(item);
+              if (item == 'Publisher') {
+                document.getElementById('form-publisher').style.display = '';
+              }else{
+                document.getElementById('form-publisher').style.display = 'none';
+              }
             }
           </script>
         </div>
