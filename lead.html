@@ -241,19 +241,18 @@
       .form-card { padding: 24px; }
     }
   </style>
-  <link rel="stylesheet" href="../assets/site.css" />
-  <link rel="icon" type="image/png" href="../assets/logo-nirooh-square.png" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="icon" type="image/png" href="/assets/logo-nirooh-square.png" />
 </head>
 <body>
   <header class="nav lead-page-header" aria-label="Menu principal">
     <div class="nav-inner">
-      <a class="brand" href="/"><img class="brand-logo" src="../assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
+      <a class="brand" href="/"><img class="brand-logo" src="/assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
       <nav class="nav-links" aria-label="Navegação">
         <a href="/#poes">POES</a>
         <a href="/#ecossistema">Ecossistema</a>
         <a href="/#presenca">Território</a>
         <a href="/#artigos">Artigos</a>
-        <a href="/publisher/">Publisher</a>
       </nav>
       <div class="nav-actions">
         <a class="ghost-button login-text" href="https://cms.nirooh.com/login" target="_blank">Login</a>
@@ -295,7 +294,7 @@
             </label>
             <label>
               Categoria
-              <select name="categoria" required>
+              <select name="categoria" onchange="changeCategory(this)" required>
                 <option value="">Selecione</option>
                 <option>SSP</option>
                 <option>DSP</option>
@@ -304,7 +303,7 @@
                 <option>Outros</option>
               </select>
             </label>
-            <div class="form-row">
+            <div id="form-publisher" class="form-row" style="display: none;">
               <label>
                 Quantidade de telas DOOH
                 <input name="quantidade_de_telas_dooh" type="number" min="1" step="1" required />
@@ -331,6 +330,11 @@
             <button class="primary-button" type="submit">Enviar interesse <span class="material-symbols-outlined">arrow_forward</span></button>
             <p class="form-note">O envio abre o cliente de e-mail do usuário com os dados preenchidos. Depois podemos trocar esse destino por um endpoint de CRM quando você tiver o serviço definido.</p>
           </form>
+          <script>
+            function changeCategory(e){
+              console.log(e);
+            }
+          </script>
         </div>
       </div>
     </section>
