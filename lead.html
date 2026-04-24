@@ -450,7 +450,7 @@
     fetch(form.action, {
       method: 'POST',
       body: formData,
-      // mode: 'no-cors' // Remova o comentário dessa linha caso a API rejeite por CORS origin.
+      mode: 'no-cors'
     })
     .then(response => {
       modal.classList.add('active');
