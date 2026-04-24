@@ -339,7 +339,7 @@
           <form id="lead-form" method="POST" action="https://staging.nirooh.com/exhibitors">
             <label>
               Telefone
-              <input id="telefone" name="telefone" type="text" autocomplete="tel" required/>
+              <input id="telefone" name="phone" type="text" autocomplete="tel" required/>
             </label>
             <label>
               Email
@@ -347,21 +347,21 @@
             </label>
             <label>
               Nome
-              <input name="nome" type="text" autocomplete="name" required/>
+              <input name="name" type="text" autocomplete="name" required/>
             </label>
             <label>
               Nome da empresa
-              <input name="empresa" type="text" autocomplete="organization" required/>
+              <input name="organization" type="text" autocomplete="organization" required/>
             </label>
             <label>
               Categoria
-              <select name="categoria" onchange="changeCategory(this.value)" required>
+              <select name="category" onchange="changeCategory(this.value)" required>
                 <option value="">Selecione</option>
-                <option>SSP</option>
-                <option>DSP</option>
-                <option>Publisher</option>
-                <option>Plataforma de dados</option>
-                <option>Outros</option>
+                <option value="SSP">SSP</option>
+                <option value="DSP">DSP</option>
+                <option value="Publisher">Publisher</option>
+                <option value="Plataforma de dados">Plataforma de dados</option>
+                <option value="Outros">Outros</option>
               </select>
             </label>
             <div id="form-publisher" class="form-row" style="display: none;">
@@ -386,7 +386,7 @@
             </div>
             <label>
               Observações
-              <textarea name="observacoes" placeholder="Informe regiões de atuação, formatos de tela ou detalhes técnicos relevantes."></textarea>
+              <textarea name="observations" placeholder="Informe regiões de atuação, formatos de tela ou detalhes técnicos relevantes."></textarea>
             </label>
             <button id="submit-btn" class="primary-button" type="submit">Enviar interesse <span translate="no" class="material-symbols-outlined">arrow_forward</span></button>
           </form>
