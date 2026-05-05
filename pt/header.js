@@ -8,7 +8,7 @@ class Footer extends HTMLElement {
                     <p>© 2026 Nirooh. Unbox the Programmatic DOOH</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#artigos">Artigos</a>
+                    <a href="/artigos.html">Artigos</a>
                     <a href="/termos/politica-de-privacidade.html">Política de Privacidade</a>
                     <a href="mailto:suporte@nirooh.com.br">Suporte</a>
                     <a href="https://cms.nirooh.com/login" target="_blank">Login</a>
