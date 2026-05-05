@@ -5,12 +5,12 @@ class Footer extends HTMLElement {
                 <div class="footer-inner">
                 <div class="footer-brand-block">
                     <a class="brand" href="#inicio"><img class="brand-logo" src="/assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
-                    <p>© 2026 Nirooh. Unbox the Programmatic DOOH</p>
+                    <p>© 2026 Nirooh. Precision in motion.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#artigos">Artigos</a>
-                    <a href="/termos/politica-de-privacidade.html">Política de Privacidade</a>
-                    <a href="mailto:suporte@nirooh.com.br">Suporte</a>
+                    <a href="#artigos">Articles</a>
+                    <a href="/termos/politica-de-privacidade.html">Privacy Policy</a>
+                    <a href="mailto:suporte@nirooh.com.br">Support</a>
                     <a href="https://cms.nirooh.com/login" target="_blank">Login</a>
                     <a href="https://api.whatsapp.com/send/?phone=%2B5519997455263&amp;text&amp;type=phone_number&amp;app_absent=0">WhatsApp</a>
                 </div>

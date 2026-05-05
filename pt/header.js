@@ -2,7 +2,7 @@ class Footer extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <footer>
-                <div class="footer-inner">
+                <div class="footer-inner" style="display: flex; justify-content: center;">
                 <div class="footer-brand-block">
                     <a class="brand" href="#inicio"><img class="brand-logo" src="/assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
                     <p>© 2026 Nirooh. Unbox the Programmatic DOOH</p>
