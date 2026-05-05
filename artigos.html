@@ -12,6 +12,23 @@
   <link rel="stylesheet" href="assets/site.css" />
   <link rel="icon" type="image/png" href="assets/logo-nirooh-square.png" />
   <script src="/pt/header.js"></script>
+  <script>
+    .footer-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
+    .footer-links a:hover { color: var(--primary-bright); }
+  </script>
 </head>
 <body class="pricing-page">
   <header class="pricing-nav" aria-label="Menu principal">
