@@ -11,6 +11,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/site.css" />
   <link rel="icon" type="image/png" href="assets/logo-nirooh-square.png" />
+  <script src="/pt/header.js"></script>
+  <style>
+    .footer-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
+    .footer-links a:hover { color: var(--primary-bright); }
+  </style>
 </head>
 <body class="pricing-page">
   <header class="pricing-nav" aria-label="Menu principal">
@@ -64,25 +82,8 @@
       </div>
     </section>
   </main>
-  <footer style="display: flex; justify-content: center;">
-    <div class="footer-inner">
-      <div class="footer-brand-block">
-        <a class="brand" href="/"><img class="brand-logo" src="assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
-        <p>Ecossistema programático DOOH independente para publishers da América Latina.</p>
-      </div>
-      <div class="footer-links">
-        <a href="/#poes">POES</a>
-        <a href="/#ecossistema">Ecossistema</a>
-        <a href="/#presenca">Território</a>
-        <a href="/artigos.html">Artigos</a>
-      </div>
-      <div class="footer-social" aria-label="Siga-nos">
-        <span class="footer-social-label">Siga-nos</span>
-        <a href="https://www.linkedin.com/company/nirooh/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
-        <a href="https://www.instagram.com/niroohmedia/" target="_blank" rel="noreferrer" aria-label="Instagram">ig</a>
-      </div>
-    </div>
-  </footer>
+
+  <footer-main></footer-main>
 
 </body>
 </html>
