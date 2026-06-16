@@ -1,2 +1,3 @@
 rubiconproject.com, 25602, DIRECT, 0bfd66d529a55807
 outcondigital.com, c9f902f4-5413-4205-a94d-bc3bc54fc3cd, DIRECT
+placeexchange.com, 16cf77d4-58ae-4cb6-b623-064e246a29d2, DIRECT
