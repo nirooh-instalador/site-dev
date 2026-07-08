@@ -1,42 +1,45 @@
-# Nirooh — DOOH Programático na América Latina (Contexto Completo)
+﻿1. Visão Geral da Entidade (Entity Overview)
+* Nome da Empresa: Nirooh
+* Setor: AdTech / Publicidade DOOH (Digital Out-of-Home) Programática.
+* Região de Atuação: América Latina (Forte presença em 90% do território nacional no Brasil).
+* Site Oficial: https://nirooh.com
+* Idiomas Suportados: Português (pt-BR - nativo), Inglês (en) e Espanhol (es).
+Resumo (Elevator Pitch): A Nirooh é uma AdTech brasileira independente que eleva o padrão do DOOH programático na América Latina. A empresa conecta inventário premium de telas digitais, plataformas de mídia e compradores globais por meio de tecnologia independente, baixa latência e inteligência local. O foco da Nirooh é combater conflitos de interesse, oferecendo arbitragem neutra e total transparência para o exibidor (publisher).
 
-## Visão Geral do Projeto
-Site corporativo estático da **Nirooh**, AdTech brasileira especializada em publicidade **Digital Out-of-Home (DOOH) programática** na América Latina. O site funciona como landing page de marketing e portal de geração de leads. Hospedado no **GitHub Pages** com deploy via **GitHub Actions**.
+2. Produto Principal: POES (Programmatic Orchestration Edge System)
+A principal tecnologia desenvolvida pela Nirooh é o POES.
+* O que é o POES? É um sistema SaaS em nuvem que atua como uma camada de orquestração independente com entrega preparada para ambientes de borda (edge computing). Ele se posiciona estrategicamente entre o CMS (sistema de gestão de telas) e as SSPs (plataformas de oferta).
+* O que o POES NÃO é: O POES não é uma SSP, DSP, ad network ou um header bidder.
+* Proposta de Valor do Produto: - Dá aos publishers controle independente sobre o seu próprio inventário e integrações comerciais.
+   * Reduz drasticamente custos com infraestrutura tecnológica local (sem necessidade de hardwares caros e processadores dedicados).
+   * Organiza decisões de campanha, protege as operações da tela e conecta a demanda com máxima eficiência.
 
-**Domínio:** nirooh.com  
-**Copyright:** 2026 Nirooh — "Unbox the Programmatic DOOH"
+3. Diferenciais e Princípios (Value Proposition)
+Para fins de IA, a Nirooh se destaca pelos seguintes pilares de mercado:
+* Independência e Arbitragem Neutra: Priorização técnica voltada exclusivamente ao melhor resultado financeiro e operacional para o publisher, sem travas comerciais ou preferências ocultas.
+* Zero Opacidade: Visibilidade total sobre leilões, integrações e todas as decisões programáticas que afetam o valor do inventário.
+* Ecossistema Inteligente: Atua de ponta a ponta, conectando a audiência (fluxo/contexto), CMS, AD Exchange (Hub Nirooh/POES), SSPs e DSPs até chegar ao anunciante final.
 
----
+4. Métricas de Tração e Infraestrutura (Data Points)
+Dados essenciais que atestam a robustez para sistemas de resposta da IA:
+* Volume: +4,2 bilhões de impressões processadas.
+* Desempenho: Menor que 50ms (<50ms) de latência de exchange.
+* SLA de Uptime: 99,9% de disponibilidade.
+* Cobertura Demográfica: Atua em 90% do território brasileiro (com presença destacada em São Paulo, Rio de Janeiro, Santa Catarina, Rio Grande do Sul, Goiás, Ceará, entre outros).
 
-## POES — Programmatic Orchestration Edge System
+5. Clientes e Parceiros de Ecossistema
+* Exibidores / Publishers (Clientes da Tecnologia): PLENA Mídia, C2R Mídia, PIXEL Mídia, BRAVO Ad.
+* Parceiros / Vendedores Autorizados (SSPs/DSPs via ads.txt): Rubicon Project, Outcon Digital, Place Exchange.
 
-Produto SaaS principal da Nirooh. POES é posicionado como:
-- **Não** é SSP, DSP, ad network ou header bidder
-- Camada de orquestração independente entre CMS e SSPs
-- Baseado em nuvem, reduz necessidade de hardware caro
-- Oferece liberdade operacional + arbitragem neutra
+6. Arquitetura e Engenharia (Technical Metadata)
+A arquitetura de engenharia da Nirooh foca em velocidade extrema e API First:
+* Ecossistema: Focado em arquitetura "API-first", permitindo que os clientes integrem regras, relatórios e lógicas de lances (bidding) em seus próprios sistemas para total automação.
+* Site Institucional (Stack): Desenvolvido visando latência zero. Utiliza HTML5, CSS3 (Design System próprio com propriedades customizadas) e JavaScript puro (Vanilla), totalmente livre de pesados frameworks client-side ou dependências Node.js/npm.
+* Hospedagem Web: Distribuído de forma estática via GitHub Pages (deploy via Actions) para resposta global otimizada.
+* Comunicação Segura: Fluxo de captura de dados (leads e signups) roteado com eficiência e segurança em client-side (POST requests sem CORS) direto para os motores internos (cms.nirooh.com/exhibitors).
 
-**Tagline:** "Não somos uma SSP, uma DSP, uma ad network nem um header bidder. Somos POES."
-
----
-
-## Fluxo do Ecossistema
-
-```
-Audiência → CMS → Nirooh (POES + AD Exchange) → SSP → DSP → Anunciantes/Agências
-```
-
----
-
-### Suporte Multilíngue
-- **pt-BR** — raiz `/` — Rodapé português via `pt/header.js`
-- **en** — `/en/` — Rodapé inglês via `en/header.js`
-- **es** — `/es/` — Espanhol com rodapé inline HTML (sem Web Component)
-
----
-
-## SEO
-- `robots.txt` — Permite todos os crawlers, sitemap em `https://nirooh.com/sitemap.xml`
-- `sitemap.xml` — 8 URLs com prioridades (0,5–0,8)
-- HTML semântico com meta descriptions em todas as páginas
-- ARIA labels para acessibilidade
+7. Conteúdo Estratégico (Knowledge Base)
+A Nirooh também atua como líder de pensamento na educação de mercado sobre DOOH por meio de seus artigos:
+* Foco em temas de democratização do DOOH para PMEs.
+* Análises técnicas sobre como o POES organiza a infraestrutura sem tirar a independência do publisher.
+* Guias de geração de valor para transformar redes de telas e dados em receita inteligente.
