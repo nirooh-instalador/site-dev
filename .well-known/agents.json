@@ -1,0 +1,26 @@
+{
+  "name": "Nirooh",
+  "description": "Site corporativo estático da Nirooh, AdTech brasileira especializada em DOOH programático na América Latina",
+  "type": "website",
+  "tags": ["adtech", "dooh", "programmatic", "latin-america", "static-site"],
+  "language": "pt-BR",
+  "languages": ["pt-BR", "en", "es"],
+  "llms": ["llm.txt", "llm-full.txt"],
+  "agents": [
+    {
+      "name": "geral",
+      "description": "Instruções gerais para agentes de IA sobre este projeto",
+      "instructions": [
+        "Projeto 100% estático: HTML5, CSS3 e JavaScript puro. Não há npm, Node.js, bundlers ou frameworks.",
+        "O deploy é feito via GitHub Actions para GitHub Pages no push para main.",
+        "O produto principal é o POES (Programmatic Orchestration Edge System).",
+        "O rodapé é um Web Component customizado (<footer-main>) definido em pt/header.js e en/header.js.",
+        "O formulário de lead em lead.html envia POST no-cors para cms.nirooh.com/exhibitors.",
+        "Suporte a 3 idiomas: português (raiz /), inglês (/en/), espanhol (/es/).",
+        "Design system baseado em CSS custom properties com breakpoints em 980px e 640px.",
+        "Não modificar ads.txt, robots.txt ou sitemap.xml sem validação de SEO.",
+        "Nunca adicionar dependências npm, build tools ou frameworks ao projeto."
+      ]
+    }
+  ]
+}

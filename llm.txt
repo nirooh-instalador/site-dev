@@ -1,0 +1,63 @@
+# Nirooh — DOOH Programático na América Latina
+
+## Visão Geral
+Site corporativo estático da Nirooh, AdTech brasileira especializada em publicidade Digital Out-of-Home (DOOH) programática na América Latina. Hospedado no GitHub Pages.
+
+## Stack Tecnológica
+- HTML5, CSS3, JavaScript puro (sem frameworks, sem build tools)
+- Google Fonts: Manrope (tipografia) + Material Symbols Outlined (ícones)
+- Web Component `<footer-main>` para rodapé (vanilla `customElements.define`)
+- Deploy via GitHub Actions para GitHub Pages
+
+## Produto Principal: POES
+Programmatic Orchestration Edge System — tecnologia SaaS da Nirooh que atua entre CMS e SSPs para organizar decisões de campanha, proteger as operações do publisher e conectar a demanda. POES não é SSP, DSP, ad network ou header bidder; é uma camada de orquestração independente.
+
+## Multilíngue
+- **pt-BR** (raiz) — idioma principal
+- **en** — Inglês
+- **es** — Espanhol
+
+## Estrutura de URLs
+- `index.html` — Homepage português (852 linhas, CSS inline + `assets/site.css` compartilhado)
+- `lead.html` — Formulário de lead (envia para `cms.nirooh.com/exhibitors` via fetch `no-cors`)
+- `artigos.html` — Listagem de artigos
+- `assinar/index.html` — Cadastro SaaS com preview de contrato
+- `termos/politica-de-privacidade.html` — Política de privacidade
+- `artigos/` — Artigos (DOOH programático, POES, análise de mercado)
+- `en/index.html` — Homepage em inglês
+- `es/index.html` — Homepage em espanhol
+
+## Design System (CSS Custom Properties)
+```css
+--surface: #f9f9f9;
+--surface-lowest: #ffffff;
+--surface-low: #f3f3f3;
+--on-surface: #1a1c1c;
+--secondary: #5e5e5e;
+--primary: #964900;
+--primary-bright: #f58220;
+--primary-soft: #ffdcc6;
+--radius: 8px;
+```
+
+## Padrões de Design
+- Navbar fixa com glassmorphism (`backdrop-filter: blur`)
+- Breakpoints responsivos: 980px (tablet), 640px (mobile)
+- Classes de componente: `.primary-button`, `.ghost-button`, `.eyebrow`, `.lead`
+- Layouts CSS grid (hero, bento, cards-3, logo-grid, dooh-flow)
+- Mapa do Brasil via SVG inline com overlay de cobertura
+
+## Parceiros (Vendedores Autorizados)
+Rubicon Project, Outcon Digital, Place Exchange (declarados em `ads.txt`)
+
+## Clientes
+PLENA Mídia, C2R Mídia, PIXEL Mídia, BRAVO Ad
+
+## Métricas-Chave
+- 99,9% de disponibilidade / <50ms de latência / 4,2B impressões
+- Presente em 90% do território nacional
+
+## Infraestrutura
+- Formulário client-side POST para `cms.nirooh.com/exhibitors`
+- Sem backend, sem banco de dados, sem framework
+- Zero dependências npm/Node.js
