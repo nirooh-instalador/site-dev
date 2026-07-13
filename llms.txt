@@ -1,13 +1,9 @@
-# Nirooh — DOOH Programático na América Latina
+# Nirooh
+
+> DOOH Programático na América Latina
 
 ## Visão Geral
 Site corporativo estático da Nirooh, AdTech brasileira especializada em publicidade Digital Out-of-Home (DOOH) programática na América Latina. Hospedado no GitHub Pages.
-
-## Stack Tecnológica
-- HTML5, CSS3, JavaScript puro (sem frameworks, sem build tools)
-- Google Fonts: Manrope (tipografia) + Material Symbols Outlined (ícones)
-- Web Component `<footer-main>` para rodapé (vanilla `customElements.define`)
-- Deploy via GitHub Actions para GitHub Pages
 
 ## Produto Principal: POES
 Programmatic Orchestration Edge System — tecnologia SaaS da Nirooh que atua entre CMS e SSPs para organizar decisões de campanha, proteger as operações do publisher e conectar a demanda. POES não é SSP, DSP, ad network ou header bidder; é uma camada de orquestração independente.
