@@ -1,3 +1,35 @@
+class Header extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+          <header class="nav" aria-label="Menu principal">
+    <div class="nav-inner">
+      <a class="brand" href="#inicio" aria-label="Nirooh"><img class="brand-logo" src="/assets/logo-nirooh-grey.png"
+          alt="Nirooh" /></a>
+      <nav class="nav-links" aria-label="Navegação">
+        <a href="/empresa.html">Empresa</a>
+        <a href="#poes">POES</a>
+        <a href="#ecossistema">Ecossistema</a>
+        <a href="#presenca">Território</a>
+        <a href="#artigos">Artigos</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="ghost-button login-text" href="https://cms.nirooh.com/login" target="_blank">Login</a>
+        <div class="language-switcher" aria-label="Selecionar idioma">
+          <a class="flag-link active" href="/" aria-label="Português do Brasil" title="Português do Brasil">🇧🇷</a>
+          <a class="flag-link" href="en/" aria-label="English" title="English">🇺🇸</a>
+          <a class="flag-link" href="es/" aria-label="Español" title="Español">🇪🇸</a>
+        </div>
+        <a class="icon-link mobile-menu" href="#contato" aria-label="Contato">
+          <span class="material-symbols-outlined">mail</span>
+        </a>
+      </div>
+    </div>
+  </header>
+        `;
+    }
+}
+
+
 class Footer extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -30,3 +62,4 @@ class Footer extends HTMLElement {
 }
 
 customElements.define('footer-main', Footer)
+customElements.define('header-main', Header)

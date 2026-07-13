@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nirooh | Get Started</title>
   <meta name="description" content="Fale com a Nirooh para conectar seu inventário DOOH ao AD Exchange com POES." />
-  <link rel="canonical" href="https://nirooh.com/lead" />
+  <link rel="canonical" href="https://nirooh.com/lead.html" />
   <meta property="og:title" content="Nirooh | Get Started" />
-  <meta property="og:description" content="Fale com a Nirooh para conectar seu inventário DOOH ao AD Exchange com POES." />
-  <meta property="og:url" content="https://nirooh.com/lead" />
+  <meta property="og:description"
+    content="Fale com a Nirooh para conectar seu inventário DOOH ao AD Exchange com POES." />
+  <meta property="og:url" content="https://nirooh.com/lead.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://nirooh.com/assets/logo-nirooh-square.png" />
   <meta property="og:locale" content="pt_BR" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       --surface: #f9f9f9;
@@ -32,7 +37,10 @@
       --radius: 8px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -41,8 +49,19 @@
       color: var(--on-surface);
       -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; text-decoration: none; }
-    h1, h2, h3, p { margin: 0; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
     .material-symbols-outlined {
       font-variation-settings: "FILL" 0, "wght" 430, "GRAD" 0, "opsz" 24;
       line-height: 1;
@@ -53,10 +72,11 @@
       inset: 0 0 auto 0;
       z-index: 10;
       height: 76px;
-      background: rgba(255,255,255,.78);
+      background: rgba(255, 255, 255, .78);
       backdrop-filter: blur(20px);
-      box-shadow: 0 28px 42px -26px rgba(26,28,28,.22);
+      box-shadow: 0 28px 42px -26px rgba(26, 28, 28, .22);
     }
+
     .nav-inner {
       width: min(1120px, calc(100% - 32px));
       height: 100%;
@@ -66,6 +86,7 @@
       justify-content: space-between;
       gap: 18px;
     }
+
     .brand {
       display: inline-flex;
       align-items: center;
@@ -73,14 +94,22 @@
       font-size: 1.35rem;
       font-weight: 800;
     }
+
     .brand-mark {
       width: 12px;
       height: 12px;
       border-radius: 3px;
       background: linear-gradient(135deg, var(--primary), var(--primary-bright));
     }
-    .nav-actions { display: flex; align-items: center; gap: 10px; }
-    .nav-link, .primary-button {
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-link,
+    .primary-button {
       min-height: 42px;
       display: inline-flex;
       align-items: center;
@@ -90,30 +119,40 @@
       font-size: .84rem;
       font-weight: 800;
     }
+
     .nav-link {
       padding: 0 15px;
       color: var(--secondary);
-      background: rgba(255,255,255,.48);
+      background: rgba(255, 255, 255, .48);
       box-shadow: inset 0 0 0 1px var(--outline);
     }
+
     .primary-button {
       border: 0;
       padding: 0 20px;
       color: #fff;
       cursor: pointer;
       background: linear-gradient(135deg, var(--primary), var(--primary-bright));
-      box-shadow: 0 18px 34px -18px rgba(245,130,32,.8);
+      box-shadow: 0 18px 34px -18px rgba(245, 130, 32, .8);
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
-    .primary-button:hover { transform: translateY(-2px); box-shadow: 0 24px 38px -18px rgba(245,130,32,.92); }
 
-    main { padding-top: 76px; }
+    .primary-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 38px -18px rgba(245, 130, 32, .92);
+    }
+
+    main {
+      padding-top: 76px;
+    }
+
     .lead-page {
       min-height: calc(100vh - 76px);
       display: grid;
       align-items: center;
       padding: 72px 0;
     }
+
     .container {
       width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
@@ -122,6 +161,7 @@
       gap: 56px;
       align-items: center;
     }
+
     .eyebrow {
       display: inline-flex;
       padding: 7px 11px;
@@ -133,6 +173,7 @@
       letter-spacing: .08em;
       text-transform: uppercase;
     }
+
     h1 {
       margin-top: 20px;
       font-size: clamp(2.7rem, 5.8vw, 5.2rem);
@@ -140,6 +181,7 @@
       font-weight: 800;
       letter-spacing: 0;
     }
+
     .copy p {
       margin-top: 24px;
       color: var(--secondary);
@@ -147,23 +189,27 @@
       line-height: 1.75;
       max-width: 560px;
     }
+
     .signal-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
       margin-top: 34px;
     }
+
     .signal {
       min-height: 112px;
       padding: 20px;
       border-radius: var(--radius);
       background: var(--surface-low);
     }
+
     .signal strong {
       display: block;
       font-size: 1.55rem;
       line-height: 1;
     }
+
     .signal span {
       display: block;
       margin-top: 8px;
@@ -180,21 +226,25 @@
       background: var(--surface-lowest);
       box-shadow: var(--shadow);
     }
+
     .form-card h2 {
       font-size: 1.65rem;
       line-height: 1.2;
       font-weight: 800;
     }
-    .form-card > p {
+
+    .form-card>p {
       margin-top: 10px;
       color: var(--secondary);
       line-height: 1.6;
     }
+
     form {
       display: grid;
       gap: 18px;
       margin-top: 28px;
     }
+
     label {
       display: grid;
       gap: 8px;
@@ -204,7 +254,10 @@
       letter-spacing: .04em;
       text-transform: uppercase;
     }
-    input, select, textarea {
+
+    input,
+    select,
+    textarea {
       width: 100%;
       min-height: 52px;
       border: 0;
@@ -217,25 +270,32 @@
       box-shadow: inset 0 -2px 0 transparent;
       transition: background 160ms ease, box-shadow 160ms ease;
     }
+
     textarea {
       min-height: 104px;
       padding-top: 14px;
       resize: vertical;
     }
-    input:focus, select:focus, textarea:focus {
+
+    input:focus,
+    select:focus,
+    textarea:focus {
       background: var(--surface-low);
       box-shadow: inset 0 -2px 0 var(--primary-bright);
     }
+
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
+
     .form-note {
       color: var(--secondary);
       font-size: .8rem;
       line-height: 1.5;
     }
+
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -249,10 +309,12 @@
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
+
     .modal-overlay.active {
       opacity: 1;
       visibility: visible;
     }
+
     .modal-content {
       background: var(--surface-lowest);
       padding: 40px;
@@ -264,41 +326,69 @@
       transform: translateY(20px);
       transition: transform 0.3s ease;
     }
+
     .modal-overlay.active .modal-content {
       transform: translateY(0);
     }
+
     .modal-icon {
       font-size: 56px;
       color: var(--primary-bright);
       margin-bottom: 16px;
       font-variation-settings: "FILL" 1;
     }
+
     .modal-content h3 {
       font-size: 1.75rem;
       font-weight: 800;
       margin-bottom: 12px;
       color: var(--on-surface);
     }
+
     .modal-content p {
       color: var(--secondary);
       line-height: 1.6;
       margin-bottom: 32px;
     }
+
     .modal-content .primary-button {
       width: 100%;
       min-height: 52px;
     }
 
     @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
-      .lead-page { align-items: start; padding-top: 48px; }
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .lead-page {
+        align-items: start;
+        padding-top: 48px;
+      }
     }
+
     @media (max-width: 620px) {
-      .nav-link.login { display: none; }
-      .container { width: min(100% - 24px, 1120px); gap: 34px; }
-      .signal-grid, .form-row { grid-template-columns: 1fr; }
-      .form-card { padding: 24px; }
-      .modal-content { padding: 32px 24px; }
+      .nav-link.login {
+        display: none;
+      }
+
+      .container {
+        width: min(100% - 24px, 1120px);
+        gap: 34px;
+      }
+
+      .signal-grid,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card {
+        padding: 24px;
+      }
+
+      .modal-content {
+        padding: 32px 24px;
+      }
     }
   </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -307,7 +397,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://nirooh.com/lead",
+    "url": "https://nirooh.com/lead.html",
     "name": "Nirooh | Get Started",
     "inLanguage": "pt-BR",
     "description": "Fale com a Nirooh para conectar seu inventário DOOH ao AD Exchange com POES.",
@@ -320,31 +410,14 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Início", "item": "https://nirooh.com"},
-      {"@type": "ListItem", "position": 2, "name": "Lead", "item": "https://nirooh.com/lead"}
+      {"@type": "ListItem", "position": 2, "name": "Lead", "item": "https://nirooh.com/lead.html"}
     ]
   }
   </script>
 </head>
+
 <body>
-  <header class="nav lead-page-header" aria-label="Menu principal">
-    <div class="nav-inner">
-      <a class="brand" href="/"><img class="brand-logo" src="/assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
-      <nav class="nav-links" aria-label="Navegação">
-        <a href="/#poes">POES</a>
-        <a href="/#ecossistema">Ecossistema</a>
-        <a href="/#presenca">Território</a>
-        <a href="/#artigos">Artigos</a>
-      </nav>
-      <div class="nav-actions">
-        <a class="ghost-button login-text" href="https://cms.nirooh.com/login" target="_blank">Login</a>
-        <div class="language-switcher" aria-label="Selecionar idioma">
-          <a class="flag-link active" href="/" aria-label="Português do Brasil" title="Português do Brasil">🇧🇷</a>
-          <a class="flag-link" href="/en/" aria-label="English" title="English">🇺🇸</a>
-          <a class="flag-link" href="/es/" aria-label="Español" title="Español">🇪🇸</a>
-        </div>
-      </div>
-    </div>
-  </header>
+  <header-main></header-main>
 
   <main>
     <section class="lead-page">
@@ -352,7 +425,8 @@
         <div class="copy">
           <span class="eyebrow">Get Started</span>
           <h1>Conecte suas telas DOOH ao AD Exchange com POES</h1>
-          <p>Preencha os dados para a equipe da Nirooh avaliar seu inventário, entender o CMS utilizado e indicar o caminho mais rápido para integração programática.</p>
+          <p>Preencha os dados para a equipe da Nirooh avaliar seu inventário, entender o CMS utilizado e indicar o
+            caminho mais rápido para integração programática.</p>
           <div class="signal-grid">
             <div class="signal"><strong>&lt;50ms</strong><span>baixa latência</span></div>
             <div class="signal"><strong>POES</strong><span>orquestração independente</span></div>
@@ -367,19 +441,19 @@
           <form id="lead-form" method="POST" action="https://cms.nirooh.com/exhibitors">
             <label>
               Nome
-              <input name="name" type="text" autocomplete="name" required/>
+              <input name="name" type="text" autocomplete="name" required />
             </label>
             <label>
               Nome da empresa
-              <input name="organization" type="text" autocomplete="organization" required/>
+              <input name="organization" type="text" autocomplete="organization" required />
             </label>
             <label>
               Telefone
-              <input id="telefone" name="phone" type="text" autocomplete="tel" required/>
+              <input id="telefone" name="phone" type="text" autocomplete="tel" required />
             </label>
             <label>
               Email
-              <input name="email" type="email" autocomplete="email" required/>
+              <input name="email" type="email" autocomplete="email" required />
             </label>
             <label>
               Categoria
@@ -414,12 +488,14 @@
             </div>
             <label>
               Observações
-              <textarea name="observations" placeholder="Informe regiões de atuação, formatos de tela ou detalhes técnicos relevantes."></textarea>
+              <textarea name="observations"
+                placeholder="Informe regiões de atuação, formatos de tela ou detalhes técnicos relevantes."></textarea>
             </label>
-            <button id="submit-btn" class="primary-button" type="submit">Enviar interesse <span translate="no" class="material-symbols-outlined">arrow_forward</span></button>
+            <button id="submit-btn" class="primary-button" type="submit">Enviar interesse <span translate="no"
+                class="material-symbols-outlined">arrow_forward</span></button>
           </form>
           <script>
-            function changeCategory(item){
+            function changeCategory(item) {
               const publisherGroup = document.getElementById('form-publisher');
               const inputs = publisherGroup.querySelectorAll('input, select');
               if (item === 'Publisher') {
@@ -435,8 +511,13 @@
       </div>
     </section>
   </main>
-  <a class="whatsapp-button" href="https://api.whatsapp.com/send/?phone=%2B5519997455263&amp;text&amp;type=phone_number&amp;app_absent=0" aria-label="Falar com a Nirooh no WhatsApp" title="WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.58 0 .27 5.3.27 11.82c0 2.08.54 4.12 1.58 5.92L.17 24l6.4-1.68a11.8 11.8 0 0 0 5.53 1.4h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.42-8.42ZM12.1 21.72a9.8 9.8 0 0 1-5-1.37l-.36-.22-3.8 1 1.01-3.7-.24-.38a9.78 9.78 0 0 1-1.5-5.23c0-5.42 4.42-9.83 9.86-9.83 2.63 0 5.1 1.03 6.96 2.89a9.77 9.77 0 0 1 2.9 6.94c0 5.43-4.42 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+  <a class="whatsapp-button"
+    href="https://api.whatsapp.com/send/?phone=%2B5519997455263&amp;text&amp;type=phone_number&amp;app_absent=0"
+    aria-label="Falar com a Nirooh no WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.58 0 .27 5.3.27 11.82c0 2.08.54 4.12 1.58 5.92L.17 24l6.4-1.68a11.8 11.8 0 0 0 5.53 1.4h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.42-8.42ZM12.1 21.72a9.8 9.8 0 0 1-5-1.37l-.36-.22-3.8 1 1.01-3.7-.24-.38a9.78 9.78 0 0 1-1.5-5.23c0-5.42 4.42-9.83 9.86-9.83 2.63 0 5.1 1.03 6.96 2.89a9.77 9.77 0 0 1 2.9 6.94c0 5.43-4.42 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z" />
+    </svg>
   </a>
   <div id="success-modal" class="modal-overlay">
     <div class="modal-content">
@@ -449,7 +530,7 @@
 </body>
 <script>
   const telefone = document.getElementById('telefone');
-  telefone.addEventListener('input', function(e) {
+  telefone.addEventListener('input', function (e) {
     let value = e.target.value.replace(/\D/g, '');
     if (value.length > 11) value = value.slice(0, 11);
     if (value.length > 10) {
@@ -469,8 +550,8 @@
   const modal = document.getElementById('success-modal');
   const closeModalBtn = document.getElementById('close-modal-btn');
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); 
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = 'Enviando...';
     submitBtn.disabled = true;
@@ -480,19 +561,19 @@
       body: formData,
       mode: 'no-cors'
     })
-    .then(response => {
-      modal.classList.add('active');
-      form.reset();
-      document.getElementById('form-publisher').style.display = 'none';
-    })
-    .catch(error => {
-      console.error('Erro no envio:', error);
-      alert('Houve um erro de conexão ao enviar seus dados. Por favor, tente novamente.');
-    })
-    .finally(() => {
-      submitBtn.innerHTML = originalBtnText;
-      submitBtn.disabled = false;
-    });
+      .then(response => {
+        modal.classList.add('active');
+        form.reset();
+        document.getElementById('form-publisher').style.display = 'none';
+      })
+      .catch(error => {
+        console.error('Erro no envio:', error);
+        alert('Houve um erro de conexão ao enviar seus dados. Por favor, tente novamente.');
+      })
+      .finally(() => {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      });
   });
 
   closeModalBtn.addEventListener('click', () => {
@@ -505,4 +586,5 @@
     }
   });
 </script>
+
 </html>
