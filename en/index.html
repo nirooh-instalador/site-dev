@@ -632,11 +632,32 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://nirooh.com/#organization",
     "name": "Nirooh",
     "url": "https://nirooh.com",
     "logo": "https://nirooh.com/assets/logo-nirooh-square.png",
     "description": "Nirooh connects DOOH publishers, SSPs and global buyers with independent programmatic technology for Latin America.",
-    "sameAs": ["https://www.linkedin.com/company/nirooh", "https://www.youtube.com/@Nirooh_pdooh", "https://instagram.com/niroohbr"]
+    "contactPoint": [
+      {"@type": "ContactPoint", "contactType": "customer support", "email": "suporte@nirooh.com.br", "availableLanguage": ["Portuguese", "English", "Spanish"]},
+      {"@type": "ContactPoint", "contactType": "sales", "email": "vendas@nirooh.com.br", "availableLanguage": ["Portuguese", "English", "Spanish"]}
+    ],
+    "areaServed": [
+      {"@type": "Country", "name": "Brasil"},
+      {"@type": "Place", "name": "América Latina"}
+    ],
+    "sameAs": ["https://www.wikidata.org/wiki/Q140532714", "https://www.linkedin.com/company/nirooh", "https://www.youtube.com/@Nirooh_pdooh", "https://instagram.com/niroohbr"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://nirooh.com/en/",
+    "name": "Nirooh | Programmatic DOOH in Latin America",
+    "inLanguage": "en",
+    "description": "Nirooh connects DOOH publishers, SSPs and global buyers with independent programmatic technology for Latin America.",
+    "publisher": {"@id": "https://nirooh.com/#organization"},
+    "dateModified": "2026-07-08"
   }
   </script>
   <script type="application/ld+json">
@@ -669,7 +690,9 @@
     <div class="nav-inner">
       <a class="brand" href="#inicio" aria-label="Nirooh"><img class="brand-logo" src="../assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
       <nav class="nav-links" aria-label="Navegação">
-        <a class="active" href="#poes">POES</a>
+        <a href="/empresa/">Company</a>
+        <a href="/produto/">Product</a>
+        <a href="#poes">POES</a>
         <a href="#ecossistema">Ecosystem</a>
         <a href="#presenca">Territory</a>
         <a href="#artigos">Articles</a>
