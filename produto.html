@@ -56,6 +56,46 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 28px 42px -26px rgba(26, 28, 28, 0.22);
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 32px));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--secondary);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: var(--primary-bright);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
