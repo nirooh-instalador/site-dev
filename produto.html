@@ -23,6 +23,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
   <script src="/pt/header.js"></script>
+  <link href="/pt/style.css" rel="stylesheet" />
   <style>
     :root {
       --surface: #f9f9f9;
@@ -323,6 +324,36 @@
       .comparison-table td {
         padding: 10px 12px;
       }
+    }
+
+    footer {
+      background: var(--surface-low);
+      color: var(--secondary);
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-bright);
     }
   </style>
   <link rel="stylesheet" href="/assets/site.css" />
