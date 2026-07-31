@@ -18,7 +18,7 @@ class Header extends HTMLElement {
           <a class="flag-link" href="en/" aria-label="English" title="English">🇺🇸</a>
           <a class="flag-link" href="es/" aria-label="Español" title="Español">🇪🇸</a>
         </div>
-        <a class="icon-link mobile-menu" href="#contato" aria-label="Contato">
+        <a class="icon-link mobile-menu" href="/#contato" aria-label="Contato">
           <span class="material-symbols-outlined">mail</span>
         </a>
       </div>
