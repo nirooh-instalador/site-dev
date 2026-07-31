@@ -3,14 +3,13 @@ class Header extends HTMLElement {
         this.innerHTML = `
           <header class="nav" aria-label="Menu principal">
     <div class="nav-inner">
-      <a class="brand" href="#inicio" aria-label="Nirooh"><img class="brand-logo" src="/assets/logo-nirooh-grey.png"
-          alt="Nirooh" /></a>
+      <a class="brand" href="/#inicio" aria-label="Nirooh"><img class="brand-logo" src="/assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
       <nav class="nav-links" aria-label="Navegação">
         <a href="/empresa.html">Empresa</a>
-        <a href="#poes">POES</a>
-        <a href="#ecossistema">Ecossistema</a>
-        <a href="#presenca">Território</a>
-        <a href="#artigos">Artigos</a>
+        <a href="/#poes">POES</a>
+        <a href="/#ecossistema">Ecossistema</a>
+        <a href="/#presenca">Território</a>
+        <a href="/#artigos">Artigos</a>
       </nav>
       <div class="nav-actions">
         <a class="ghost-button login-text" href="https://cms.nirooh.com/login" target="_blank">Login</a>
