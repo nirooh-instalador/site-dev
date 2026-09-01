@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Consent Mode -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    var niroohAnalyticsConsent = window.localStorage.getItem("nirooh_analytics_consent") === "accepted" ? "granted" : "denied";
+    window.gtag("consent", "default", {
+      analytics_storage: niroohAnalyticsConsent,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      functionality_storage: "granted",
+      security_storage: "granted",
+      wait_for_update: 500
+    });
+  </script>
+  <!-- End Google Consent Mode -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P3JT35G2');</script>
+  <!-- End Google Tag Manager -->
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base target="_self" />
+  <title>POES Nirooh | Orquestração sell-side para DOOH programático</title>
+  <meta name="description" content="Entenda como o POES da Nirooh aplica regras, price floors, bloqueios e waterfall por tela para coordenar oportunidades DOOH programáticas." />
+  <meta name="theme-color" content="#f8f9ff" />
+  <link rel="canonical" href="https://nirooh.com/poes/" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="POES Nirooh | As regras do publisher no centro" />
+  <meta property="og:description" content="Um motor sell-side para coordenar inventário, proteções comerciais e múltiplas rotas de demanda." />
+  <meta property="og:url" content="https://nirooh.com/poes/" />
+  <meta property="og:image" content="https://nirooh.com/assets/og-nirooh.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://nirooh.com/poes/#page","url":"https://nirooh.com/poes/","name":"POES Nirooh","description":"Motor de orquestração sell-side para DOOH programático.","inLanguage":"pt-BR","isPartOf":{"@id":"https://nirooh.com/#website"},"about":{"@type":"SoftwareApplication","name":"POES","applicationCategory":"BusinessApplication","operatingSystem":"Web","provider":{"@id":"https://nirooh.com/#organization"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O POES substitui o CMS?","acceptedAnswer":{"@type":"Answer","text":"Não. O CMS continua responsável pela operação de conteúdo e telas. O POES coordena regras e oportunidades programáticas junto à operação existente."}},{"@type":"Question","name":"O POES garante aumento de receita?","acceptedAnswer":{"@type":"Answer","text":"Não. O POES amplia elegibilidade e acesso a rotas de demanda, mas receita, fill rate e eCPM dependem do inventário, mercado, preço, audiência e demanda compradora."}},{"@type":"Question","name":"Quais proteções comerciais o POES aplica?","acceptedAnswer":{"@type":"Answer","text":"Price floors, prioridades de venda direta, blocklists de anunciantes e categorias, critérios de criativo e waterfall de parceiros em nível de tela."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://nirooh.com/"},{"@type":"ListItem","position":2,"name":"POES","item":"https://nirooh.com/poes/"}]}]}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../assets/logo-nirooh-square.png" />
+  <link rel="stylesheet" href="../assets/home.css" />
+  <link rel="stylesheet" href="../assets/publisher-home.css" />
+  <link rel="stylesheet" href="../assets/content-pages.css" />
+  <link rel="stylesheet" href="../assets/site-v3.css" />
+  <script src="../assets/home.js" defer></script>
+  <script src="../assets/analytics-consent.js" defer></script>
+  <script src="../assets/site-v3.js" defer></script>
+  <link rel="stylesheet" href="../assets/light-commercial.css?v=20260827" />
+</head>
+<body class="publisher-home content-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3JT35G2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <a class="academy-banner" href="../curso/index.html"><span>Novo / Nirooh Academy</span><b>Curso de DOOH programático em pré-lançamento →</b></a>
+
+  <header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Nirooh — início"><img src="../assets/logo-nirooh-grey.png" alt="Nirooh" /></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle><span class="menu-toggle-label">Menu</span><span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span></button>
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal" data-nav>
+        <a href="../publisher/index.html">Para exibidores</a>
+        <a class="active" href="index.html" aria-current="page">POES</a>
+        <a href="../index.html#como-funciona">Como funciona</a>
+        <a href="../artigos/index.html">Recursos</a>
+        <a href="../curso/index.html">Curso</a>
+      </nav>
+      <div class="header-actions"><a class="text-link" href="../niroohnet/index.html">Agências: NiroohNet</a><a class="button button-small button-dark" href="../index.html#diagnostico">Avaliar inventário</a></div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="content-hero" aria-labelledby="poes-title">
+      <div class="container content-hero-grid">
+        <div class="content-hero-copy">
+          <p class="kicker kicker-light">Tecnologia proprietária Nirooh</p>
+          <h1 id="poes-title">POES coloca as regras do publisher <span>no centro da programática.</span></h1>
+          <p>É o motor sell-side que recebe disponibilidade, valida proteções comerciais e coordena a melhor rota elegível antes de uma oportunidade seguir para a tela.</p>
+          <div class="ph-actions"><a class="button button-primary" href="#como-opera">Entender como opera</a><a class="button button-ghost-light" href="../index.html#diagnostico">Avaliar meu inventário</a></div>
+          <p class="content-hero-note">POES não é uma SSP, DSP ou ad network. É a camada de decisão da Nirooh entre o CMS, a tela e as fontes de demanda.</p>
+        </div>
+        <div class="poes-visual" aria-label="O POES coordena CMS, telas, regras e fontes de demanda">
+          <div class="poes-core-mark"><div><small>Nirooh</small><strong>POES</strong></div></div>
+          <div class="poes-satellite sat-cms"><span>Operação</span><strong>CMS + grade</strong></div>
+          <div class="poes-satellite sat-screen"><span>Inventário</span><strong>Telas + slots</strong></div>
+          <div class="poes-satellite sat-ssp"><span>Demanda</span><strong>SSPs + traders</strong></div>
+          <div class="poes-satellite sat-rules"><span>Proteção</span><strong>Regras + floors</strong></div>
+          <div class="poes-visual-status"><span>Decisão em nível de tela</span><b>Sell side</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section-light" aria-labelledby="definition-title">
+      <div class="container">
+        <div class="content-heading"><div><p class="kicker kicker-orange">Em linguagem simples</p><h2 id="definition-title">Um guardião comercial antes da execução.</h2></div><p>O POES traduz prioridades comerciais em critérios operacionais. Assim, a programática entra como uma rota complementar, sem ignorar contratos, restrições ou a estratégia de venda direta.</p></div>
+        <div class="definition-strip"><strong>POES</strong><div><h3>Uma decisão protegida para cada oportunidade.</h3><p>Quando uma demanda chega, o POES verifica se a tela está disponível, se o criativo é compatível, se anunciante e categoria são permitidos, se o preço respeita o floor e qual parceiro deve receber prioridade. Somente depois dessa validação a oportunidade elegível segue para ativação.</p></div></div>
+      </div>
+    </section>
+
+    <section class="content-section content-section-dark" id="como-opera" aria-labelledby="operation-title">
+      <div class="container">
+        <div class="content-heading"><div><p class="kicker kicker-orange">Como opera</p><h2 id="operation-title">Da disponibilidade à comprovação em quatro decisões.</h2></div><p>O fluxo aproxima tecnologia e política comercial sem transformar cada integração em uma nova rotina manual.</p></div>
+        <div class="process-grid">
+          <article class="process-card"><span>01 / Escuta</span><h3>Recebe a oportunidade</h3><p>CMS, tela, slot, formato, horário e demanda entram no mesmo contexto de decisão.</p></article>
+          <article class="process-card"><span>02 / Protege</span><h3>Aplica as regras</h3><p>Prioridade da venda direta, blocklists, categorias, price floor e critérios técnicos.</p></article>
+          <article class="process-card"><span>03 / Coordena</span><h3>Escolhe a rota elegível</h3><p>O waterfall em nível de tela ordena parceiros compatíveis com a política definida.</p></article>
+          <article class="process-card"><span>04 / Registra</span><h3>Acompanha a entrega</h3><p>Execução, proof-of-play e informações operacionais apoiam conciliação e aprendizado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section-soft" aria-labelledby="protections-title">
+      <div class="container">
+        <div class="content-heading"><div><p class="kicker kicker-orange">Camadas de proteção</p><h2 id="protections-title">Programática sem canibalizar sua estratégia comercial.</h2></div><p>O publisher define o que pode ser ofertado, por quanto, para quem e em qual ordem. O POES transforma essas decisões em regras aplicáveis.</p></div>
+        <div class="protection-grid">
+          <article class="protection-card"><span>Venda direta</span><h3>Prioridades preservadas</h3><p>Contratos e reservas existentes entram antes de oportunidades programáticas concorrentes.</p></article>
+          <article class="protection-card"><span>Advertiser blocklist</span><h3>Anunciantes bloqueados</h3><p>Marcas ou domínios incompatíveis com a política comercial podem ser impedidos.</p></article>
+          <article class="protection-card"><span>Category blocklist</span><h3>Categorias protegidas</h3><p>Setores sensíveis, conflitantes ou restritos são controlados conforme tela e ambiente.</p></article>
+          <article class="protection-card"><span>Price floor</span><h3>Preço mínimo por contexto</h3><p>Oportunidades abaixo do valor definido não avançam para execução.</p></article>
+          <article class="protection-card"><span>Waterfall</span><h3>Parceiros por tela</h3><p>Cada ativo pode ter uma ordem própria de parceiros, integrações e critérios de prioridade.</p></article>
+          <article class="protection-card"><span>Elegibilidade</span><h3>Formato e criativo</h3><p>Duração, proporção, categoria, horário e capacidade técnica são validados antes da entrega.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section-light" aria-labelledby="revenue-title">
+      <div class="container">
+        <div class="revenue-panel">
+          <div class="revenue-number"><span>Potencial condicionado</span><strong>600%*</strong><small>Mais fontes não significam receita automática. Elas aumentam a superfície de oportunidade quando inventário, preço e demanda são compatíveis.</small></div>
+          <div class="revenue-copy"><h2 id="revenue-title">Mais rotas podem ampliar o potencial de receita.</h2><p>Ao sair de uma operação dependente de uma única fonte e conectar mais de quatro rotas homologadas, o publisher pode ganhar competição, cobertura de demanda e alternativas para ocupar inventário elegível.</p><div class="revenue-levers"><div><span>01</span><strong>Mais oportunidades concorrendo por inventário disponível</strong></div><div><span>02</span><strong>Menor dependência comercial de um único parceiro</strong></div><div><span>03</span><strong>Waterfall e price floor configurados em nível de tela</strong></div></div><p class="claim-disclaimer">* “Até 600%” é uma estimativa de potencial declarada pela Nirooh para cenários específicos que comparam uma operação com uma única rota ou baixa ocupação programática a configurações com mais de quatro fontes de demanda homologadas — SSPs ou plataformas de trading — e inventário elegível. Não representa benchmark independente nem garantia de receita, fill rate ou eCPM. O resultado varia conforme audiência, praça, formato, disponibilidade, preço, sazonalidade, integrações e demanda compradora. A base de cálculo e o período comparado devem permanecer documentados antes do uso comercial deste claim.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section-soft" aria-labelledby="architecture-title">
+      <div class="container">
+        <div class="content-heading"><div><p class="kicker kicker-orange">Arquitetura sell-side</p><h2 id="architecture-title">RTB, Ad Exchange e proteção comercial no mesmo fluxo.</h2></div><p>A Nirooh reúne mecanismos de transação e decisão em uma camada construída para o lado da oferta, mantendo o publisher como dono das regras.</p></div>
+        <div class="architecture-grid">
+          <article class="architecture-card"><span>RTB</span><h3>Resposta à oportunidade</h3><p>Bid requests e respostas podem ser coordenados dentro dos critérios de elegibilidade definidos.</p></article>
+          <article class="architecture-card"><span>POES</span><h3>Decisão e proteção</h3><p>O motor avalia prioridades, preço, bloqueios, compatibilidade e rota antes da execução.</p></article>
+          <article class="architecture-card"><span>Ad Exchange</span><h3>Acesso a compradores</h3><p>Conexões homologadas aproximam inventário elegível de diferentes fontes de demanda.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section-light" aria-labelledby="faq-title">
+      <div class="container"><div class="content-heading"><div><p class="kicker kicker-orange">Perguntas frequentes</p><h2 id="faq-title">POES sem sopa de letrinhas.</h2></div><p>Respostas diretas para entender o papel da tecnologia na operação do publisher.</p></div><div class="faq-list"><details><summary>O POES substitui meu CMS?</summary><p>Não. O CMS continua responsável pela operação de conteúdo e telas. O POES se conecta à estrutura existente para coordenar regras e oportunidades.</p></details><details><summary>O POES é uma SSP ou DSP?</summary><p>Não. Ele não é uma fonte de demanda nem uma plataforma de compra. É o motor sell-side da Nirooh que decide como uma oportunidade pode seguir.</p></details><details><summary>O aumento de receita é garantido?</summary><p>Não. Mais rotas ampliam o acesso a oportunidades, mas o resultado depende de demanda, audiência, preço, disponibilidade, praça, formato e homologação.</p></details><details><summary>O waterfall é igual para toda a rede?</summary><p>Não precisa ser. A ordem de parceiros e regras pode variar conforme tela, grupo de telas, ambiente, formato ou política comercial.</p></details><details><summary>Como começa a integração?</summary><p>Com um diagnóstico de CMS, inventário, formatos, audiência, ocupação, regras existentes e fontes de demanda desejadas.</p></details></div></div>
+    </section>
+
+    <section class="ph-buyer" aria-labelledby="poes-cta"><div class="container ph-buyer-inner"><div><p class="kicker kicker-light">Próximo passo</p><h2 id="poes-cta">Quer saber como o POES operaria na sua rede?</h2><p>Compartilhe CMS, quantidade de telas, praças e modelo comercial. A equipe Nirooh avalia as proteções e rotas aplicáveis.</p></div><div class="ph-buyer-actions"><a class="button button-primary" href="../index.html#diagnostico">Avaliar meu inventário</a><a class="button button-ghost-light" href="https://wa.me/5519992802265?text=Ol%C3%A1%2C%20quero%20entender%20como%20o%20POES%20pode%20operar%20na%20minha%20rede.">Falar sobre POES</a></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><img src="../assets/logo-nirooh-grey.png" alt="Nirooh" /><p>Unbox the Programmatic DOOH.</p></div><div class="footer-nav"><div><span>Para exibidores</span><a href="../publisher/index.html">Solução</a><a href="index.html">POES</a><a href="../calculadora-cpm/index.html">Calculadora CPM</a><a href="../index.html#diagnostico">Avaliar inventário</a></div><div><span>Empresa e recursos</span><a href="../quem-somos/index.html">Quem somos</a><a href="../artigos/index.html">Conteúdos</a><a href="../glossario/index.html">Glossário programático</a><a href="../mapa-ecossistema/index.html">Scape 2026</a></div><div><span>Outras jornadas</span><a href="../curso/index.html">Nirooh Academy</a><a href="../niroohnet/index.html">NiroohNet</a><a href="https://cms.nirooh.com/exibidores">Inventário para buyers</a><a href="https://wa.me/5519992802265">WhatsApp</a></div></div></div><div class="container footer-bottom"><p>© <span data-year>2026</span> Nirooh. Todos os direitos reservados.</p><a href="../termos/politica-de-privacidade.html">Política de Privacidade</a></div></footer>
+  <div class="cookie-banner" data-cookie-banner hidden><p>Usamos Google Tag Manager e analytics do HubSpot para entender a navegação. Consulte nossa <a href="../termos/politica-de-privacidade.html">Política de Privacidade</a>.</p><div class="cookie-actions"><button class="cookie-accept" type="button" data-cookie-accept>Aceitar analytics</button><button class="cookie-reject" type="button" data-cookie-reject>Continuar sem analytics</button></div></div>
+</body>
+</html>
