@@ -181,15 +181,29 @@
             <h3>Lista de interesse</h3>
             <p>Seus dados serão usados somente para comunicações sobre o curso e conteúdos relacionados.</p>
           </div>
-          <form class="lead-form" data-lead-form data-lead-type="course" data-conversion-point="course_waitlist"
-            action="mailto:bpompeu@nirooh.com.br" method="post">
-            <div class="lead-form-grid"><label>Nome<input name="firstname" type="text" autocomplete="given-name"
-                  required /></label><label>Sobrenome<input name="lastname" type="text" autocomplete="family-name"
-                  required /></label></div>
-            <div class="lead-form-grid"><label>E-mail<input name="email" type="email" autocomplete="email"
-                  required /></label><label>WhatsApp<input name="phone" type="tel" autocomplete="tel" /></label></div>
-            <div class="lead-form-grid"><label>Empresa<input name="company" type="text"
-                  autocomplete="organization" /></label><label>Área de atuação<select name="area">
+          <form class="lead-form" id="lead-form" method="POST" action="https://cms.nirooh.com/exhibitors">
+            <div class="lead-form-grid">
+              <label>Nome
+                <input name="name" type="text" autocomplete="given-name" required />
+              </label>
+              <label>Sobrenome
+                <input name="lastname" type="text" autocomplete="family-name" required />
+              </label>
+            </div>
+            <div class="lead-form-grid">
+              <label>E-mail
+                <input name="email" type="email" autocomplete="email" required />
+              </label>
+              <label>WhatsApp
+                <input name="phone" type="phone" autocomplete="tel" />
+              </label>
+            </div>
+            <div class="lead-form-grid">
+              <label>Empresa
+                <input name="organization" type="text" autocomplete="organization" />
+              </label>
+              <label>Área de atuação
+                <select name="observations">
                   <option value="">Selecione</option>
                   <option>Publisher / Exibidor</option>
                   <option>Agência</option>
@@ -197,12 +211,13 @@
                   <option>Tecnologia / AdTech</option>
                   <option>Estudante</option>
                   <option>Outro</option>
-                </select></label></div><input name="utm_source" type="hidden" /><input name="utm_medium"
-              type="hidden" /><input name="utm_campaign" type="hidden" /><input name="utm_content"
-              type="hidden" /><input name="utm_term" type="hidden" /><input name="page_uri" type="hidden" /><input
-              name="page_name" type="hidden" /><label class="consent-field"><input name="consent" type="checkbox"
-                required /><span>Concordo em receber informações sobre a Nirooh Academy, conforme a <a
-                  href="termos/politica-de-privacidade.html">Política de Privacidade</a>.</span></label><button
+                </select>
+              </label>
+            </div>
+            <input name="page" type="hidden" value="curso" />
+            <input name="redir" type="hidden" value="https://nirooh.com/obrigado.html" />
+            <span>Concordo em receber informações sobre a Nirooh Academy, conforme a <a
+                href="termos/politica-de-privacidade.html">Política de Privacidade</a>.</span></label><button
               class="button button-primary" type="submit">Quero ser avisado</button>
             <p class="form-status" data-form-status aria-live="polite"></p>
           </form>
