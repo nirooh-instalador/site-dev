@@ -17,11 +17,10 @@ Programmatic Orchestration Edge System — tecnologia SaaS da Nirooh que atua en
 - `index.html` — Homepage português (852 linhas, CSS inline + `assets/site.css` compartilhado)
 - `lead.html` — Formulário de lead (envia para `cms.nirooh.com/exhibitors` via fetch `no-cors`)
 - `artigos.html` — Listagem de artigos
-- `assinar/index.html` — Cadastro SaaS com preview de contrato
 - `termos/politica-de-privacidade.html` — Política de privacidade
-- `artigos/` — Artigos (DOOH programático, POES, análise de mercado)
-- `en/index.html` — Homepage em inglês
-- `es/index.html` — Homepage em espanhol
+- `artigos.html` — Artigos (DOOH programático, POES, análise de mercado)
+- `index-en.html` — Homepage em inglês
+- `index-es.html` — Homepage em espanhol
 
 ## Design System (CSS Custom Properties)
 ```css
