@@ -347,36 +347,116 @@
             <p>Seus dados serão usados para preparar a primeira conversa técnica e comercial.</p>
           </div>
           <form class="lead-form" data-lead-form data-lead-type="publisher" data-conversion-point="inventory_assessment"
-            action="mailto:bpompeu@nirooh.com.br" method="post">
-            <div class="lead-form-grid"><label>Nome<input name="firstname" type="text" autocomplete="given-name"
-                  required /></label><label>Sobrenome<input name="lastname" type="text" autocomplete="family-name"
-                  required /></label></div>
-            <div class="lead-form-grid"><label>E-mail profissional<input name="email" type="email" autocomplete="email"
-                  required /></label><label>WhatsApp<input name="phone" type="tel" autocomplete="tel"
-                  required /></label></div>
-            <div class="lead-form-grid"><label>Empresa<input name="company" type="text" autocomplete="organization"
-                  required /></label><label>Quantidade de telas<input name="quantidade_telas" type="number" min="1"
-                  inputmode="numeric" required /></label></div><label>CMS utilizado<input name="cms" type="text"
-                required /></label><label>Principal objetivo<select name="objetivo" required>
+            method="post">
+            <div class="lead-form-grid">
+              <label>Nome
+                <input name="name" type="text" autocomplete="given-name" required />
+              </label>
+              <label>Sobrenome
+                <input name="lastname" type="text" autocomplete="family-name" required />
+              </label>
+            </div>
+            <div class="lead-form-grid">
+              <label>E-mail profissional
+                <input name="email" type="email" autocomplete="email" required />
+              </label>
+              <label>WhatsApp
+                <input name="phone" type="tel" autocomplete="tel" required />
+              </label>
+            </div>
+            <div class="lead-form-grid">
+              <label>Empresa
+                <input name="organization" type="text" autocomplete="organization" required />
+              </label>
+              <label>Quantidade de telas
+                <input name="screen_count" type="number" min="1" inputmode="numeric" required />
+              </label>
+            </div>
+            <label>CMS utilizado
+              <input name="cms" type="text" required />
+            </label>
+            <label>Principal objetivo
+              <select name="observations" required>
                 <option value="">Selecione</option>
                 <option>Monetizar inventário ocioso</option>
                 <option>Conectar novas fontes de demanda</option>
                 <option>Proteger a venda direta</option>
                 <option>Rever precificação e CPM</option>
                 <option>Outro</option>
-              </select></label><input name="utm_source" type="hidden" /><input name="utm_medium" type="hidden" /><input
-              name="utm_campaign" type="hidden" /><input name="utm_content" type="hidden" /><input name="utm_term"
-              type="hidden" /><input name="page_uri" type="hidden" /><input name="page_name" type="hidden" /><label
-              class="consent-field"><input name="consent" type="checkbox" required /><span>Concordo que a Nirooh utilize
-                meus dados para responder a esta solicitação, conforme a <a
-                  href="termos/politica-de-privacidade.html">Política de Privacidade</a>.</span></label><button
-              class="button button-primary" type="submit">Avaliar meu inventário</button>
+              </select>
+            </label>
+            <label class="consent-field">
+              <input name="consent" type="checkbox" required />
+              <span>Concordo que a Nirooh utilize meus dados para responder a esta solicitação, conforme a <a
+                  href="termos/politica-de-privacidade.html">Política de Privacidade</a>.
+              </span>
+            </label>
+            <button class="button button-primary" type="submit">Avaliar meu inventário</button>
             <p class="form-status" data-form-status aria-live="polite"></p>
           </form>
         </div>
       </div>
     </section>
   </main>
+
+  <script>
+    const telefone = document.getElementById('telefone');
+    telefone.addEventListener('input', function (e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 11) value = value.slice(0, 11);
+      if (value.length > 10) {
+        value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+      } else if (value.length > 5) {
+        value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
+      } else if (value.length > 2) {
+        value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+      } else {
+        value = value.replace(/^(\d*)/, '($1');
+      }
+      e.target.value = value;
+    });
+
+    const form = document.getElementById('lead-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const modal = document.getElementById('success-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Enviando...';
+      submitBtn.disabled = true;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+        .then(response => {
+          modal.classList.add('active');
+          form.reset();
+          document.getElementById('form-publisher').style.display = 'none';
+        })
+        .catch(error => {
+          console.error('Erro no envio:', error);
+          alert('Houve um erro de conexão ao enviar seus dados. Por favor, tente novamente.');
+        })
+        .finally(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
 
   <footer class="site-footer global-footer">
     <div class="container footer-main">
