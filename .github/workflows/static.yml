@@ -27,17 +27,61 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 3
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6.0.0
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           # Upload entire repository
-          path: '.'
+          path: './site'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v5.0.1
+      - name: Get changed HTML files
+        id: changed
+        shell: bash
+        run: |
+          git diff --name-only HEAD^ HEAD -- '*.html' > changed.txt
+          if [ ! -s changed.txt ]; then
+            echo "Nenhum arquivo HTML alterado. Encerrando."
+            echo "urls=[]" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "Arquivos alterados:"
+          cat changed.txt
+          urls=""
+          while IFS= read -r file; do
+            case "$file" in
+              *.html)
+                if [ "$file" = "index.html" ]; then
+                  url="https://nirooh.com"
+                else
+                  path="${file%.html}"
+                  url="https://nirooh.com/${path}"
+                fi
+                urls="${urls}\"${url}\","
+                ;;
+            esac
+          done < changed.txt
+          urls="${urls%,}"
+          echo "urls=[$urls]" >> "$GITHUB_OUTPUT"
+      - name: Send to IndexNow
+        if: steps.changed.outputs.urls != '[]'
+        env:
+          HOST: "nirooh.com"
+          INDEXNOW_KEY: "wp3qxb4wqk377a99shxh6d11dmz3r3ch"
+          URLS: ${{ steps.changed.outputs.urls }}
+        run: |
+          curl -X POST "https://api.indexnow.org/indexnow" -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"${{ env.HOST }}\",
+              \"key\": \"${{ env.INDEXNOW_KEY }}\",
+              \"keyLocation\": \"https://${{ env.HOST }}/${{ env.INDEXNOW_KEY }}.txt\",
+              \"urlList\": ${URLS}
+            }"        
