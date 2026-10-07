@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Baixe gratuitamente o Nirooh Scape 2026. O panorama completo do mercado de DOOH e mídia programática no Brasil.">
+    <meta name="keywords" content="Scape 2026, DOOH, mídia programática, digital out-of-home, nirooh, mercado publicidade">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://nirooh.com/wp-content/uploads/2023/06/cropped-logo_NIROOH_favicon.png"
+      type=""
+    />
+    <title>NIROOH - Scape 2026 • Panorama do DOOH no Brasil</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+      
+      :root {
+        --primary-orange: #fb9600;
+        --primary-dark: #1a1a2e;
+        --primary-purple: #16213e;
+        --accent-blue: #0f3460;
+        --accent-cyan: #00d9ff;
+        --gradient-start: #1a1a2e;
+        --gradient-end: #16213e;
+        --text-light: #ffffff;
+        --text-muted: #b4b4b4;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, #0f3460 100%);
+        min-height: 100vh;
+        color: var(--text-light);
+        overflow-x: hidden;
+      }
+      
+       
+      .bg-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+      
+      .bg-animation::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 20% 50%, rgba(251, 150, 0, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(0, 217, 255, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 40% 80%, rgba(251, 150, 0, 0.05) 0%, transparent 40%);
+        animation: bgPulse 15s ease-in-out infinite;
+      }
+      
+      @keyframes bgPulse {
+        0%, 100% { transform: scale(1) rotate(0deg); }
+        50% { transform: scale(1.1) rotate(5deg); }
+      }
+      
+       
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--primary-orange);
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: float 20s infinite linear;
+      }
+      
+      @keyframes float {
+        0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+        10% { opacity: 0.3; }
+        90% { opacity: 0.3; }
+        100% { transform: translateY(-10vh) translateX(100px); opacity: 0; }
+      }
+      
+       
+      .nav-container {
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+      }
+      
+      .nav-logo {
+        max-width: 160px;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-logo:hover {
+        transform: scale(1.05);
+      }
+      
+       
+      .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 100px);
+        padding: 2rem;
+      }
+      
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 4rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        align-items: center;
+      }
+      
+      .hero-text {
+        animation: slideInLeft 0.8s ease-out;
+      }
+      
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      
+      .badge-new {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, var(--primary-orange), #ff7e00);
+        color: #000;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(251, 150, 0, 0.4);
+        animation: pulse 2s infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { box-shadow: 0 4px 15px rgba(251, 150, 0, 0.4); }
+        50% { box-shadow: 0 4px 30px rgba(251, 150, 0, 0.6); }
+      }
+      
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #fff 0%, #e0e0e0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .hero-title span {
+        background: linear-gradient(135deg, var(--primary-orange) 0%, #ff7e00 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+      
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(135deg, var(--primary-orange), #ff7e00);
+        color: #000;
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 1rem 2.5rem;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 8px 30px rgba(251, 150, 0, 0.3);
+      }
+      
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(251, 150, 0, 0.5);
+        background: linear-gradient(135deg, #ff7e00, var(--primary-orange));
+      }
+      
+      .cta-button svg {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+      }
+      
+      .cta-button:hover svg {
+        transform: translateX(5px);
+      }
+      
+       
+      .hero-image {
+        animation: slideInRight 0.8s ease-out;
+        position: relative;
+      }
+      
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      
+      .book-container {
+        position: relative;
+        perspective: 1000px;
+      }
+      
+      .book-image {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5),
+                    0 0 60px rgba(251, 150, 0, 0.2);
+        transition: transform 0.5s ease;
+        animation: bookHover 4s ease-in-out infinite;
+      }
+      
+      @keyframes bookHover {
+        0%, 100% { transform: translateY(0) rotateY(-5deg); }
+        50% { transform: translateY(-15px) rotateY(5deg); }
+      }
+      
+      .glow-effect {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(251, 150, 0, 0.15) 0%, transparent 70%);
+        z-index: -1;
+        filter: blur(40px);
+      }
+      
+       
+      .features-section {
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        background: linear-gradient(135deg, #fff 0%, var(--primary-orange) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      
+      .feature-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(251, 150, 0, 0.3);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3),
+                    0 0 30px rgba(251, 150, 0, 0.1);
+      }
+      
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary-orange), #ff7e00);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+      
+      .feature-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+      
+      .feature-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      
+       
+      .stats-section {
+        padding: 4rem 2rem;
+        background: rgba(0, 0, 0, 0.2);
+        margin: 4rem 0;
+      }
+      
+      .stats-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        flex-wrap: wrap;
+      }
+      
+      .stat-item {
+        text-align: center;
+      }
+      
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--primary-orange) 0%, var(--accent-cyan) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+      
+      .stat-label {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      
+       
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        animation: fadeIn 0.3s ease;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      .modal-container {
+        background: linear-gradient(145deg, #1e1e3f 0%, #16213e 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        width: 100%;
+        max-width: 550px;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 2.5rem;
+        position: relative;
+        animation: slideUp 0.4s ease;
+        box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5),
+                    0 0 50px rgba(251, 150, 0, 0.1);
+      }
+      
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      
+      .modal-close:hover {
+        background: rgba(251, 150, 0, 0.3);
+        transform: rotate(90deg);
+      }
+      
+      .modal-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #fff 0%, var(--primary-orange) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .modal-subtitle {
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+      }
+      
+      .form-group {
+        margin-bottom: 1.25rem;
+      }
+      
+      .form-label {
+        display: block;
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      
+      .form-input {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: all 0.3s ease;
+      }
+      
+      .form-input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      
+      .form-input:focus {
+        outline: none;
+        border-color: var(--primary-orange);
+        box-shadow: 0 0 20px rgba(251, 150, 0, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      
+      .form-select {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fb9600' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 18px;
+      }
+      
+      .form-select option {
+        background: #1e1e3f;
+        color: #fff;
+      }
+      
+      .form-select:focus {
+        outline: none;
+        border-color: var(--primary-orange);
+        box-shadow: 0 0 20px rgba(251, 150, 0, 0.2);
+      }
+      
+      .form-checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: rgba(251, 150, 0, 0.05);
+        border: 1px solid rgba(251, 150, 0, 0.1);
+        border-radius: 12px;
+      }
+      
+      .form-checkbox {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--primary-orange);
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      
+      .form-checkbox-label {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+      
+      .submit-button {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(135deg, var(--primary-orange), #ff7e00);
+        color: #000;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+      
+      .submit-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(251, 150, 0, 0.4);
+      }
+      
+      .submit-button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+       
+      .success-content {
+        text-align: center;
+        padding: 2rem;
+      }
+      
+      .success-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary-orange), #ff7e00);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2.5rem;
+        animation: bounceIn 0.6s ease;
+      }
+      
+      @keyframes bounceIn {
+        0% { transform: scale(0); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+      }
+      
+      .success-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+      
+      .success-message {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+      
+       
+      .footer {
+        text-align: center;
+        padding: 3rem 2rem;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      .footer a {
+        color: var(--primary-orange);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      
+      .footer a:hover {
+        color: #fff;
+      }
+      
+       
+      @media (max-width: 992px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+          text-align: center;
+        }
+        
+        .hero-image {
+          order: -1;
+        }
+        
+        .book-image {
+          max-width: 350px;
+        }
+        
+        .hero-title {
+          font-size: 2.5rem;
+        }
+        
+        .cta-button {
+          margin: 0 auto;
+        }
+        
+        @keyframes bookHover {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+        
+        .section-title {
+          font-size: 1.75rem;
+        }
+        
+        .stat-number {
+          font-size: 2.5rem;
+        }
+        
+        .stats-container {
+          gap: 2rem;
+        }
+        
+        .modal-container {
+          padding: 1.5rem;
+          margin: 1rem;
+        }
+        
+        .modal-title {
+          font-size: 1.5rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .nav-logo {
+          max-width: 120px;
+        }
+        
+        .badge-new {
+          font-size: 0.65rem;
+        }
+        
+        .hero-title {
+          font-size: 1.75rem;
+        }
+        
+        .book-image {
+          max-width: 280px;
+        }
+        
+        .feature-card {
+          padding: 1.5rem;
+        }
+        
+        .cta-button {
+          padding: 0.875rem 2rem;
+          font-size: 1rem;
+        }
+      }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF23YH4ND8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZF23YH4ND8');
+    </script>
+  </head>
+  
+  <body>
+    
+    <div class="bg-animation"></div>
+    
+    
+    <div class="particles" id="particles"></div>
+    
+    
+    <nav class="nav-container">
+      <a href="https://nirooh.com">
+        <img 
+          src="/static/images/nirooh.png" 
+          alt="Nirooh Logo" 
+          class="nav-logo"
+        />
+      </a>
+    </nav>
+    
+    
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="badge-new">
+            <span>🗺️</span>
+            <span>Relatório Anual • Scape 2026</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Nirooh Scape 2026<br/>
+            <span>Panorama do DOOH no Brasil</span>
+          </h1>
+          
+          <p class="hero-subtitle">
+            Tenha acesso ao mapeamento completo do ecossistema de Digital Out-of-Home no Brasil em 2026. Descubra os principais players, tecnologias emergentes e as tendências que estão moldando o futuro da publicidade exterior programática.
+          </p>
+          
+          <button id="openModal" class="cta-button">
+            <span>Baixar Relatório Completo</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="hero-image">
+          <div class="book-container">
+            <div class="glow-effect"></div>
+            <img 
+              src="/static/images/nirooh_scape_2026_hero.png" 
+              alt="Nirooh Scape 2026 - Panorama do DOOH" 
+              class="book-image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="stats-section">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">60+</div>
+          <div class="stat-label">Empresas Mapeadas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">9</div>
+          <div class="stat-label">Categorias de Mídia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Atualizado</div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="features-section">
+      <h2 class="section-title">O que você vai encontrar?</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3 class="feature-title">Ecossistema Completo</h3>
+          <p class="feature-desc">
+            Visualização detalhada de todos os players: Publishers, DSPs, SSPs, Ad Networks e Consultorias Especializadas.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🏙️</div>
+          <h3 class="feature-title">Cobertura Nacional</h3>
+          <p class="feature-desc">
+            Mapeamento da presença do DOOH nas principais capitais e regiões metropolitanas do Brasil.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📡</div>
+          <h3 class="feature-title">Infraestrutura Tech</h3>
+          <p class="feature-desc">
+            As tecnologias de hardware e software que sustentam a operação do DOOH programático moderno.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="footer">
+      <p>
+        © 2026 <a href="https://nirooh.com" target="_blank">Nirooh</a> • 
+        Todos os direitos reservados
+      </p>
+    </footer>
+    
+    
+    <div id="downloadModal" class="modal-overlay">
+      <div class="modal-container">
+        <button class="modal-close" id="closeModal">&times;</button>
+        
+        <h2 class="modal-title">📥 Baixar Scape 2026</h2>
+        <p class="modal-subtitle">
+          Preencha seus dados para receber o Nirooh Scape 2026 completo.
+        </p>
+        
+        <form id="downloadForm">         
+          <div class="form-group">
+            <label class="form-label" for="nome">Nome Completo *</label>
+            <input 
+              type="text" 
+              class="form-input" 
+              id="nome" 
+              name="nome" 
+              placeholder="Seu nome completo"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail Corporativo *</label>
+            <input 
+              type="email" 
+              class="form-input" 
+              id="email" 
+              name="email" 
+              placeholder="seu@empresa.com"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="celular">Celular *</label>
+            <input 
+              type="tel" 
+              class="form-input" 
+              id="celular" 
+              name="celular" 
+              placeholder="(11) 99999-9999"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="empresa">Empresa *</label>
+            <input 
+              type="text" 
+              class="form-input" 
+              id="empresa" 
+              name="empresa" 
+              placeholder="Nome da sua empresa"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="cargo">Cargo *</label>
+            <input 
+              type="text" 
+              class="form-input" 
+              id="cargo" 
+              name="cargo" 
+              placeholder="Seu cargo atual"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="area">Área de Atuação *</label>
+            <select class="form-select" id="area" name="area" required>
+              <option value="">Selecione sua área</option>
+              <option value="publisher">Publisher / Proprietário de Mídia</option>
+              <option value="agencia">Agência de Publicidade</option>
+              <option value="anunciante">Anunciante / Marca</option>
+              <option value="DSP">DSP / Trading Desk</option>
+              <option value="SSP">SSP / Plataforma</option>
+              <option value="CMS">CMS / Tecnologia</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+          
+          <div class="form-checkbox-group">
+            <input 
+              type="checkbox" 
+              class="form-checkbox" 
+              id="contato" 
+              name="contato"
+            />
+            <label class="form-checkbox-label" for="contato">
+              Desejo receber uma demonstração personalizada da plataforma Nirooh e falar com um especialista.
+            </label>
+          </div>
+          
+          <button type="submit" class="submit-button" id="submitBtn">
+            <span>Baixar Agora</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    
+    <div id="successModal" class="modal-overlay">
+      <div class="modal-container">
+        <button class="modal-close" id="closeSuccess">&times;</button>
+        
+        <div class="success-content">
+          <div class="success-icon">✓</div>
+          <h2 class="success-title">Download Iniciado! 🎉</h2>
+          <p class="success-message">
+            Obrigado pelo seu interesse no Nirooh Scape 2026! Seu download está sendo iniciado automaticamente. 
+            Caso não inicie em alguns segundos, clique no botão abaixo para baixar o PDF.
+          </p>
+          <a href="/static/pdf/nirooh-scape-2026-27.pdf" class="cta-button" id="manualDownload" target="_blank">
+            <span>Baixar Manualmente</span>
+          </a>
+          <button class="cta-button" id="closeSuccessBtn" style="background: rgba(255,255,255,0.1); color: #fff; margin-top: 1rem;">
+            <span>Fechar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      
+      const particlesContainer = document.getElementById('particles');
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 15) + 's';
+        particlesContainer.appendChild(particle);
+      }
+      
+      
+      const downloadModal = document.getElementById('downloadModal');
+      const successModal = document.getElementById('successModal');
+      const openModalBtn = document.getElementById('openModal');
+      const closeModalBtn = document.getElementById('closeModal');
+      const closeSuccessBtn = document.getElementById('closeSuccess');
+      const closeSuccessBtnAlt = document.getElementById('closeSuccessBtn');
+      const downloadForm = document.getElementById('downloadForm');
+      
+      function openModal() {
+        downloadModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeModal() {
+        downloadModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      function closeSuccess() {
+        successModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      openModalBtn.addEventListener('click', openModal);
+      closeModalBtn.addEventListener('click', closeModal);
+      closeSuccessBtn.addEventListener('click', closeSuccess);
+      closeSuccessBtnAlt.addEventListener('click', closeSuccess);
+      
+      
+      downloadModal.addEventListener('click', function(e) {
+        if (e.target === downloadModal) {
+          closeModal();
+        }
+      });
+      
+      successModal.addEventListener('click', function(e) {
+        if (e.target === successModal) {
+          closeSuccess();
+        }
+      });
+      
+      
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeModal();
+          closeSuccess();
+        }
+      });
+      
+      
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+      
+      function formatPhone(value) {
+        const numbers = value.replace(/\D/g, '');
+        if (numbers.length <= 11) {
+          return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        }
+        return value;
+      }
+      
+      document.getElementById('celular').addEventListener('input', function(e) {
+        e.target.value = formatPhone(e.target.value);
+      });
+      
+      
+      downloadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const celular = document.getElementById('celular').value.trim();
+        const empresa = document.getElementById('empresa').value.trim();
+        const cargo = document.getElementById('cargo').value.trim();
+        const area = document.getElementById('area').value;
+        const checkbox = document.getElementById('contato').checked;
+        
+        
+        if (!nome || !email || !celular || !empresa || !cargo || !area) {
+          alert('Por favor, preencha todos os campos obrigatórios.');
+          return;
+        }
+        
+        if (!validateEmail(email)) {
+          alert('Por favor, insira um e-mail válido.');
+          return;
+        }
+        
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Processando...</span>';
+        
+        const data = {
+            webinar: 'scape-2026',
+            nome: nome,
+            email: email,
+            celular: celular,
+            empresa: empresa,
+            cargo: cargo,
+            area: area,
+            checkbox: checkbox
+        };
+        
+        fetch("/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            window.open(data.redirect, "_blank");
+            window.focus();
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+      });
+    </script>
+  </body>
+</html>
