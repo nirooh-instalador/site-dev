@@ -63,7 +63,6 @@ jobs:
                   url="https://nirooh.com"
                 else
                   path="${file#site/}"
-                  path="${path%.html}"
                   url="https://nirooh.com/${path}"
                 fi
                 urls="${urls}\"${url}\","
