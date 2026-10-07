@@ -59,10 +59,11 @@ jobs:
           while IFS= read -r file; do
             case "$file" in
               *.html)
-                if [ "$file" = "index.html" ]; then
+                if [ "$file" = "site/index.html" ]; then
                   url="https://nirooh.com"
                 else
-                  path="${file%.html}"
+                  path="${file#site/}"
+                  path="${path%.html}"
                   url="https://nirooh.com/${path}"
                 fi
                 urls="${urls}\"${url}\","
