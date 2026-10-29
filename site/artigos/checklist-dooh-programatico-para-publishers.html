@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Google Consent Mode -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    var niroohAnalyticsConsent = window.localStorage.getItem("nirooh_analytics_consent") === "accepted" ? "granted" : "denied";
+    window.gtag("consent", "default", {
+      analytics_storage: niroohAnalyticsConsent,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      functionality_storage: "granted",
+      security_storage: "granted",
+      wait_for_update: 500
+    });
+  </script>
+  <!-- End Google Consent Mode -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MX3D4GL4');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base target="_self" />
+  <title>Checklist para conectar telas ao DOOH programático | Nirooh</title>
+  <meta name="description"
+    content="Do metadado do inventário à prova de entrega: um checklist em seis blocos para o publisher avaliar o que está pronto antes de entrar no DOOH programático." />
+  <link rel="canonical" href="https://nirooh.com/artigos/checklist-dooh-programatico-para-publishers.html" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Checklist para conectar suas telas ao DOOH programático" />
+  <meta property="og:description"
+    content="Inventário, tecnologia, dados, comercial, jurídico e operação: seis blocos para saber o que está pronto — e o que ainda trava a entrada no programático." />
+  <meta property="og:url" content="https://nirooh.com/artigos/checklist-dooh-programatico-para-publishers.html" />
+  <meta property="og:image" content="https://nirooh.com/assets/og-nirooh.png" />
+  <meta property="article:published_time" content="2026-10-29" />
+  <meta property="article:modified_time" content="2026-10-29" />
+  <meta property="article:section" content="Monetização" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"BlogPosting","@id":"https://nirooh.com/artigos/checklist-dooh-programatico-para-publishers.html#article","mainEntityOfPage":"https://nirooh.com/artigos/checklist-dooh-programatico-para-publishers.html","headline":"Checklist para conectar suas telas ao DOOH programático","description":"Seis blocos de verificação — inventário, tecnologia, dados, comercial, jurídico e operação — para o publisher avaliar a entrada no DOOH programático.","image":"https://nirooh.com/assets/og-nirooh.png","datePublished":"2026-10-29","dateModified":"2026-10-29","inLanguage":"pt-BR","author":{"@type":"Organization","name":"Nirooh","url":"https://nirooh.com/"},"publisher":{"@id":"https://nirooh.com/#organization"},"isPartOf":{"@id":"https://nirooh.com/artigos.html#blog"},"articleSection":"Monetização"},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://nirooh.com/"},{"@type":"ListItem","position":2,"name":"Conteúdos","item":"https://nirooh.com/artigos.html"},{"@type":"ListItem","position":3,"name":"Checklist para conectar telas ao DOOH programático","item":"https://nirooh.com/artigos/checklist-dooh-programatico-para-publishers.html"}]},
+      {"@type":"FAQPage","@id":"https://nirooh.com/artigos/checklist-dooh-programatico-para-publishers.html#faq","mainEntity":[
+        {"@type":"Question","name":"Por onde começar a entrada no DOOH programático?","acceptedAnswer":{"@type":"Answer","text":"Pelo inventário. Antes de contratar SSP ou integrar player, é preciso descrever cada tela com identificação, geolocalização, ambiente, formato, horário e regras de exibição. Sem isso, nenhuma conexão posterior produz resultado confiável."}},
+        {"@type":"Question","name":"Quanto tempo leva para conectar uma rede ao programático?","acceptedAnswer":{"@type":"Answer","text":"Depende do estado do inventário. Uma rede com metadados padronizados e tecnologia estável consegue conectar em poucas semanas. Redes com dados dispersos e players heterogêneos costumam levar mais tempo na padronização do que na integração técnica em si."}},
+        {"@type":"Question","name":"Preciso trocar meu CMS para entrar no programático?","acceptedAnswer":{"@type":"Answer","text":"Não necessariamente. O CMS precisa permitir integração, agendamento confiável e registro de exibição. Se ele já faz isso, a troca pode ser desnecessária. O ponto crítico é a capacidade de expor inventário e comprovar entrega, não a marca do sistema."}},
+        {"@type":"Question","name":"Preciso de audiência medida para começar?","acceptedAnswer":{"@type":"Answer","text":"Não, mas o preço reflete o nível de prova. Sem medição, a venda se apoia em contexto, contagem de fluxo e histórico de entrega. Quanto mais estruturada a evidência, menor a dependência de desconto."}},
+        {"@type":"Question","name":"O que é metadado de inventário?","acceptedAnswer":{"@type":"Answer","text":"É o conjunto de informações que descreve cada oportunidade: identificação da tela, endereço, geolocalização, ambiente, dimensão, orientação, horário de funcionamento, duração do loop, formatos aceitos e restrições. É o que permite ao comprador filtrar e avaliar elegibilidade."}}
+      ]}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/site-v3.css" />
+  <link rel="stylesheet" href="../assets/article-v3.css" />
+  <link rel="icon" type="image/png" href="../assets/logo-nirooh-square.png" />
+  <script src="../assets/analytics-consent.js" defer></script>
+  <script src="../assets/site-v3.js" defer></script>
+  <link rel="stylesheet" href="../assets/light-commercial.css?v=20260827" />
+</head>
+
+<body class="article-page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX3D4GL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header global-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Nirooh — início"><img src="../assets/logo-nirooh-grey.png"
+          alt="Nirooh" /></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"
+        data-global-menu-toggle><span>Menu</span><i aria-hidden="true"></i></button>
+      <div class="nav-panel" data-global-nav>
+        <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+          <a href="../publisher.html">Publishers</a>
+          <a href="../poes.html">POES</a>
+          <a href="../niroohnet.html">Anunciantes</a>
+          <a href="../curso.html">Academy</a>
+          <a href="../artigos.html">Conteúdo</a>
+          <a href="../quem-somos.html">Quem somos</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="ghost-button" href="https://cms.nirooh.com/login" target="_blank">Login</a>
+          <div class="language-switcher" aria-label="Selecionar idioma">
+            <a class="flag-link active" href="../index.html" aria-label="Português do Brasil"
+              title="Português do Brasil">🇧🇷</a>
+            <a class="flag-link" href="../index-en.html" aria-label="English" title="English">🇺🇸</a>
+            <a class="flag-link" href="../index-es.html" aria-label="Español" title="Español">🇪🇸</a>
+          </div>
+          <a class="button button-small button-dark" href="../lead.html">Falar com especialista</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-main" id="conteudo">
+    <article class="article-shell">
+      <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Início</a><span>/</span><a
+          href="../artigos.html">Conteúdos</a><span>/</span><span aria-current="page">Checklist DOOH
+          programático</span></nav>
+      <header class="article-hero">
+        <span class="eyebrow">Monetização para publishers</span>
+        <h1>Checklist para conectar suas telas ao DOOH programático</h1>
+        <p>Estar no programático não é assinar um contrato de SSP. É ter inventário descrito, tecnologia estável, dados
+          documentados e regras comerciais que sobrevivem ao primeiro leilão.</p>
+      </header>
+
+      <div class="article-body">
+        <h2 id="resumo">Resumo executivo</h2>
+        <ul>
+          <li><strong>A conexão técnica é a parte fácil.</strong> O que atrasa a entrada no programático é inventário
+            sem padrão, dados sem método e regra comercial sem dono.</li>
+          <li><strong>Seis blocos precisam estar minimamente prontos:</strong> inventário, tecnologia, dados, comercial,
+            jurídico e operação.</li>
+          <li><strong>Comece por uma praça.</strong> Padronizar uma amostra e medir o ciclo completo ensina mais do que
+            conectar a rede inteira de uma vez.</li>
+        </ul>
+
+        <div class="callout">O mercado já tem escala: o DOOH movimentou R$ 4,4 bilhões em 2025, segundo o <a
+            href="https://www.portaldapropaganda.com.br/noticias/42119/iab-brasil-lanca-guia-de-dooh-programatico-atualizado-e-com-conteudo-inedito-sobre-a-realidade-brasileira/"
+            target="_blank" rel="noopener">Digital Adspend 2026 do IAB Brasil com o Ibope</a>. O que falta, na maioria
+          das redes, não é demanda — é inventário legível.</div>
+
+        <nav class="article-toc" aria-label="Sumário do artigo">
+          <span>Neste guia</span>
+          <ol>
+            <li><a href="#exige">O que “estar no programático” exige de verdade</a></li>
+            <li><a href="#checklist">O checklist em seis blocos</a></li>
+            <li><a href="#inventario">Bloco 1 — Inventário</a></li>
+            <li><a href="#tecnologia">Bloco 2 — Tecnologia</a></li>
+            <li><a href="#dados">Bloco 3 — Dados e audiência</a></li>
+            <li><a href="#comercial">Bloco 4 — Comercial</a></li>
+            <li><a href="#juridico">Bloco 5 — Jurídico e privacidade</a></li>
+            <li><a href="#operacao">Bloco 6 — Operação</a></li>
+            <li><a href="#fases">Ordem de implantação: quatro fases</a></li>
+            <li><a href="#erros">Cinco erros de implantação</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="exige">O que “estar no programático” exige de verdade</h2>
+        <p>Existe uma expectativa comum de que entrar no programático seja um evento: contrata-se uma plataforma,
+          conecta-se o inventário e a demanda aparece. Na prática, é um processo com pré-requisitos. A plataforma é
+          apenas a última peça.</p>
+        <p>O comprador programático opera por filtro. Ele precisa encontrar a tela, entender o contexto, comparar com
+          outras opções e confiar no relatório. Quando qualquer uma dessas etapas falha, o inventário não é rejeitado de
+          forma explícita: ele simplesmente não é selecionado. É por isso que redes com boa localização podem passar
+          meses sem vender, convencidas de que o problema é o mercado.</p>
+        <p>O <a href="https://iabbrasil.com.br/dooh-programatico-um-guia-para-anunciantes-edicao-2026"
+            target="_blank" rel="noopener">guia setorial do IAB Brasil para DOOH programático</a> reforça a mesma
+          direção ao tratar conceitos, modelos de transação, mensuração e governança como base comum entre publishers,
+          agências e anunciantes. Sem esse vocabulário compartilhado, cada negociação recomeça do zero.</p>
+
+        <h2 id="checklist">O checklist em seis blocos</h2>
+        <p>Use a tabela como diagnóstico rápido. “Mínimo” é o que permite operar; “pronto” é o que sustenta escala.</p>
+
+        <div class="article-table">
+          <table>
+            <caption class="sr-only">Checklist de seis blocos para entrada no DOOH programático</caption>
+            <thead>
+              <tr>
+                <th scope="col">Bloco</th>
+                <th scope="col">Mínimo para operar</th>
+                <th scope="col">Sinal de que está pronto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Inventário</strong></td>
+                <td>Identificação, geo, ambiente, formato e horário por tela.</td>
+                <td>Qualquer pessoa monta um plano filtrando o catálogo.</td>
+              </tr>
+              <tr>
+                <td><strong>Tecnologia</strong></td>
+                <td>Player estável, agendamento e registro de exibição.</td>
+                <td>Proof of play confiável e fallback funcionando.</td>
+              </tr>
+              <tr>
+                <td><strong>Dados</strong></td>
+                <td>Saber o que é medido e o que é estimado.</td>
+                <td>Metodologia documentada e comparável entre telas.</td>
+              </tr>
+              <tr>
+                <td><strong>Comercial</strong></td>
+                <td>Floor, formatos, preços e política de prioridade.</td>
+                <td>Direto e programático não disputam o mesmo slot.</td>
+              </tr>
+              <tr>
+                <td><strong>Jurídico</strong></td>
+                <td>Contrato de mídia, privacidade e uso de dados.</td>
+                <td>Base legal e retenção definidas por fonte de dado.</td>
+              </tr>
+              <tr>
+                <td><strong>Operação</strong></td>
+                <td>Responsável, SLA e rotina de relatório.</td>
+                <td>Campanha entra, roda e é conciliada sem planilha manual.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="inventario">Bloco 1 — Inventário</h2>
+        <p>Este é o bloco que decide todos os outros. Um inventário legível permite vender; um inventário confuso
+          transforma qualquer plataforma em custo.</p>
+        <p>Cada tela precisa, no mínimo, de:</p>
+        <ul>
+          <li><strong>Identificação única</strong> — código estável, que não muda quando a tela troca de nome comercial.
+          </li>
+          <li><strong>Endereço e geolocalização</strong> — com precisão suficiente para raio e proximidade.</li>
+          <li><strong>Praça e região</strong> — cidade, UF e área de planejamento.</li>
+          <li><strong>Ambiente</strong> — rua, shopping, aeroporto, academia, elevador, varejo, transporte.</li>
+          <li><strong>Dimensão, resolução e orientação</strong> — o que o criativo precisa respeitar.</li>
+          <li><strong>Horário de funcionamento</strong> — inclusive restrições por dia da semana.</li>
+          <li><strong>Loop e share of voice</strong> — quantas inserções cabem e quantas ficam disponíveis.</li>
+          <li><strong>Formatos e durações aceitos</strong> — vídeo, imagem, áudio, limites de peso.</li>
+          <li><strong>Restrições</strong> — categorias bloqueadas, conteúdo sensível, exclusividade contratada.</li>
+          <li><strong>Status operacional</strong> — ativa, em manutenção, sazonal.</li>
+        </ul>
+        <p>O teste é objetivo: uma pessoa que nunca viu sua rede consegue montar um plano só com o catálogo? Se a
+          resposta for não, o bloco está incompleto.</p>
+
+        <h2 id="tecnologia">Bloco 2 — Tecnologia</h2>
+        <p>Não é sobre ter o sistema mais moderno. É sobre ter previsibilidade.</p>
+        <ul>
+          <li><strong>CMS com agendamento confiável</strong> — grade, playlist e distribuição por dispositivo.</li>
+          <li><strong>Player com fallback offline</strong> — a tela não pode ficar vazia porque a conexão caiu.</li>
+          <li><strong>Conectividade redundante</strong> — link secundário ou cache local para o conteúdo crítico.</li>
+          <li><strong>Sincronização de relógio</strong> — horário consistente entre player, ad server e relatório.</li>
+          <li><strong>Proof of play</strong> — registro com data, hora, criativo, duração e identificação do
+            dispositivo.</li>
+          <li><strong>Integração com ad server e rotas de demanda</strong> — sem planilha no meio do fluxo.</li>
+          <li><strong>Monitoramento remoto</strong> — alerta de tela offline antes que o cliente reclame.</li>
+        </ul>
+        <p>A pergunta que orienta este bloco é simples: se algo falhar às 19h de um sábado, como você descobre e em
+          quanto tempo corrige?</p>
+
+        <h2 id="dados">Bloco 3 — Dados e audiência</h2>
+        <p>O comprador aceita diferentes níveis de evidência, desde que saiba qual está recebendo. O problema não é ter
+          dado estimado; é apresentá-lo como medido.</p>
+        <p>Documente, para cada fonte:</p>
+        <ul>
+          <li><strong>O que é observado</strong> — contagem, direção, permanência, horário.</li>
+          <li><strong>O que é modelado</strong> — perfil demográfico, renda, intenção, projeção de alcance.</li>
+          <li><strong>Qual a base</strong> — sensor, painel, mobilidade, contexto ou histórico de entrega.</li>
+          <li><strong>Qual o período</strong> — sazonalidade e data da última atualização.</li>
+          <li><strong>Qual o limite</strong> — amostra pequena, recorte granular, erro conhecido.</li>
+        </ul>
+        <p>Em privacidade, a regra é anterior à tecnologia: dado pessoal exige base legal, finalidade e retenção
+          definidas. Dados de mobilidade e localização devem ser tratados de forma agregada e anonimizada, com contrato
+          que deixe claro o papel de cada parte. Isso vale também para parceiros que fornecem medição.</p>
+
+        <h2 id="comercial">Bloco 4 — Comercial</h2>
+        <p>Aqui vive a maior parte dos conflitos. Antes de abrir inventário, escreva as regras:</p>
+        <ul>
+          <li><strong>Floor por contexto</strong> — praça, ambiente, horário e formato, não um valor único.</li>
+          <li><strong>Prioridade entre direto e programático</strong> — quem ocupa o slot quando os dois querem.</li>
+          <li><strong>Política de deals</strong> — volume mínimo, prazo, preço e o que é exclusivo.</li>
+          <li><strong>Bloqueio de anunciante e categoria</strong> — aplicado em todas as rotas.</li>
+          <li><strong>Aprovação de criativo</strong> — prazo, critérios e responsável.</li>
+          <li><strong>Tabela de preços</strong> — pública para o time, mesmo que não seja publicada no site.</li>
+          <li><strong>Metas</strong> — ocupação, receita por oportunidade e participação do programático.</li>
+        </ul>
+        <p>Sem essa camada, o programático não é um canal: é uma disputa interna. O artigo sobre <a
+            href="como-monetizar-telas-digitais.html">como monetizar telas digitais</a> detalha como cada regra afeta a
+          receita.</p>
+
+        <h2 id="juridico">Bloco 5 — Jurídico e privacidade</h2>
+        <p>Não é a parte mais atraente da implantação, mas é a que evita retrabalho. Verifique:</p>
+        <ul>
+          <li><strong>Contrato de mídia</strong> — o que está sendo vendido, unidade de cobrança e critério de
+            entrega.</li>
+          <li><strong>Termos da rota programática</strong> — responsabilidades sobre criativo, glosa e dados.</li>
+          <li><strong>Privacidade e LGPD</strong> — base legal, finalidade, retenção e compartilhamento.</li>
+          <li><strong>Uso de imagem do local</strong> — autorização para exibir conteúdo publicitário no ponto.</li>
+          <li><strong>Regras locais de publicidade</strong> — restrições municipais aplicáveis ao suporte e ao
+            conteúdo.</li>
+          <li><strong>Responsabilidade operacional</strong> — quem responde por falha de exibição e por danos ao
+            equipamento.</li>
+        </ul>
+        <p>Vale mapear também quem assina o quê. Em operações com parceiros de tela, o contrato do publisher com o
+          proprietário do espaço precisa permitir a venda programática — inclusive a exibição de marcas de terceiros.
+        </p>
+
+        <h2 id="operacao">Bloco 6 — Operação</h2>
+        <p>O último bloco é o que mantém a receita depois da primeira campanha.</p>
+        <ul>
+          <li><strong>Dono do inventário</strong> — uma pessoa responsável por metadado e status.</li>
+          <li><strong>SLA de troca de criativo</strong> — prazo acordado e horário limite.</li>
+          <li><strong>Plantão de falha</strong> — quem aciona o quê, em qual ordem.</li>
+          <li><strong>Relatório semanal</strong> — entrega, fill rate, receita por oportunidade e motivos de não venda.
+          </li>
+          <li><strong>Conciliação mensal</strong> — divergência entre plataformas resolvida com regra, não com ajuste
+            manual.</li>
+          <li><strong>Rotina de revisão de floor</strong> — cadência definida, com dado de suporte.</li>
+        </ul>
+        <p>É essa camada que transforma a operação em sistema. A Nirooh opera com 99,9% de disponibilidade, latência
+          abaixo de 50 ms, 4,2 bilhões de impressões e presença em 90% do território nacional — números que só têm
+          valor quando existe processo para sustentá-los no dia a dia.</p>
+
+        <h2 id="fases">Ordem de implantação: quatro fases</h2>
+        <p><strong>Fase 0 — Diagnóstico (2 semanas).</strong> Escolha uma praça e audite os seis blocos. O objetivo é
+          produzir uma lista de lacunas, não corrigir tudo.</p>
+        <p><strong>Fase 1 — Padronização (4 a 6 semanas).</strong> Complete o metadado, defina formatos e escreva as
+          regras comerciais. Aqui está o maior retorno por esforço.</p>
+        <p><strong>Fase 2 — Conexão (2 a 4 semanas).</strong> Integre player, ad server e rota de demanda. Rode uma
+          campanha controlada antes de abrir volume.</p>
+        <p><strong>Fase 3 — Otimização (contínua).</strong> Compare semanas, ajuste floor por contexto e amplie a rede
+          apenas quando o ciclo da praça piloto estiver estável.</p>
+        <p>A tentação de inverter a ordem é grande: conectar primeiro e organizar depois. O resultado costuma ser uma
+          operação que vende pouco, não sabe por quê e culpa a plataforma.</p>
+
+        <h2 id="erros">Cinco erros de implantação</h2>
+        <ol>
+          <li><strong>Conectar antes de descrever.</strong> O inventário entra no ar sem metadado e vira inelegível.
+          </li>
+          <li><strong>Delegar o floor ao SSP.</strong> Quem define preço mínimo é o publisher, com regra e contexto.
+          </li>
+          <li><strong>Ignorar o impacto no direto.</strong> Sem prioridade declarada, o programático canibaliza a
+            margem.</li>
+          <li><strong>Medir tudo sem metodologia.</strong> Muitos números, nenhuma comparação possível.</li>
+          <li><strong>Não ter dono interno.</strong> A implantação vira projeto de fornecedor e morre no primeiro
+            contrato renovado.</li>
+        </ol>
+
+        <section class="article-faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Perguntas frequentes</h2>
+
+          <h3>Por onde começar a entrada no DOOH programático?</h3>
+          <p>Pelo inventário. Antes de contratar SSP ou integrar player, é preciso descrever cada tela com identificação,
+            geolocalização, ambiente, formato, horário e regras de exibição. Sem isso, nenhuma conexão posterior produz
+            resultado confiável.</p>
+
+          <h3>Quanto tempo leva para conectar uma rede ao programático?</h3>
+          <p>Depende do estado do inventário. Uma rede com metadados padronizados e tecnologia estável consegue conectar
+            em poucas semanas. Redes com dados dispersos e players heterogêneos costumam levar mais tempo na padronização
+            do que na integração técnica em si.</p>
+
+          <h3>Preciso trocar meu CMS para entrar no programático?</h3>
+          <p>Não necessariamente. O CMS precisa permitir integração, agendamento confiável e registro de exibição. Se ele
+            já faz isso, a troca pode ser desnecessária. O ponto crítico é a capacidade de expor inventário e comprovar
+            entrega, não a marca do sistema.</p>
+
+          <h3>Preciso de audiência medida para começar?</h3>
+          <p>Não, mas o preço reflete o nível de prova. Sem medição, a venda se apoia em contexto, contagem de fluxo e
+            histórico de entrega. Quanto mais estruturada a evidência, menor a dependência de desconto.</p>
+
+          <h3>O que é metadado de inventário?</h3>
+          <p>É o conjunto de informações que descreve cada oportunidade: identificação da tela, endereço, geolocalização,
+            ambiente, dimensão, orientação, horário de funcionamento, duração do loop, formatos aceitos e restrições. É
+            o que permite ao comprador filtrar e avaliar elegibilidade.</p>
+        </section>
+      </div>
+
+      <footer class="article-next"><span>Continue explorando</span>
+        <h2>Se o inventário está pronto, o próximo passo é a política comercial.</h2>
+        <div><a href="../artigos.html">Ver todos os conteúdos <b aria-hidden="true">→</b></a><a
+            href="como-monetizar-telas-digitais.html">Voltar ao guia <b aria-hidden="true">→</b></a></div>
+      </footer>
+    </article>
+  </main>
+  <a class="whatsapp-button" href="https://wa.me/5519997455263" aria-label="Falar com a Nirooh no WhatsApp"
+    title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.58 0 .27 5.3.27 11.82c0 2.08.54 4.12 1.58 5.92L.17 24l6.4-1.68a11.8 11.8 0 0 0 5.53 1.4h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.42-8.42ZM12.1 21.72a9.8 9.8 0 0 1-5-1.37l-.36-.22-3.8 1 1.01-3.7-.24-.38a9.78 9.78 0 0 1-1.5-5.23c0-5.42 4.42-9.83 9.86-9.83 2.63 0 5.1 1.03 6.96 2.89a9.77 9.77 0 0 1 2.9 6.94c0 5.43-4.42 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z" />
+    </svg>
+  </a>
+  <div class="cookie-banner" data-cookie-banner hidden>
+    <p>Usamos Google Tag Manager e analytics do HubSpot para entender a navegação. Consulte nossa <a
+        href="../termos/politica-de-privacidade.html">Política de Privacidade</a>.</p>
+    <div class="cookie-actions"><button class="cookie-accept" type="button" data-cookie-accept>Aceitar
+        analytics</button><button class="cookie-reject" type="button" data-cookie-reject>Continuar sem
+        analytics</button></div>
+  </div>
+</body>
+
+</html>

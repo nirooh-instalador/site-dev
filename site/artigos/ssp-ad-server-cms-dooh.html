@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Google Consent Mode -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    var niroohAnalyticsConsent = window.localStorage.getItem("nirooh_analytics_consent") === "accepted" ? "granted" : "denied";
+    window.gtag("consent", "default", {
+      analytics_storage: niroohAnalyticsConsent,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      functionality_storage: "granted",
+      security_storage: "granted",
+      wait_for_update: 500
+    });
+  </script>
+  <!-- End Google Consent Mode -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MX3D4GL4');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base target="_self" />
+  <title>SSP, ad server e CMS no DOOH: quem faz o quê | Nirooh</title>
+  <meta name="description"
+    content="CMS, ad server e SSP parecem a mesma coisa, mas decidem coisas diferentes. Entenda cada camada do DOOH e onde a operação do publisher perde controle." />
+  <link rel="canonical" href="https://nirooh.com/artigos/ssp-ad-server-cms-dooh.html" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="SSP, ad server e CMS no DOOH: quem faz o quê na sua operação" />
+  <meta property="og:description"
+    content="Uma camada decide o que aparece, outra registra o que rodou, outra vende o espaço. Confundir as três custa controle e margem." />
+  <meta property="og:url" content="https://nirooh.com/artigos/ssp-ad-server-cms-dooh.html" />
+  <meta property="og:image" content="https://nirooh.com/assets/og-nirooh.png" />
+  <meta property="article:published_time" content="2026-10-29" />
+  <meta property="article:modified_time" content="2026-10-29" />
+  <meta property="article:section" content="Tecnologia" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"BlogPosting","@id":"https://nirooh.com/artigos/ssp-ad-server-cms-dooh.html#article","mainEntityOfPage":"https://nirooh.com/artigos/ssp-ad-server-cms-dooh.html","headline":"SSP, ad server e CMS no DOOH: quem faz o quê na sua operação","description":"CMS, ad server e SSP no DOOH: o que cada camada decide, registra e vende, e onde a operação perde controle quando elas se sobrepõem.","image":"https://nirooh.com/assets/og-nirooh.png","datePublished":"2026-10-29","dateModified":"2026-10-29","inLanguage":"pt-BR","author":{"@type":"Organization","name":"Nirooh","url":"https://nirooh.com/"},"publisher":{"@id":"https://nirooh.com/#organization"},"isPartOf":{"@id":"https://nirooh.com/artigos.html#blog"},"articleSection":"Tecnologia"},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://nirooh.com/"},{"@type":"ListItem","position":2,"name":"Conteúdos","item":"https://nirooh.com/artigos.html"},{"@type":"ListItem","position":3,"name":"SSP, ad server e CMS no DOOH","item":"https://nirooh.com/artigos/ssp-ad-server-cms-dooh.html"}]},
+      {"@type":"FAQPage","@id":"https://nirooh.com/artigos/ssp-ad-server-cms-dooh.html#faq","mainEntity":[
+        {"@type":"Question","name":"CMS e ad server são a mesma coisa no DOOH?","acceptedAnswer":{"@type":"Answer","text":"Não. O CMS organiza o conteúdo da tela: grade, playlist, agendamento e distribuição. O ad server resolve a competição entre campanhas e registra a entrega. Um organiza o que a tela exibe; o outro decide qual anúncio elegível ocupa cada oportunidade e prova que ele rodou."}},
+        {"@type":"Question","name":"Preciso de um SSP se já tenho ad server?","acceptedAnswer":{"@type":"Answer","text":"São funções diferentes. O ad server executa e comprova a entrega; o SSP empacota o inventário e o conecta a compradores. Um não substitui o outro. Ter ad server sem rota de demanda limita a venda ao esforço comercial próprio."}},
+        {"@type":"Question","name":"Posso usar o ad server do próprio SSP?","acceptedAnswer":{"@type":"Answer","text":"Pode, e em muitas operações faz sentido. O trade-off é depender de terceiro para uma decisão que é sua: prioridade entre direto e programático, bloqueio de anunciante e floor por contexto. Quanto mais crítica essa decisão, maior o argumento para manter uma camada própria de controle."}},
+        {"@type":"Question","name":"O que é proof of play?","acceptedAnswer":{"@type":"Answer","text":"É o registro de que um criativo foi efetivamente exibido na tela, com data, horário, duração e identificação do dispositivo. No DOOH, é a base da conciliação entre o que foi vendido e o que foi entregue."}},
+        {"@type":"Question","name":"Onde entra o POES nesse stack?","acceptedAnswer":{"@type":"Answer","text":"Entre o CMS e as rotas de demanda, como camada de orquestração. Ele recebe a oportunidade, aplica as regras comerciais do publisher, escolhe a rota elegível e acompanha a entrega, sem substituir CMS, ad server ou SSP."}}
+      ]}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/site-v3.css" />
+  <link rel="stylesheet" href="../assets/article-v3.css" />
+  <link rel="icon" type="image/png" href="../assets/logo-nirooh-square.png" />
+  <script src="../assets/analytics-consent.js" defer></script>
+  <script src="../assets/site-v3.js" defer></script>
+  <link rel="stylesheet" href="../assets/light-commercial.css?v=20260827" />
+</head>
+
+<body class="article-page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX3D4GL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header global-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Nirooh — início"><img src="../assets/logo-nirooh-grey.png"
+          alt="Nirooh" /></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"
+        data-global-menu-toggle><span>Menu</span><i aria-hidden="true"></i></button>
+      <div class="nav-panel" data-global-nav>
+        <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+          <a href="../publisher.html">Publishers</a>
+          <a href="../poes.html">POES</a>
+          <a href="../niroohnet.html">Anunciantes</a>
+          <a href="../curso.html">Academy</a>
+          <a href="../artigos.html">Conteúdo</a>
+          <a href="../quem-somos.html">Quem somos</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="ghost-button" href="https://cms.nirooh.com/login" target="_blank">Login</a>
+          <div class="language-switcher" aria-label="Selecionar idioma">
+            <a class="flag-link active" href="../index.html" aria-label="Português do Brasil"
+              title="Português do Brasil">🇧🇷</a>
+            <a class="flag-link" href="../index-en.html" aria-label="English" title="English">🇺🇸</a>
+            <a class="flag-link" href="../index-es.html" aria-label="Español" title="Español">🇪🇸</a>
+          </div>
+          <a class="button button-small button-dark" href="../lead.html">Falar com especialista</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-main" id="conteudo">
+    <article class="article-shell">
+      <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Início</a><span>/</span><a
+          href="../artigos.html">Conteúdos</a><span>/</span><span aria-current="page">SSP, ad server e CMS no
+          DOOH</span></nav>
+      <header class="article-hero">
+        <span class="eyebrow">Tecnologia e operação</span>
+        <h1>SSP, ad server e CMS no DOOH: quem faz o quê na sua operação</h1>
+        <p>As três camadas parecem a mesma coisa porque todas tocam a tela. Mas cada uma decide algo diferente — e
+          confundi-las é a forma mais rápida de perder controle comercial.</p>
+      </header>
+
+      <div class="article-body">
+        <h2 id="resumo">Resumo executivo</h2>
+        <ul>
+          <li><strong>CMS organiza o conteúdo da tela.</strong> Ele sabe o que deve aparecer, quando e por quanto tempo.
+          </li>
+          <li><strong>Ad server resolve a competição entre campanhas</strong> e registra o que efetivamente rodou.</li>
+          <li><strong>SSP vende o inventário</strong> e o conecta a compradores, com regras de preço e elegibilidade.
+          </li>
+          <li><strong>Quando as três se sobrepõem sem governança</strong>, os números divergem, o direto perde
+            prioridade e o publisher deixa de decidir o que é seu.</li>
+        </ul>
+
+        <div class="callout">Uma camada decide o que aparece. Outra prova o que rodou. Outra vende o espaço. Se a mesma
+          ferramenta faz as três sem regra escrita, ninguém sabe quem manda.</div>
+
+        <nav class="article-toc" aria-label="Sumário do artigo">
+          <span>Neste guia</span>
+          <ol>
+            <li><a href="#funcoes">Três funções, não três siglas</a></li>
+            <li><a href="#cms">CMS: o que decide o que aparece</a></li>
+            <li><a href="#adserver">Ad server: o que garante que o anúncio certo rodou</a></li>
+            <li><a href="#ssp">SSP: o que conecta o inventário à demanda</a></li>
+            <li><a href="#comparativo">Comparativo: quem decide, registra e vende</a></li>
+            <li><a href="#dsp">Onde entram DSP, exchange e comprador</a></li>
+            <li><a href="#sobreposicao">Quando as camadas se sobrepõem</a></li>
+            <li><a href="#orquestracao">A camada que falta: orquestração</a></li>
+            <li><a href="#auditoria">Seis perguntas para auditar seu stack</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="funcoes">Três funções, não três siglas</h2>
+        <p>A confusão começa no vocabulário. Fornecedores usam os mesmos termos para escopos diferentes, e o publisher
+          acaba comparando propostas que não cobrem a mesma coisa. Antes de discutir marca ou preço, vale separar as
+          funções pelo verbo que cada uma executa.</p>
+        <p>O CMS <strong>organiza</strong>. O ad server <strong>decide e registra</strong>. O SSP
+          <strong>vende</strong>. Uma operação pode ter as três funções em um único fornecedor, em três fornecedores
+          distintos ou em duas camadas com sobreposição parcial. O que não pode faltar é clareza sobre onde cada regra
+          vive.</p>
+        <p>Essa separação é o que permite diagnosticar problemas com precisão. Quando a campanha não aparece, o
+          problema pode estar na grade do CMS, na elegibilidade do ad server ou na rota do SSP — e cada um exige uma
+          correção diferente.</p>
+
+        <h2 id="cms">CMS: o que decide o que aparece</h2>
+        <p>O CMS é a camada de gestão de conteúdo. Ele mantém a grade da tela, as playlists, o agendamento por horário,
+          a distribuição para cada dispositivo e o monitoramento do que está no ar. Em DOOH, também costuma cuidar de
+          conteúdo próprio, fallback quando a conexão cai e regras de exibição por praça.</p>
+        <p>A pergunta que o CMS responde é: <strong>o que deve estar nesta tela agora?</strong> Ele não define preço,
+          não negocia campanha e, na maioria das operações, não decide qual anunciante tem prioridade comercial. Essa
+          decisão pertence a outra camada.</p>
+        <p>Um CMS frágil se manifesta de formas discretas: playlist que não atualiza, conteúdo antigo que reaparece,
+          horário dessincronizado entre dispositivos, ausência de confirmação de exibição. Nenhum desses sintomas
+          parece comercial, mas todos afetam a entrega — e, portanto, a receita.</p>
+
+        <h2 id="adserver">Ad server: o que garante que o anúncio certo rodou</h2>
+        <p>O ad server entra quando existe mais de uma campanha disputando a mesma oportunidade. Ele aplica prioridade,
+          frequência, metas, segmentação e regras de entrega, escolhe o criativo elegível e registra a impressão.</p>
+        <p>No DOOH, essa camada precisa lidar com particularidades que o display tradicional não tem: loop com duração
+          fixa, share of voice, sincronização de relógio, dispositivo sem cookie e prova de exibição por player. Um ad
+          server genérico, adaptado às pressas, costuma falhar exatamente nesses pontos.</p>
+        <p>A pergunta que ele responde é: <strong>qual anúncio elegível ocupa esta oportunidade, e como provo que ele
+            rodou?</strong> É a camada que sustenta a conciliação e, por consequência, o preço.</p>
+
+        <h2 id="ssp">SSP: o que conecta o inventário à demanda</h2>
+        <p>O SSP é a camada de venda. Ele empacota o inventário em produtos, expõe esses produtos a compradores, opera o
+          leilão ou os acordos privados, aplica floor e regras de elegibilidade e devolve relatório de entrega e
+          receita.</p>
+        <p>A pergunta que ele responde é: <strong>quem pode comprar este inventário, em que condições e por qual
+            preço?</strong> O SSP não decide sozinho o que aparece na tela nem substitui a relação comercial direta. Ele
+          é uma rota — poderosa, mas ainda uma rota.</p>
+        <p>É comum o publisher esperar que o SSP resolva também o problema de produto e de metadado. Não resolve. Um SSP
+          conectado a um inventário mal descrito apenas distribui a inconsistência em maior escala.</p>
+
+        <h2 id="comparativo">Comparativo: quem decide, registra e vende</h2>
+
+        <div class="article-table">
+          <table>
+            <caption class="sr-only">Comparativo entre CMS, ad server e SSP no DOOH</caption>
+            <thead>
+              <tr>
+                <th scope="col">Função</th>
+                <th scope="col">Decide</th>
+                <th scope="col">Registra</th>
+                <th scope="col">Vende</th>
+                <th scope="col">Risco se faltar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CMS</strong></td>
+                <td>Conteúdo, grade, horário e distribuição.</td>
+                <td>Estado da tela e confirmação de publicação.</td>
+                <td>Não.</td>
+                <td>Conteúdo errado no ar e operação manual.</td>
+              </tr>
+              <tr>
+                <td><strong>Ad server</strong></td>
+                <td>Qual criativo elegível ocupa a oportunidade.</td>
+                <td>Impressão, proof of play e frequência.</td>
+                <td>Não.</td>
+                <td>Entrega sem prova e conciliação frágil.</td>
+              </tr>
+              <tr>
+                <td><strong>SSP</strong></td>
+                <td>Elegibilidade, floor e rota de compra.</td>
+                <td>Oportunidade, lance, receita e relatório.</td>
+                <td>Sim.</td>
+                <td>Inventário isolado do mercado programático.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Repare que nenhuma das três responde sozinha à pergunta central do publisher: <strong>qual campanha tem
+            prioridade quando o direto e o programático disputam o mesmo slot?</strong> Essa é uma decisão de
+          governança, não de tecnologia.</p>
+
+        <h2 id="dsp">Onde entram DSP, exchange e comprador</h2>
+        <p>Do outro lado do balcão, a DSP é a plataforma de compra. Ela recebe as oportunidades expostas pelo SSP,
+          avalia contra o critério da campanha e dá o lance. O exchange é o ambiente onde essa negociação acontece —
+          tecnicamente, muitas vezes dentro do próprio SSP.</p>
+        <p>Para o publisher, a consequência prática é que a demanda chega por rotas com regras próprias. Um comprador
+          pode acessar o inventário via mercado aberto, deal privado ou acordo garantido. Cada rota tem floor, volume,
+          prazo e nível de controle diferentes. Tratar todas como “programático” apaga justamente a informação que
+          permitiria precificar melhor.</p>
+
+        <h2 id="sobreposicao">Quando as camadas se sobrepõem</h2>
+        <p>Sobreposição não é problema por si só. Muitas operações pequenas concentram funções para reduzir custo. O
+          problema aparece quando a sobreposição não tem regra escrita. Os sintomas mais comuns:</p>
+        <ol>
+          <li><strong>Números divergentes.</strong> O CMS conta exibições, o ad server conta impressões e o SSP conta
+            oportunidades. Sem uma fonte oficial, cada relatório conta uma história.</li>
+          <li><strong>Prioridade indefinida.</strong> Duas camadas acreditam que decidem. Na prática, uma campanha
+            direta pode perder o slot para um lance programático de menor valor.</li>
+          <li><strong>Canibalização do direto.</strong> O programático passa a acessar o inventário premium que já
+            estava comprometido, corroendo a margem do contrato principal.</li>
+          <li><strong>Perda de controle de categoria.</strong> O bloqueio de anunciante existe em uma camada, mas não
+            na outra. O concorrente entra pela porta que ficou aberta.</li>
+          <li><strong>Floor sem dono.</strong> O preço mínimo está na planilha, no SSP e no contrato ao mesmo tempo — e
+            vale o menor dos três.</li>
+        </ol>
+        <p>O antídoto é simples de enunciar e difícil de manter: uma fonte da verdade por métrica, uma camada decisora
+          por regra e um registro auditável de quem alterou o quê.</p>
+
+        <h2 id="orquestracao">A camada que falta: orquestração</h2>
+        <p>Entre o CMS e as rotas de demanda existe um espaço que nenhuma das três camadas cobre bem: a decisão
+          comercial por oportunidade. É ali que se define se aquela exibição deve ir para o direto, para um deal
+          privado ou para o mercado aberto; se o anunciante está bloqueado; se a categoria é permitida; e qual floor se
+          aplica àquele contexto.</p>
+        <p>O POES foi desenhado para ocupar esse espaço. Ele recebe a oportunidade, aplica as regras do publisher,
+          escolhe a rota elegível e acompanha a entrega. Não é CMS, não é ad server e não é SSP: é a camada que coordena
+          as três sem deixar a decisão comercial solta no meio do caminho.</p>
+        <p>Com essa separação, cada sistema faz o que sabe fazer. O CMS organiza a tela, o ad server comprova a entrega,
+          o SSP vende — e a política comercial permanece com quem é dono do inventário.</p>
+
+        <h2 id="auditoria">Seis perguntas para auditar seu stack</h2>
+        <p>Se a resposta a qualquer uma delas for “depende do fornecedor”, existe um risco de governança a resolver
+          antes de ampliar a operação.</p>
+        <ol>
+          <li><strong>Quem decide qual criativo entra no próximo slot?</strong> A resposta precisa ser um sistema e uma
+            regra, não uma pessoa.</li>
+          <li><strong>Onde vive a prioridade entre direto e programático?</strong> Se está em um contrato e não no
+            sistema, ela não é executada.</li>
+          <li><strong>Qual sistema é a fonte da verdade para impressão?</strong> Escolha um e faça os outros reportarem
+            a ele.</li>
+          <li><strong>Como o bloqueio de anunciante é aplicado?</strong> Precisa valer em todas as rotas, inclusive nas
+            que ainda não existem.</li>
+          <li><strong>Quem aplica o floor?</strong> E com que frequência ele é revisado por praça e contexto?</li>
+          <li><strong>Quanto tempo leva para montar um relatório de campanha?</strong> Se a resposta é manual, a
+            operação não escala.</li>
+        </ol>
+        <p>O próximo passo natural é transformar essas respostas em requisitos de implantação. O <a
+            href="checklist-dooh-programatico-para-publishers.html">checklist para conectar telas ao programático</a>
+          organiza isso em seis blocos, do metadado à operação.</p>
+
+        <section class="article-faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Perguntas frequentes</h2>
+
+          <h3>CMS e ad server são a mesma coisa no DOOH?</h3>
+          <p>Não. O CMS organiza o conteúdo da tela: grade, playlist, agendamento e distribuição. O ad server resolve a
+            competição entre campanhas e registra a entrega. Um organiza o que a tela exibe; o outro decide qual anúncio
+            elegível ocupa cada oportunidade e prova que ele rodou.</p>
+
+          <h3>Preciso de um SSP se já tenho ad server?</h3>
+          <p>São funções diferentes. O ad server executa e comprova a entrega; o SSP empacota o inventário e o conecta a
+            compradores. Um não substitui o outro. Ter ad server sem rota de demanda limita a venda ao esforço
+            comercial próprio.</p>
+
+          <h3>Posso usar o ad server do próprio SSP?</h3>
+          <p>Pode, e em muitas operações faz sentido. O trade-off é depender de terceiro para uma decisão que é sua:
+            prioridade entre direto e programático, bloqueio de anunciante e floor por contexto. Quanto mais crítica
+            essa decisão, maior o argumento para manter uma camada própria de controle.</p>
+
+          <h3>O que é proof of play?</h3>
+          <p>É o registro de que um criativo foi efetivamente exibido na tela, com data, horário, duração e
+            identificação do dispositivo. No DOOH, é a base da conciliação entre o que foi vendido e o que foi
+            entregue.</p>
+
+          <h3>Onde entra o POES nesse stack?</h3>
+          <p>Entre o CMS e as rotas de demanda, como camada de orquestração. Ele recebe a oportunidade, aplica as regras
+            comerciais do publisher, escolhe a rota elegível e acompanha a entrega, sem substituir CMS, ad server ou
+            SSP.</p>
+        </section>
+      </div>
+
+      <footer class="article-next"><span>Continue explorando</span>
+        <h2>Entenda por que a tela vende pouco antes de trocar de plataforma.</h2>
+        <div><a href="../artigos.html">Ver todos os conteúdos <b aria-hidden="true">→</b></a><a
+            href="fill-rate-dooh-ocupacao-de-tela.html">Próximo artigo <b aria-hidden="true">→</b></a></div>
+      </footer>
+    </article>
+  </main>
+  <a class="whatsapp-button" href="https://wa.me/5519997455263" aria-label="Falar com a Nirooh no WhatsApp"
+    title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.58 0 .27 5.3.27 11.82c0 2.08.54 4.12 1.58 5.92L.17 24l6.4-1.68a11.8 11.8 0 0 0 5.53 1.4h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.42-8.42ZM12.1 21.72a9.8 9.8 0 0 1-5-1.37l-.36-.22-3.8 1 1.01-3.7-.24-.38a9.78 9.78 0 0 1-1.5-5.23c0-5.42 4.42-9.83 9.86-9.83 2.63 0 5.1 1.03 6.96 2.89a9.77 9.77 0 0 1 2.9 6.94c0 5.43-4.42 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z" />
+    </svg>
+  </a>
+  <div class="cookie-banner" data-cookie-banner hidden>
+    <p>Usamos Google Tag Manager e analytics do HubSpot para entender a navegação. Consulte nossa <a
+        href="../termos/politica-de-privacidade.html">Política de Privacidade</a>.</p>
+    <div class="cookie-actions"><button class="cookie-accept" type="button" data-cookie-accept>Aceitar
+        analytics</button><button class="cookie-reject" type="button" data-cookie-reject>Continuar sem
+        analytics</button></div>
+  </div>
+</body>
+
+</html>

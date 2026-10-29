@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Google Consent Mode -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    var niroohAnalyticsConsent = window.localStorage.getItem("nirooh_analytics_consent") === "accepted" ? "granted" : "denied";
+    window.gtag("consent", "default", {
+      analytics_storage: niroohAnalyticsConsent,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      functionality_storage: "granted",
+      security_storage: "granted",
+      wait_for_update: 500
+    });
+  </script>
+  <!-- End Google Consent Mode -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MX3D4GL4');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base target="_self" />
+  <title>Como monetizar telas digitais: guia do publisher de DOOH | Nirooh</title>
+  <meta name="description"
+    content="Monetizar telas digitais vai além de conectar um SSP. Entenda as cinco camadas da receita, como precificar o inventário e o que trava o publisher de DOOH." />
+  <link rel="canonical" href="https://nirooh.com/artigos/como-monetizar-telas-digitais.html" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Como monetizar telas digitais: o guia do publisher de DOOH" />
+  <meta property="og:description"
+    content="Inventário, produto, demanda, prova de entrega e financeiro: as cinco camadas que transformam tela em receita — e como descobrir qual está travando a sua operação." />
+  <meta property="og:url" content="https://nirooh.com/artigos/como-monetizar-telas-digitais.html" />
+  <meta property="og:image" content="https://nirooh.com/assets/og-nirooh.png" />
+  <meta property="article:published_time" content="2026-10-29" />
+  <meta property="article:modified_time" content="2026-10-29" />
+  <meta property="article:section" content="Monetização" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"BlogPosting","@id":"https://nirooh.com/artigos/como-monetizar-telas-digitais.html#article","mainEntityOfPage":"https://nirooh.com/artigos/como-monetizar-telas-digitais.html","headline":"Como monetizar telas digitais: o guia do publisher de DOOH","description":"As cinco camadas da monetização de telas digitais, como precificar o inventário e o que trava a receita do publisher de DOOH.","image":"https://nirooh.com/assets/og-nirooh.png","datePublished":"2026-10-29","dateModified":"2026-10-29","inLanguage":"pt-BR","author":{"@type":"Organization","name":"Nirooh","url":"https://nirooh.com/"},"publisher":{"@id":"https://nirooh.com/#organization"},"isPartOf":{"@id":"https://nirooh.com/artigos.html#blog"},"articleSection":"Monetização"},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://nirooh.com/"},{"@type":"ListItem","position":2,"name":"Conteúdos","item":"https://nirooh.com/artigos.html"},{"@type":"ListItem","position":3,"name":"Como monetizar telas digitais","item":"https://nirooh.com/artigos/como-monetizar-telas-digitais.html"}]},
+      {"@type":"FAQPage","@id":"https://nirooh.com/artigos/como-monetizar-telas-digitais.html#faq","mainEntity":[
+        {"@type":"Question","name":"Quanto ganha um publisher de DOOH por tela?","acceptedAnswer":{"@type":"Answer","text":"Não existe um valor universal. A receita por tela depende do fluxo qualificado naquele ponto, do tempo de permanência, do contexto do ambiente, da duração do loop, do share of voice disponível, do floor praticado e do mix entre venda direta e programática. O caminho correto é calcular a receita por oportunidade disponível e comparar semanas, não comparar telas isoladas."}},
+        {"@type":"Question","name":"Preciso de um SSP para monetizar minhas telas?","acceptedAnswer":{"@type":"Answer","text":"Não. Um SSP é uma rota de demanda, não um pré-requisito. Muitos publishers começam com venda direta e só depois abrem inventário para o programático. O que precisa existir antes de qualquer rota é inventário descrito, regras comerciais claras e prova de entrega."}},
+        {"@type":"Question","name":"Qual o tamanho mínimo de rede para entrar no DOOH programático?","acceptedAnswer":{"@type":"Answer","text":"Não há um piso formal. O que pesa é a padronização do inventário e o volume de oportunidades elegíveis por período. Redes pequenas com metadados completos e regras claras conseguem operar; redes grandes com dados inconsistentes perdem eficiência na mesma proporção."}},
+        {"@type":"Question","name":"Como precificar o espaço na tela?","acceptedAnswer":{"@type":"Answer","text":"Comece pelo custo de operar a tela e pelo valor do ponto, não pelo preço do concorrente. Defina floor por contexto — praça, ambiente, horário e formato — em vez de um valor único para toda a rede. Depois teste uma variável por vez e acompanhe fill rate e receita por oportunidade em conjunto."}},
+        {"@type":"Question","name":"Dá para monetizar tela sem audiência medida?","acceptedAnswer":{"@type":"Answer","text":"Sim, mas o preço reflete o nível de prova. Sem medição, a venda se apoia em contexto, contagem de fluxo e histórico de entrega. Quanto mais fraca a evidência, maior a dependência de desconto para fechar negócio."}}
+      ]}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/site-v3.css" />
+  <link rel="stylesheet" href="../assets/article-v3.css" />
+  <link rel="icon" type="image/png" href="../assets/logo-nirooh-square.png" />
+  <script src="../assets/analytics-consent.js" defer></script>
+  <script src="../assets/site-v3.js" defer></script>
+  <link rel="stylesheet" href="../assets/light-commercial.css?v=20260827" />
+</head>
+
+<body class="article-page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX3D4GL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header global-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Nirooh — início"><img src="../assets/logo-nirooh-grey.png"
+          alt="Nirooh" /></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"
+        data-global-menu-toggle><span>Menu</span><i aria-hidden="true"></i></button>
+      <div class="nav-panel" data-global-nav>
+        <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+          <a href="../publisher.html">Publishers</a>
+          <a href="../poes.html">POES</a>
+          <a href="../niroohnet.html">Anunciantes</a>
+          <a href="../curso.html">Academy</a>
+          <a href="../artigos.html">Conteúdo</a>
+          <a href="../quem-somos.html">Quem somos</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="ghost-button" href="https://cms.nirooh.com/login" target="_blank">Login</a>
+          <div class="language-switcher" aria-label="Selecionar idioma">
+            <a class="flag-link active" href="../index.html" aria-label="Português do Brasil"
+              title="Português do Brasil">🇧🇷</a>
+            <a class="flag-link" href="../index-en.html" aria-label="English" title="English">🇺🇸</a>
+            <a class="flag-link" href="../index-es.html" aria-label="Español" title="Español">🇪🇸</a>
+          </div>
+          <a class="button button-small button-dark" href="../lead.html">Falar com especialista</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-main" id="conteudo">
+    <article class="article-shell">
+      <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Início</a><span>/</span><a
+          href="../artigos.html">Conteúdos</a><span>/</span><span aria-current="page">Como monetizar telas
+          digitais</span></nav>
+      <header class="article-hero">
+        <span class="eyebrow">Monetização para publishers</span>
+        <h1>Como monetizar telas digitais: o guia do publisher de DOOH</h1>
+        <p>Transformar tela em receita não é conectar um SSP e esperar o leilão. É uma cadeia de cinco camadas — e o
+          resultado sempre para no elo mais fraco.</p>
+      </header>
+
+      <div class="article-body">
+        <h2 id="resumo">Resumo executivo</h2>
+        <ul>
+          <li><strong>Monetizar é vender oportunidade publicitária com prova</strong>, não apenas exibir conteúdo em um
+            painel ligado.</li>
+          <li><strong>A receita depende de cinco camadas</strong> — inventário, produto, demanda, entrega e financeiro.
+            Investir em uma só não compensa a fragilidade das outras.</li>
+          <li><strong>O programático amplia a demanda, não substitui a organização comercial.</strong> Sem metadado,
+            regra de prioridade e relatório confiável, ele apenas acelera a perda de controle.</li>
+        </ul>
+
+        <div class="callout">Uma tela ligada não é inventário. Inventário é uma oportunidade descrita, precificada,
+          elegível e comprovável — do contrário, é apenas espaço iluminado.</div>
+
+        <nav class="article-toc" aria-label="Sumário do artigo">
+          <span>Neste guia</span>
+          <ol>
+            <li><a href="#significa">O que monetizar significa na prática</a></li>
+            <li><a href="#camadas">As cinco camadas da monetização</a></li>
+            <li><a href="#valor">Quanto vale uma tela</a></li>
+            <li><a href="#modelos">Venda direta, programática e o modelo híbrido</a></li>
+            <li><a href="#comprador">O que o comprador exige antes de comprar</a></li>
+            <li><a href="#gargalos">Sete gargalos que travam a receita</a></li>
+            <li><a href="#diagnostico">Diagnóstico: onde está o gargalo</a></li>
+            <li><a href="#orquestracao">O papel da orquestração</a></li>
+            <li><a href="#quatro-semanas">O que fazer nas próximas quatro semanas</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="significa">O que monetizar significa na prática</h2>
+        <p>Quem opera uma rede de telas costuma medir sucesso pela ocupação: quanto tempo da programação está vendido.
+          É um começo, mas não é a conta inteira. Uma tela pode estar 100% ocupada com campanhas de baixo valor e ainda
+          assim destruir margem. Outra pode ficar parcialmente ociosa e entregar receita por oportunidade muito
+          superior.</p>
+        <p>Monetizar exige responder a três perguntas antes de qualquer negociação: o que exatamente está sendo
+          vendido, para quem essa oferta faz sentido e como o comprador comprova que recebeu o que pagou. Quando uma
+          dessas respostas falta, o preço cai para o menor denominador comum — o tamanho da tela.</p>
+        <p>Na prática, o mercado brasileiro já reúne escala para sustentar essa disciplina. O OOH movimentou R$ 827,1
+          milhões apenas no primeiro trimestre de 2026, com 14,8% de participação no bolo publicitário e alta de 48,6%
+          sobre o mesmo período do ano anterior, segundo o <a
+            href="https://www.cnnbrasil.com.br/infra/como-a-infraestrutura-da-midia-out-of-home-impacta-as-paisagens-brasileiras/"
+            target="_blank" rel="noopener">Painel Cenp-Meios</a>. É dinheiro real disputando inventário
+          real — e quem descreve melhor o que tem tende a capturar mais valor.</p>
+
+        <h2 id="camadas">As cinco camadas da monetização</h2>
+        <p>A cadeia funciona como uma sequência. Cada camada responde a uma pergunta e produz um insumo para a
+          seguinte. Quando uma delas falha, a receita não desaparece: ela apenas migra para o desconto.</p>
+
+        <div class="article-table">
+          <table>
+            <caption class="sr-only">As cinco camadas da monetização de telas digitais</caption>
+            <thead>
+              <tr>
+                <th scope="col">Camada</th>
+                <th scope="col">Pergunta que responde</th>
+                <th scope="col">O que falha quando está fraca</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Inventário</strong></td>
+                <td>O que exatamente está à venda?</td>
+                <td>Telas sem descrição, geolocalização imprecisa, formatos inconsistentes.</td>
+              </tr>
+              <tr>
+                <td><strong>Produto</strong></td>
+                <td>Como isso vira uma oferta comercial?</td>
+                <td>Pacotes improvisados, durações divergentes, nenhuma regra de exclusividade.</td>
+              </tr>
+              <tr>
+                <td><strong>Demanda</strong></td>
+                <td>Quem pode comprar e por qual rota?</td>
+                <td>Dependência de uma única origem, ausência de acordos privados.</td>
+              </tr>
+              <tr>
+                <td><strong>Entrega</strong></td>
+                <td>Como provar que a campanha rodou?</td>
+                <td>Proof of play frágil, relatório manual, números que não fecham.</td>
+              </tr>
+              <tr>
+                <td><strong>Financeiro</strong></td>
+                <td>Como cobrar, conciliar e reprecificar?</td>
+                <td>Faturamento manual, histórico inexistente de receita por tela.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Inventário: descrever antes de vender</h3>
+        <p>Inventário é o conjunto de oportunidades que podem ser compradas. Cada tela precisa de identidade própria,
+          endereço verificável, dimensão, orientação, tipo de ambiente, horário de funcionamento, duração do loop e
+          regras de exibição. Sem isso, o comprador não consegue sequer avaliar elegibilidade.</p>
+        <p>O erro comum é tratar o inventário como uma lista de pontos. O comprador programático não compra o ponto: ele
+          compra uma oportunidade que atende a um critério. Se o critério não está descrito, a tela não existe para a
+          demanda.</p>
+
+        <h3>Produto: transformar inventário em oferta</h3>
+        <p>A camada de produto define formatos, durações, pacotes e condições. É aqui que nascem decisões como vender
+          por período ou por impressão, aceitar exclusividade de categoria, criar pacotes por praça e estabelecer
+          prioridade entre campanhas.</p>
+        <p>Sem produto, cada negociação começa do zero. Com produto, o time comercial defende valor em vez de improvisar
+          desconto. É também a camada que impede o programático de canibalizar o contrato direto — tema que aparece em
+          detalhe no artigo sobre <a href="ssp-ad-server-cms-dooh.html">SSP, ad server e CMS</a>.</p>
+
+        <h3>Demanda: escolher rotas, não apostar em uma</h3>
+        <p>Demanda é quem pode comprar. Venda direta, agências, deals privados e mercado aberto são rotas diferentes,
+          com preço, previsibilidade e custo operacional diferentes. Uma operação saudável combina rotas: o direto
+          protege o premium, o programático preenche o incremental.</p>
+
+        <h3>Entrega: a prova que sustenta o preço</h3>
+        <p>Proof of play, relatório por campanha e conciliação de impressões não são burocracia: são o que permite
+          cobrar sem desconto defensivo. Quando o comprador não confia no número, ele precifica o risco — e o risco sai
+          do seu bolso.</p>
+
+        <h3>Financeiro: fechar o ciclo</h3>
+        <p>A camada financeira conecta entrega a receita. Sem histórico de receita por tela, por praça e por rota, não
+          existe reprecificação. A operação passa a repetir o mesmo floor e a mesma média, mesmo quando o mercado já
+          mudou.</p>
+
+        <h2 id="valor">Quanto vale uma tela</h2>
+        <p>Não existe CPM universal para DOOH. O valor de uma tela nasce da combinação de fatores que o comprador
+          consegue perceber e comparar:</p>
+        <ul>
+          <li><strong>Fluxo qualificado</strong> — quantas pessoas passam, com que perfil e em que direção.</li>
+          <li><strong>Tempo de permanência</strong> — quanto tempo o olhar tem para encontrar a mensagem.</li>
+          <li><strong>Contexto do ambiente</strong> — varejo, academia, aeroporto, elevador, via pública: cada um
+            carrega intenção diferente.</li>
+          <li><strong>Horário e dia</strong> — a mesma tela vale coisas diferentes na terça às 15h e no sábado às 10h.
+          </li>
+          <li><strong>Formato e duração</strong> — 15 segundos dentro de um loop de 90 não é o mesmo produto que 10
+            segundos em um loop de 40.</li>
+          <li><strong>Share of voice</strong> — quantas marcas dividem a atenção naquele ciclo.</li>
+          <li><strong>Frequência</strong> — a rotina do público naquele ponto permite repetição útil ou gera desgaste.
+          </li>
+          <li><strong>Exclusividade</strong> — bloquear concorrentes tem valor, e cobrar por isso é legítimo.</li>
+          <li><strong>Reputação do ambiente</strong> — a marca ao lado afeta a percepção da sua tela.</li>
+        </ul>
+        <p>O piso da negociação é o custo de operar a tela: energia, conectividade, manutenção, conteúdo e operação
+          comercial. O teto é o valor que o anunciante atribui ao ponto e ao momento. Entre um e outro, quem tem dado e
+          prova negocia melhor.</p>
+        <p>Uma consequência prática: comparar CPM entre telas só faz sentido quando o denominador é o mesmo. Impressão
+          estimada, impressão medida e oportunidade de ver não são a mesma unidade. Misturar as três produz uma média
+          que não orienta decisão nenhuma.</p>
+
+        <h2 id="modelos">Venda direta, programática e o modelo híbrido</h2>
+        <p>Não é uma escolha ideológica. Cada modelo resolve um problema diferente.</p>
+
+        <div class="article-table">
+          <table>
+            <caption class="sr-only">Comparação entre venda direta e programática no DOOH</caption>
+            <thead>
+              <tr>
+                <th scope="col">Dimensão</th>
+                <th scope="col">Venda direta</th>
+                <th scope="col">Programática</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Previsibilidade</strong></td>
+                <td>Alta: contrato, período e volume definidos.</td>
+                <td>Variável: depende de demanda e leilão.</td>
+              </tr>
+              <tr>
+                <td><strong>Preço</strong></td>
+                <td>Negociado por pacote e contexto.</td>
+                <td>Definido por lance e floor.</td>
+              </tr>
+              <tr>
+                <td><strong>Escala</strong></td>
+                <td>Limitada pelo time comercial.</td>
+                <td>Ampla: múltiplos compradores simultâneos.</td>
+              </tr>
+              <tr>
+                <td><strong>Controle</strong></td>
+                <td>Total sobre criativo, categoria e vizinhança.</td>
+                <td>Depende das regras configuradas na rota.</td>
+              </tr>
+              <tr>
+                <td><strong>Custo operacional</strong></td>
+                <td>Alto por negociação.</td>
+                <td>Alto na implantação, menor por transação.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>O modelo híbrido é o mais comum em operações maduras — e também o mais mal executado. A regra que evita
+          conflito é simples: o programático não pode competir com o direto pelo mesmo inventário nas mesmas condições.
+          Isso exige prioridade declarada, floor por contexto e uma política clara de bloqueio de anunciantes.</p>
+        <p>Sem essa governança, o resultado é previsível: o direto perde margem, o programático ocupa o espaço nobre e
+          o time comercial passa a desconfiar do canal. O problema não é o programático. É a ausência de regra.</p>
+
+        <h2 id="comprador">O que o comprador exige antes de comprar</h2>
+        <p>Agências e anunciantes não pedem o que é fácil; pedem o que reduz risco. Um media kit de DOOH precisa
+          responder, no mínimo:</p>
+        <ul>
+          <li><strong>Onde a tela está</strong> — endereço, geolocalização e ambiente, com precisão suficiente para
+            planejamento por raio.</li>
+          <li><strong>Quem passa por ela</strong> — fluxo, permanência, perfil e horário, deixando claro o que é medido
+            e o que é estimado.</li>
+          <li><strong>Como a campanha roda</strong> — duração, loop, share of voice, regras de frequência e formatos
+            aceitos.</li>
+          <li><strong>Como a entrega é provada</strong> — proof of play, relatório e prazo de envio.</li>
+          <li><strong>O que a tela não aceita</strong> — categorias bloqueadas, restrições de conteúdo e política de
+            aprovação de criativo.</li>
+          <li><strong>Como comprar</strong> — direto, deal privado ou mercado aberto, com condições e prazos.</li>
+          <li><strong>Quem responde</strong> — contato comercial e operacional, com SLA definido.</li>
+        </ul>
+        <p>Cada item ausente vira uma pergunta na reunião. Cada pergunta sem resposta vira desconto.</p>
+
+        <h2 id="gargalos">Sete gargalos que travam a receita</h2>
+        <ol>
+          <li><strong>Metadado pobre.</strong> A tela existe, mas não pode ser filtrada por ambiente, horário ou
+            formato. Para o comprador programático, ela é inelegível.</li>
+          <li><strong>Catálogo sem hierarquia.</strong> Sem separar rede, praça, ponto e tela, o relatório agrega o que
+            deveria ser comparado.</li>
+          <li><strong>Floor único para toda a rede.</strong> O valor que protege a avenida premium inviabiliza o ponto
+            de bairro — e o inverso destrói margem.</li>
+          <li><strong>Nenhuma regra de conflito com o direto.</strong> O programático passa a disputar o que já estava
+            vendido, e o comercial perde confiança no canal.</li>
+          <li><strong>Integração instável.</strong> Player sem fallback, conexão oscilante e ausência de registro
+            confiável transformam entrega em suposição.</li>
+          <li><strong>Relatório que não fecha.</strong> Números diferentes entre CMS, ad server e SSP abrem espaço para
+            glosa e renegociação.</li>
+          <li><strong>Discurso de tamanho.</strong> Vender “tela grande em lugar movimentado” ignora contexto, audiência
+            e prova — e devolve a negociação ao preço por metro quadrado.</li>
+        </ol>
+
+        <h2 id="diagnostico">Diagnóstico: onde está o gargalo</h2>
+        <p>Antes de trocar de plataforma ou contratar mais demanda, vale localizar o problema pelo sintoma.</p>
+
+        <div class="article-table">
+          <table>
+            <caption class="sr-only">Sintomas e causas prováveis na monetização de telas</caption>
+            <thead>
+              <tr>
+                <th scope="col">Sintoma</th>
+                <th scope="col">Camada provável</th>
+                <th scope="col">Primeira ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A tela não aparece em propostas</td>
+                <td>Inventário</td>
+                <td>Revisar metadados, geo e elegibilidade.</td>
+              </tr>
+              <tr>
+                <td>Aparece, mas nunca é comprada</td>
+                <td>Produto</td>
+                <td>Rever formato, pacote e floor por contexto.</td>
+              </tr>
+              <tr>
+                <td>Compra só no mercado aberto e barato</td>
+                <td>Demanda</td>
+                <td>Criar deals privados e ampliar rotas.</td>
+              </tr>
+              <tr>
+                <td>Cliente reclama de entrega</td>
+                <td>Entrega</td>
+                <td>Auditar proof of play e conciliação.</td>
+              </tr>
+              <tr>
+                <td>Receita cresce, margem cai</td>
+                <td>Financeiro e produto</td>
+                <td>Analisar receita por oportunidade, não só ocupação.</td>
+              </tr>
+              <tr>
+                <td>Direto e programático se canibalizam</td>
+                <td>Governança</td>
+                <td>Definir prioridade, exclusões e floor.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="orquestracao">O papel da orquestração</h2>
+        <p>Conectar CMS e rotas de demanda resolve parte do problema técnico, mas não a decisão comercial. É entre essas
+          camadas que ficam as regras que protegem a operação: qual campanha tem prioridade, qual anunciante está
+          bloqueado, qual categoria não entra, qual floor vale para aquele contexto e qual rota está elegível naquele
+          momento.</p>
+        <p>O POES existe para ocupar esse espaço. Ele recebe a oportunidade, aplica as regras do publisher, escolhe a
+          rota elegível e acompanha a entrega — sem substituir o CMS nem o SSP. Na prática, é o que permite abrir
+          inventário para o programático sem entregar ao leilão decisões que são suas.</p>
+        <p>Numa operação com essa camada, o publisher mantém controle sobre o que expõe e sobre como cada oportunidade
+          é qualificada. Para o anunciante, isso se traduz em critérios auditáveis. Para o publisher, em capacidade de
+          defender preço com regra e dado, não com desconto.</p>
+
+        <h2 id="quatro-semanas">O que fazer nas próximas quatro semanas</h2>
+        <p><strong>Semana 1 — inventário.</strong> Escolha uma praça e descreva cada tela com os campos mínimos:
+          identificação, endereço, geo, ambiente, dimensão, orientação, horário, loop e restrições. O objetivo não é
+          cobrir a rede inteira: é provar que o padrão funciona.</p>
+        <p><strong>Semana 2 — produto.</strong> Defina um formato padrão, uma duração e um floor por contexto. Separe o
+          que é direto do que é programático e escreva a regra de prioridade em uma página.</p>
+        <p><strong>Semana 3 — demanda.</strong> Escolha duas rotas complementares, não cinco. Monte um deal privado com
+          o inventário já descrito e mantenha o mercado aberto apenas para o incremental.</p>
+        <p><strong>Semana 4 — prova e leitura.</strong> Compare fill rate, receita por oportunidade e tempo de
+          resposta. Ajuste uma variável por vez. Sem esse ciclo, qualquer mudança vira aposta.</p>
+        <p>Para aprofundar cada etapa, a série continua em <a href="ssp-ad-server-cms-dooh.html">SSP, ad server e
+            CMS</a>, <a href="fill-rate-dooh-ocupacao-de-tela.html">fill rate no DOOH</a> e no <a
+            href="checklist-dooh-programatico-para-publishers.html">checklist para entrar no programático</a>.</p>
+
+        <section class="article-faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Perguntas frequentes</h2>
+
+          <h3>Quanto ganha um publisher de DOOH por tela?</h3>
+          <p>Não existe um valor universal. A receita por tela depende do fluxo qualificado naquele ponto, do tempo de
+            permanência, do contexto do ambiente, da duração do loop, do share of voice disponível, do floor praticado
+            e do mix entre venda direta e programática. O caminho correto é calcular a receita por oportunidade
+            disponível e comparar semanas, não comparar telas isoladas.</p>
+
+          <h3>Preciso de um SSP para monetizar minhas telas?</h3>
+          <p>Não. Um SSP é uma rota de demanda, não um pré-requisito. Muitos publishers começam com venda direta e só
+            depois abrem inventário para o programático. O que precisa existir antes de qualquer rota é inventário
+            descrito, regras comerciais claras e prova de entrega.</p>
+
+          <h3>Qual o tamanho mínimo de rede para entrar no DOOH programático?</h3>
+          <p>Não há um piso formal. O que pesa é a padronização do inventário e o volume de oportunidades elegíveis por
+            período. Redes pequenas com metadados completos e regras claras conseguem operar; redes grandes com dados
+            inconsistentes perdem eficiência na mesma proporção.</p>
+
+          <h3>Como precificar o espaço na tela?</h3>
+          <p>Comece pelo custo de operar a tela e pelo valor do ponto, não pelo preço do concorrente. Defina floor por
+            contexto — praça, ambiente, horário e formato — em vez de um valor único para toda a rede. Depois teste
+            uma variável por vez e acompanhe fill rate e receita por oportunidade em conjunto.</p>
+
+          <h3>Dá para monetizar tela sem audiência medida?</h3>
+          <p>Sim, mas o preço reflete o nível de prova. Sem medição, a venda se apoia em contexto, contagem de fluxo e
+            histórico de entrega. Quanto mais fraca a evidência, maior a dependência de desconto para fechar negócio.
+          </p>
+        </section>
+      </div>
+
+      <footer class="article-next"><span>Continue explorando</span>
+        <h2>Da tela para a operação: o próximo elo da cadeia.</h2>
+        <div><a href="../artigos.html">Ver todos os conteúdos <b aria-hidden="true">→</b></a><a
+            href="ssp-ad-server-cms-dooh.html">Próximo artigo <b aria-hidden="true">→</b></a></div>
+      </footer>
+    </article>
+  </main>
+  <a class="whatsapp-button" href="https://wa.me/5519997455263" aria-label="Falar com a Nirooh no WhatsApp"
+    title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.58 0 .27 5.3.27 11.82c0 2.08.54 4.12 1.58 5.92L.17 24l6.4-1.68a11.8 11.8 0 0 0 5.53 1.4h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.42-8.42ZM12.1 21.72a9.8 9.8 0 0 1-5-1.37l-.36-.22-3.8 1 1.01-3.7-.24-.38a9.78 9.78 0 0 1-1.5-5.23c0-5.42 4.42-9.83 9.86-9.83 2.63 0 5.1 1.03 6.96 2.89a9.77 9.77 0 0 1 2.9 6.94c0 5.43-4.42 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z" />
+    </svg>
+  </a>
+  <div class="cookie-banner" data-cookie-banner hidden>
+    <p>Usamos Google Tag Manager e analytics do HubSpot para entender a navegação. Consulte nossa <a
+        href="../termos/politica-de-privacidade.html">Política de Privacidade</a>.</p>
+    <div class="cookie-actions"><button class="cookie-accept" type="button" data-cookie-accept>Aceitar
+        analytics</button><button class="cookie-reject" type="button" data-cookie-reject>Continuar sem
+        analytics</button></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Google Consent Mode -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    var niroohAnalyticsConsent = window.localStorage.getItem("nirooh_analytics_consent") === "accepted" ? "granted" : "denied";
+    window.gtag("consent", "default", {
+      analytics_storage: niroohAnalyticsConsent,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      functionality_storage: "granted",
+      security_storage: "granted",
+      wait_for_update: 500
+    });
+  </script>
+  <!-- End Google Consent Mode -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MX3D4GL4');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base target="_self" />
+  <title>Fill rate no DOOH: como diagnosticar uma tela que vende pouco | Nirooh</title>
+  <meta name="description"
+    content="Fill rate baixo nem sempre é falta de demanda. Entenda as métricas de ocupação no DOOH, as causas reais e um método de diagnóstico em cinco passos." />
+  <link rel="canonical" href="https://nirooh.com/artigos/fill-rate-dooh-ocupacao-de-tela.html" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Fill rate no DOOH: como diagnosticar uma tela que vende pouco" />
+  <meta property="og:description"
+    content="Fill rate, ocupação, entrega e receita por oportunidade não são a mesma coisa. Veja como separar problema de oferta de problema de demanda." />
+  <meta property="og:url" content="https://nirooh.com/artigos/fill-rate-dooh-ocupacao-de-tela.html" />
+  <meta property="og:image" content="https://nirooh.com/assets/og-nirooh.png" />
+  <meta property="article:published_time" content="2026-10-29" />
+  <meta property="article:modified_time" content="2026-10-29" />
+  <meta property="article:section" content="Monetização" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"BlogPosting","@id":"https://nirooh.com/artigos/fill-rate-dooh-ocupacao-de-tela.html#article","mainEntityOfPage":"https://nirooh.com/artigos/fill-rate-dooh-ocupacao-de-tela.html","headline":"Fill rate no DOOH: como diagnosticar uma tela que vende pouco","description":"O que fill rate mede no DOOH, por que ele é ambíguo, as causas reais de uma tela que vende pouco e um método de diagnóstico em cinco passos.","image":"https://nirooh.com/assets/og-nirooh.png","datePublished":"2026-10-29","dateModified":"2026-10-29","inLanguage":"pt-BR","author":{"@type":"Organization","name":"Nirooh","url":"https://nirooh.com/"},"publisher":{"@id":"https://nirooh.com/#organization"},"isPartOf":{"@id":"https://nirooh.com/artigos.html#blog"},"articleSection":"Monetização"},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://nirooh.com/"},{"@type":"ListItem","position":2,"name":"Conteúdos","item":"https://nirooh.com/artigos.html"},{"@type":"ListItem","position":3,"name":"Fill rate no DOOH","item":"https://nirooh.com/artigos/fill-rate-dooh-ocupacao-de-tela.html"}]},
+      {"@type":"FAQPage","@id":"https://nirooh.com/artigos/fill-rate-dooh-ocupacao-de-tela.html#faq","mainEntity":[
+        {"@type":"Question","name":"O que é um bom fill rate no DOOH?","acceptedAnswer":{"@type":"Answer","text":"Não existe um número universal. Um fill rate é bom quando a receita por oportunidade cresce sem reduzir a entrega das campanhas prioritárias. Comparar com o próprio histórico e com inventário de contexto semelhante é mais útil do que perseguir uma média de mercado."}},
+        {"@type":"Question","name":"Fill rate e taxa de ocupação são a mesma coisa?","acceptedAnswer":{"@type":"Answer","text":"Não. Fill rate mede a proporção de oportunidades disponíveis que foram vendidas. Ocupação mede o tempo de tela efetivamente comprometido. Em um loop com seis slots, vender quatro pode ser 66% de fill rate e também 66% de ocupação — mas os números se separam quando a venda é por impressão ou quando há campanhas com peso diferente."}},
+        {"@type":"Question","name":"Como aumentar o fill rate de uma tela?","acceptedAnswer":{"@type":"Answer","text":"Primeiro amplie a elegibilidade: metadados completos, formato aceito pelo mercado e regras de categoria claras. Depois revise o floor por contexto e abra rotas complementares, incluindo deals privados. Baixar preço é a última alavanca, não a primeira."}},
+        {"@type":"Question","name":"Por que o fill rate sobe e a receita cai?","acceptedAnswer":{"@type":"Answer","text":"Normalmente porque o inventário passou a ser preenchido por demanda de menor valor, por canibalização do direto ou por floor inadequado. Fill rate alto com eCPM em queda indica que a operação está trocando margem por ocupação."}},
+        {"@type":"Question","name":"Devo baixar o floor para vender mais?","acceptedAnswer":{"@type":"Answer","text":"Só com teste controlado e por contexto. O floor protege o preço do inventário premium; reduzi-lo na rede inteira pode elevar a ocupação e destruir a receita por oportunidade. Altere uma variável por vez e acompanhe fill rate e receita em conjunto."}}
+      ]}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/site-v3.css" />
+  <link rel="stylesheet" href="../assets/article-v3.css" />
+  <link rel="icon" type="image/png" href="../assets/logo-nirooh-square.png" />
+  <script src="../assets/analytics-consent.js" defer></script>
+  <script src="../assets/site-v3.js" defer></script>
+  <link rel="stylesheet" href="../assets/light-commercial.css?v=20260827" />
+</head>
+
+<body class="article-page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX3D4GL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header global-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Nirooh — início"><img src="../assets/logo-nirooh-grey.png"
+          alt="Nirooh" /></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"
+        data-global-menu-toggle><span>Menu</span><i aria-hidden="true"></i></button>
+      <div class="nav-panel" data-global-nav>
+        <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+          <a href="../publisher.html">Publishers</a>
+          <a href="../poes.html">POES</a>
+          <a href="../niroohnet.html">Anunciantes</a>
+          <a href="../curso.html">Academy</a>
+          <a href="../artigos.html">Conteúdo</a>
+          <a href="../quem-somos.html">Quem somos</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="ghost-button" href="https://cms.nirooh.com/login" target="_blank">Login</a>
+          <div class="language-switcher" aria-label="Selecionar idioma">
+            <a class="flag-link active" href="../index.html" aria-label="Português do Brasil"
+              title="Português do Brasil">🇧🇷</a>
+            <a class="flag-link" href="../index-en.html" aria-label="English" title="English">🇺🇸</a>
+            <a class="flag-link" href="../index-es.html" aria-label="Español" title="Español">🇪🇸</a>
+          </div>
+          <a class="button button-small button-dark" href="../lead.html">Falar com especialista</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-main" id="conteudo">
+    <article class="article-shell">
+      <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Início</a><span>/</span><a
+          href="../artigos.html">Conteúdos</a><span>/</span><span aria-current="page">Fill rate no DOOH</span></nav>
+      <header class="article-hero">
+        <span class="eyebrow">Monetização para publishers</span>
+        <h1>Fill rate no DOOH: como diagnosticar uma tela que vende pouco</h1>
+        <p>Fill rate baixo parece falta de demanda. Na maioria das vezes, é inventário inelegível, floor errado ou
+          metadado incompleto. O primeiro passo é parar de usar a métrica como se ela significasse uma coisa só.</p>
+      </header>
+
+      <div class="article-body">
+        <h2 id="resumo">Resumo executivo</h2>
+        <ul>
+          <li><strong>Fill rate no DOOH é ambíguo</strong> porque pode ter três denominadores: oportunidades, tempo de
+            loop ou impressões.</li>
+          <li><strong>Fill rate baixo raramente é só falta de demanda.</strong> Metadado, floor, formato, restrições e
+            integração derrubam a elegibilidade antes do leilão.</li>
+          <li><strong>Ocupar a tela a qualquer preço é perder receita.</strong> Fill rate e receita por oportunidade
+            precisam ser lidos juntos.</li>
+        </ul>
+
+        <div class="callout">Uma tela cheia de campanhas baratas é um problema disfarçado de sucesso. Ocupação é
+          consequência; receita por oportunidade é o objetivo.</div>
+
+        <nav class="article-toc" aria-label="Sumário do artigo">
+          <span>Neste guia</span>
+          <ol>
+            <li><a href="#ambiguidade">Por que fill rate é uma métrica ambígua no DOOH</a></li>
+            <li><a href="#quatro-numeros">Quatro números que não são a mesma coisa</a></li>
+            <li><a href="#oferta-demanda">Fill rate baixo: oferta ou demanda?</a></li>
+            <li><a href="#causas">Sete causas comuns e o que cada uma parece</a></li>
+            <li><a href="#floor">Floor price: o número que decide tudo</a></li>
+            <li><a href="#receita-cai">Quando o fill rate sobe e a receita cai</a></li>
+            <li><a href="#metodo">Método de diagnóstico em cinco passos</a></li>
+            <li><a href="#registrar">O que registrar toda semana</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="ambiguidade">Por que fill rate é uma métrica ambígua no DOOH</h2>
+        <p>Em display, fill rate tem uma definição razoavelmente estável: a proporção de oportunidades de anúncio que
+          resultam em impressão paga. No DOOH, a mesma expressão é usada para pelo menos três coisas diferentes — e
+          isso torna comparações entre telas, redes e fornecedores pouco confiáveis.</p>
+        <p>O motivo é estrutural. A tela opera em loop. Um loop de 90 segundos com seis inserções de 15 segundos gera
+          seis oportunidades por ciclo. Vender quatro delas pode ser descrito como 66% de fill rate, 66% de ocupação ou
+          “quatro de seis slots”. Os três números parecem iguais, mas respondem a perguntas diferentes quando entram
+          campanhas com pesos, durações e modelos de cobrança distintos.</p>
+        <p>Quando o inventário é vendido por impressão, a distância entre as métricas aumenta. A tela pode estar
+          completamente ocupada em tempo e ainda assim entregar menos impressões do que o previsto — porque o fluxo caiu,
+          porque o loop mudou ou porque a campanha foi redistribuída para outra praça.</p>
+
+        <h2 id="quatro-numeros">Quatro números que não são a mesma coisa</h2>
+
+        <div class="article-table">
+          <table>
+            <caption class="sr-only">Métricas de ocupação e entrega no DOOH</caption>
+            <thead>
+              <tr>
+                <th scope="col">Métrica</th>
+                <th scope="col">Como se calcula</th>
+                <th scope="col">O que revela</th>
+                <th scope="col">Erro comum</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Fill rate</strong></td>
+                <td>Oportunidades vendidas ÷ oportunidades disponíveis</td>
+                <td>Eficiência de venda do inventário exposto</td>
+                <td>Misturar oportunidade de loop com oportunidade de leilão</td>
+              </tr>
+              <tr>
+                <td><strong>Ocupação</strong></td>
+                <td>Tempo de tela vendido ÷ tempo disponível</td>
+                <td>Quanto do loop está comprometido</td>
+                <td>Ignorar campanhas com peso ou duração diferente</td>
+              </tr>
+              <tr>
+                <td><strong>Entrega</strong></td>
+                <td>Impressões realizadas ÷ impressões contratadas</td>
+                <td>Se a campanha cumpriu o que foi vendido</td>
+                <td>Usar entrega como se fosse demanda</td>
+              </tr>
+              <tr>
+                <td><strong>Receita por oportunidade</strong></td>
+                <td>Receita ÷ oportunidades disponíveis</td>
+                <td>Valor gerado por cada espaço que a tela oferece</td>
+                <td>Olhar só eCPM, que ignora inventário não vendido</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>A leitura correta combina as quatro. Uma tela com fill rate de 40% e receita por oportunidade alta pode ser
+          mais saudável do que outra com 90% de fill rate e receita por oportunidade baixa. A primeira preserva espaço
+          para demanda melhor; a segunda pode estar vendendo barato o que deveria proteger.</p>
+
+        <h2 id="oferta-demanda">Fill rate baixo: oferta ou demanda?</h2>
+        <p>Antes de culpar o mercado, vale separar duas perguntas. A tela está <strong>elegível</strong> para ser
+          comprada? E existe <strong>demanda</strong> disposta a comprá-la nas condições atuais?</p>
+        <p>Quando a resposta é “não” para a primeira, o problema é de oferta — e nenhum esforço comercial resolve,
+          porque a oportunidade nem chega ao comprador. Quando é “não” para a segunda, o problema é de preço, produto ou
+          rota. Confundir as duas leva a decisões opostas: ampliar desconto quando o correto seria corrigir o metadado.
+        </p>
+        <p>Um teste simples: peça a alguém de fora da operação para montar um plano usando apenas o que está descrito no
+          seu catálogo. Se a pessoa não conseguir filtrar por ambiente, horário, formato e praça, o inventário está
+          inelegível — independentemente da demanda existente.</p>
+
+        <h2 id="causas">Sete causas comuns e o que cada uma parece</h2>
+        <ol>
+          <li><strong>Metadado incompleto.</strong> A tela existe, mas não tem geo precisa, ambiente classificado ou
+            formato declarado. Sintoma: nunca aparece em propostas.</li>
+          <li><strong>Floor acima do contexto.</strong> O valor mínimo foi definido para o melhor ponto da rede e
+            aplicado a todos. Sintoma: recebe lance, mas perde sempre.</li>
+          <li><strong>Restrições de categoria.</strong> Bloqueios amplos demais eliminam setores inteiros. Sintoma:
+            poucos compradores, sempre os mesmos.</li>
+          <li><strong>Formato incompatível.</strong> Duração ou proporção fora do padrão que o mercado consegue comprar.
+            Sintoma: interesse comercial, mas nenhuma campanha aprovada.</li>
+          <li><strong>Integração instável.</strong> Player sem fallback, relógio dessincronizado, conexão oscilante.
+            Sintoma: entrega abaixo do vendido e glosa.</li>
+          <li><strong>Inventário fragmentado.</strong> Cada tela é um produto isolado, sem pacote por praça ou
+            ambiente. Sintoma: compradores não atingem escala e desistem.</li>
+          <li><strong>Sazonalidade.</strong> O período simplesmente tem menos demanda. Sintoma: queda generalizada, não
+            restrita a uma tela.</li>
+        </ol>
+        <p>As seis primeiras são corrigíveis pela operação. A sétima exige gestão de expectativa e planejamento de
+          portfólio — não mudança de preço às pressas.</p>
+
+        <h2 id="floor">Floor price: o número que decide tudo</h2>
+        <p>O floor é o preço mínimo pelo qual o inventário entra no leilão. Ele protege o valor da tela, mas também
+          define quantas oportunidades serão efetivamente disputadas. Não existe floor ótimo universal: existe floor
+          adequado a um contexto.</p>
+        <p>Um floor único para a rede produz dois erros ao mesmo tempo. No ponto premium, ele pode ficar abaixo do valor
+          que o mercado pagaria. No ponto de bairro, pode ficar acima do que qualquer comprador aceita — e a tela
+          simplesmente não vende.</p>
+        <p>O caminho é segmentar. Praça, ambiente, horário e formato justificam floors diferentes. Deals privados podem
+          ter piso próprio, porque envolvem volume, prazo e compromisso. E o floor precisa ser revisado com cadência,
+          não apenas quando a receita cai.</p>
+        <p>Há ainda uma armadilha comum: reduzir o floor para “aquecer” a tela. O efeito imediato é ocupação; o efeito
+          seguinte é a expectativa do mercado de que aquele inventário vale menos. Recuperar preço depois é mais difícil
+          do que sustentá-lo.</p>
+
+        <h2 id="receita-cai">Quando o fill rate sobe e a receita cai</h2>
+        <p>Esse é o sintoma mais mal interpretado da operação. O fill rate melhora, o time comemora, e a receita por
+          oportunidade piora. As causas costumam ser três:</p>
+        <ul>
+          <li><strong>Mistura de demanda.</strong> O inventário passou a ser preenchido por campanhas de menor valor, que
+            antes não entravam.</li>
+          <li><strong>Canibalização do direto.</strong> O programático ocupou slots que estavam reservados para
+            contratos de maior margem.</li>
+          <li><strong>Floor inadequado.</strong> O piso foi reduzido para elevar ocupação, e o mercado passou a comprar
+            sempre no novo patamar.</li>
+        </ul>
+        <p>A correção não é necessariamente reduzir volume. É separar o inventário por valor: o que deve ser protegido
+          para o direto, o que pode ir para deals e o que faz sentido no mercado aberto. Sem essa separação, o fill rate
+          vira um indicador de vaidade.</p>
+
+        <h2 id="metodo">Método de diagnóstico em cinco passos</h2>
+        <p><strong>1. Defina o denominador.</strong> Escolha uma métrica oficial de fill rate e documente a fórmula.
+          Oportunidade é slot de loop ou chamada de leilão? A resposta precisa ser a mesma para toda a rede.</p>
+        <p><strong>2. Segmente antes de comparar.</strong> Praça, ambiente, formato, horário e rota. A média da rede
+          esconde o problema: normalmente são poucas telas concentrando a queda.</p>
+        <p><strong>3. Compare semanas equivalentes.</strong> Sazonalidade e eventos distorcem qualquer leitura. Use
+          janelas de pelo menos quatro semanas e evite comparar o feriado com a semana anterior.</p>
+        <p><strong>4. Isole oferta de demanda.</strong> Se a tela não aparece em propostas, o problema é de
+          elegibilidade. Se aparece e não é comprada, é de preço ou produto.</p>
+        <p><strong>5. Altere uma variável por vez.</strong> Floor, formato, metadado ou rota — nunca os quatro juntos. Sem
+          controle, não existe aprendizado, apenas coincidência.</p>
+
+        <h2 id="registrar">O que registrar toda semana</h2>
+        <p>Um painel mínimo, por tela e por rota, com estes campos:</p>
+
+        <div class="article-table">
+          <table>
+            <caption class="sr-only">Painel mínimo de acompanhamento de inventário DOOH</caption>
+            <thead>
+              <tr>
+                <th scope="col">Campo</th>
+                <th scope="col">Por que importa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Oportunidades disponíveis</td>
+                <td>É o denominador de tudo. Sem ele, fill rate não existe.</td>
+              </tr>
+              <tr>
+                <td>Oportunidades vendidas</td>
+                <td>Mostra a eficiência de venda por rota.</td>
+              </tr>
+              <tr>
+                <td>Receita por oportunidade</td>
+                <td>Impede que ocupação esconda queda de valor.</td>
+              </tr>
+              <tr>
+                <td>Impressões entregues e previstas</td>
+                <td>Revela falha de entrega e risco de glosa.</td>
+              </tr>
+              <tr>
+                <td>Floor aplicado</td>
+                <td>Permite correlacionar preço mínimo com perda de lance.</td>
+              </tr>
+              <tr>
+                <td>Motivo de não venda</td>
+                <td>Distingue inelegibilidade de preço e de falta de demanda.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Com esse conjunto, o diagnóstico deixa de ser opinião. O passo seguinte é transformar as correções em
+          requisitos de operação — o que está organizado no <a
+            href="checklist-dooh-programatico-para-publishers.html">checklist para conectar telas ao programático</a>.
+          Se a dúvida for sobre quem decide o que entra no slot, vale revisar <a
+            href="ssp-ad-server-cms-dooh.html">SSP, ad server e CMS</a>.</p>
+
+        <section class="article-faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Perguntas frequentes</h2>
+
+          <h3>O que é um bom fill rate no DOOH?</h3>
+          <p>Não existe um número universal. Um fill rate é bom quando a receita por oportunidade cresce sem reduzir a
+            entrega das campanhas prioritárias. Comparar com o próprio histórico e com inventário de contexto
+            semelhante é mais útil do que perseguir uma média de mercado.</p>
+
+          <h3>Fill rate e taxa de ocupação são a mesma coisa?</h3>
+          <p>Não. Fill rate mede a proporção de oportunidades disponíveis que foram vendidas. Ocupação mede o tempo de
+            tela efetivamente comprometido. Em um loop com seis slots, vender quatro pode ser 66% de fill rate e também
+            66% de ocupação — mas os números se separam quando a venda é por impressão ou quando há campanhas com peso
+            diferente.</p>
+
+          <h3>Como aumentar o fill rate de uma tela?</h3>
+          <p>Primeiro amplie a elegibilidade: metadados completos, formato aceito pelo mercado e regras de categoria
+            claras. Depois revise o floor por contexto e abra rotas complementares, incluindo deals privados. Baixar
+            preço é a última alavanca, não a primeira.</p>
+
+          <h3>Por que o fill rate sobe e a receita cai?</h3>
+          <p>Normalmente porque o inventário passou a ser preenchido por demanda de menor valor, por canibalização do
+            direto ou por floor inadequado. Fill rate alto com eCPM em queda indica que a operação está trocando margem
+            por ocupação.</p>
+
+          <h3>Devo baixar o floor para vender mais?</h3>
+          <p>Só com teste controlado e por contexto. O floor protege o preço do inventário premium; reduzi-lo na rede
+            inteira pode elevar a ocupação e destruir a receita por oportunidade. Altere uma variável por vez e
+            acompanhe fill rate e receita em conjunto.</p>
+        </section>
+      </div>
+
+      <footer class="article-next"><span>Continue explorando</span>
+        <h2>Do diagnóstico para a implantação: o que precisa estar pronto.</h2>
+        <div><a href="../artigos.html">Ver todos os conteúdos <b aria-hidden="true">→</b></a><a
+            href="checklist-dooh-programatico-para-publishers.html">Próximo artigo <b aria-hidden="true">→</b></a></div>
+      </footer>
+    </article>
+  </main>
+  <a class="whatsapp-button" href="https://wa.me/5519997455263" aria-label="Falar com a Nirooh no WhatsApp"
+    title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.58 0 .27 5.3.27 11.82c0 2.08.54 4.12 1.58 5.92L.17 24l6.4-1.68a11.8 11.8 0 0 0 5.53 1.4h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.42-8.42ZM12.1 21.72a9.8 9.8 0 0 1-5-1.37l-.36-.22-3.8 1 1.01-3.7-.24-.38a9.78 9.78 0 0 1-1.5-5.23c0-5.42 4.42-9.83 9.86-9.83 2.63 0 5.1 1.03 6.96 2.89a9.77 9.77 0 0 1 2.9 6.94c0 5.43-4.42 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z" />
+    </svg>
+  </a>
+  <div class="cookie-banner" data-cookie-banner hidden>
+    <p>Usamos Google Tag Manager e analytics do HubSpot para entender a navegação. Consulte nossa <a
+        href="../termos/politica-de-privacidade.html">Política de Privacidade</a>.</p>
+    <div class="cookie-actions"><button class="cookie-accept" type="button" data-cookie-accept>Aceitar
+        analytics</button><button class="cookie-reject" type="button" data-cookie-reject>Continuar sem
+        analytics</button></div>
+  </div>
+</body>
+
+</html>
